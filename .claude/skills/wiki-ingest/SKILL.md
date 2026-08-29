@@ -38,6 +38,8 @@ sources: ["[[as-we-may-think]]"]
 
 - `status`：`seed` = 只有骨架待補；`active` = 內容完整；`stale` = 已知有更新的來源尚未整併。
 - `confidence`：這頁的主張有多穩。單一來源支撐 → `medium` 以下；多來源交叉驗證 → `high`。
+  單一來源仍要 `high` 的，必須在 `confidence` 下一行加 `confidence_note:` 說明理由
+  （典型的合格理由：供應商描述自家產品的定義性事實）。`tools/lint.py` 會擋，見 `CLAUDE.md` `[N6]`。
 - `sources`：除了 `type: source` 的頁面外，每頁都必須列出支撐它的來源頁。
 - `updated` 每次改動都要更新。需要今天的日期時用 bash `date`，不要憑印象寫。
 

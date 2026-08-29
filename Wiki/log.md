@@ -136,3 +136,19 @@ sources: []
 - W1 那列的敘述與筆數一併更新
 - 同步「四種動作」到 `.claude/skills/wiki-ingest/SKILL.md` 與 `Wiki/log.md` 表頭；README 的「怎麼用」加上發布一節
 - 未動：2026-08-29 前幾筆 log 裡「三種動作」的敘述保持原狀（append-only，當時是準確的）
+
+## [2026-08-29] lint | 完整健檢
+- 機械性檢查：43 頁全綠，零提醒
+- **過期（3 處，都是今天自己造成的）**：
+  - [[overview]]「本庫的 `CLAUDE.md` 遠超過一頁」——今天已壓到 76 行
+  - [[overview]]「唯一缺的是 Inversion 的硬閘門」——已有兩道確定性閘門
+  - [[skill-design-patterns]] 的「與本知識庫的關係」一節完全沒反映 Q9 的改寫：上半部已寫「三種模式需要 hook 墊底」，下半部還停在「唯一缺的是 Inversion」。三處都已改寫
+- **證據薄弱（5 頁違反本庫自己的規範）**：frontmatter 規範寫「單一來源 → medium 以下」，但這 5 頁是 high + 單一來源。建庫就寫了規則卻沒有機制，所以違規累積了四週沒被發現
+  - 處理方式：新增規則 `[N6]`——單一來源要 high 必須加一行 `confidence_note:` 說明理由。**豁免做成「必須寫理由」而不是靜默白名單**，理由與 Q10 相同：靜默豁免會讓「這頁為什麼可以 high」再次變成沒人記得的事
+  - 豁免 3 頁（供應商描述自家產品的定義性事實）：[[claude-opus-5]]、[[effort-and-thinking]]、[[advisory-vs-deterministic-control]]
+  - 降級 2 頁：[[elephant-goldfish-model]]（單一實踐者的方法，不是定義性事實）、[[the-80-percent-problem]]（頁內就並列未調和的互斥數據，Q7 仍 open）
+- `tools/lint.py` 新增 `[confidence]` 檢查，加入後第一次跑就抓到那 5 頁，與人工判讀完全一致
+- **無問題的部分**：未記錄的矛盾 0 條；缺頁無強候選（Inversion／Reviewer／Pipeline 等都是 [[skill-design-patterns]] 的子概念）；index 各節宣告數與實際檔案數完全相符；stale 標記 0 頁
+- **弱連結（未達孤兒，記錄備查）**：[[effort-and-thinking]] 與 [[shubham-saboo]] 各只有 2 條入鏈
+- **缺口不變**：METR 原始研究（Q7）仍是第一順位；治理軸只有賣方視角；[[leverage-and-compounding]] 仍是 seed 且 confidence low（Q4）
+- **git 管理原則改為 GitHub flow**（使用者指定）：新增 `[W7]`，`main` 永遠可用，改動走分支開 PR 才合併。本次變更是第一個走這個流程的分支

@@ -4,9 +4,10 @@ type: entity
 aliases: [Opus 5]
 tags: [ai, 模型, 產品]
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-29
 status: seed
 confidence: high
+confidence_note: 供應商對自家模型的一手描述，屬定義性事實（脈絡視窗、預設值、行為特性），交叉驗證意義不大
 sources: ["[[prompting-claude-opus-5]]"]
 ---
 

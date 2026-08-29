@@ -7,6 +7,7 @@ created: 2026-08-29
 updated: 2026-08-29
 status: active
 confidence: high
+confidence_note: 供應商對自家機制執行力的一手陳述（skill 不強制、hook 才強制），且是對自家產品的不利陳述
 sources: ["[[the-ai-native-sdlc-playbook]]"]
 ---
 
