@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-29
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
 ---
 
 # 脈絡工程
@@ -76,6 +76,28 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[
 它同時解決了六種脈絡裡的 **Knowledge** 與 **Memory** ——
 長期狀態不靠模型記得，靠檔案存在 repo 裡。
 
+## 拿到了外部的實證支持
+
+本頁的核心提問是「一個新來的隊友需要知道什麼才能有效貢獻，
+我怎麼把那份知識編碼成 AI 能用的形式」。
+[[metr-early-2025-ai-developer-productivity]] 從反面撞到了同一個點。
+
+METR 五個造成拖慢的因子裡，第五個是
+**Implicit repository context**，機制標註為「限制 AI 表現，**同時**拉高人類表現」——
+AI 缺少資深開發者仰賴的隱性程式碼庫知識。討論段更具體：
+
+> AI 的能力在品質標準很高、或**有很多隱性要求**（文件、測試覆蓋率、lint／格式）
+> ——那些人類要花很多時間才學會的東西——的場景相對更低。
+
+那正是規則檔、[[agent-skills|skill]] 與 [[artifact-chain|產物鏈]]在編碼的東西。
+
+這個支持比表面上更有份量，理由是**證據的方向**：
+不是廠商說「用我們的脈絡工具會更好」，是一個沒有產品要賣的第三方
+（[[metr|METR]]）在解釋**失敗**時指到同一個地方。
+
+（推論）但要誠實界定它證明了什麼：METR 指認隱性脈絡是瓶頸，
+**沒有測試過「把它寫成檔案會不會改善」**。前半有實證，後半仍是本庫的賭注。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 `CLAUDE.md` 正是白皮書點名的那種靜態脈絡檔；
@@ -92,3 +114,5 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[
 - [[prompt-obsolescence]] —— 靜態脈絡的保鮮期問題
 - [[the-ai-native-sdlc-playbook]] —— `CLAUDE.md` 一頁以內的準則
 - [[artifact-chain]] —— 用產物承載跨階段的記憶
+- [[metr-early-2025-ai-developer-productivity]] —— 隱性脈絡是瓶頸的實證
+- [[what-the-19-percent-measures]] —— 這份支持的邊界

@@ -20,7 +20,7 @@ sources: []
 - [[overview]] — 全庫總覽與當前主軸
 - [[log]] — 時序流水帳
 
-## 來源（7）
+## 來源（8）
 
 - [[arm-yourself-with-specific-knowledge]] — Naval 2019：教不來但學得會的知識才有報酬
 - [[read-what-you-love]] — Naval 2019：先讀你愛讀的，再往原典走；慾望比手段稀缺
@@ -29,16 +29,18 @@ sources: []
 - [[the-new-sdlc-with-vibe-coding]] — Google 白皮書 2026：51 頁，vibe coding 到 agentic engineering 的光譜 · **本庫唯一帶數據的來源**
 - [[prompting-claude-opus-5]] — Anthropic 官方文件：哪些為前代調校的指令現在會反過來傷害你 · session 層級
 - [[the-ai-native-sdlc-playbook]] — Anthropic 2026：六階段 13 個 play，把 SDLC 重建成迴圈 · **本庫唯一的組織治理來源**
+- [[metr-early-2025-ai-developer-productivity]] — METR 2025：RCT 量到資深開發者用 AI 慢 19% · **本庫唯一的實證研究，且已被作者宣告過期**
 
-## 實體（5）
+## 實體（6）
 
 - [[naval-ravikant]] — 提出「特定知識 + 責任 + 槓桿 + 判斷力」四件套
 - [[dave-rensin]] — Google 工程主管，Elephant-Goldfish 模型的提出者 · seed
 - [[addy-osmani]] — 工廠模型、指揮家與協調者、80% 問題的提出者 · seed
 - [[shubham-saboo]] — 唯一橫跨兩份來源的作者 · seed
 - [[claude-opus-5]] — 1M 脈絡、thinking 預設開；本庫第一個會自己做判斷的實體 · seed
+- [[metr]] — 做 AI 評估的研究組織；本庫唯一沒有產品要賣的來源方 · seed
 
-## 概念（26）
+## 概念（28）
 
 - [[specific-knowledge]] — 教不來但學得會；判準是「能被訓練的就能被量產」
 - [[judgment]] — 兩份來源共同指認的、唯一不會貶值的能力
@@ -66,11 +68,14 @@ sources: []
 - [[advisory-vs-deterministic-control]] — skill 讓違規變罕見，hook 讓違規變幾乎不可能 · **本庫最有用的一刀**
 - [[autonomy-tiering]] — 1σ 記錄／2σ 唯讀診斷／3σ 只能提議；偵測保持確定性
 - [[agent-config-evals]] — 規則檔要像程式一樣被回歸測試 · Q11 的部分答案
+- [[self-report-vs-measurement]] — 自認快 20%，實際慢 19%，差 39 個百分點 · **Q7 的解**
+- [[evidence-types-for-ai-capability]] — benchmark 高估、自陳更高估、RCT 適用窄
 
-## 綜合（1）
+## 綜合（2）
 
 - [[can-judgment-be-outsourced]] — Naval 說判斷力教不來，Rensin 的方法卻在把它寫成文件 · 本庫核心矛盾
+- [[what-the-19-percent-measures]] — METR 的結果對本庫既是支持也是削弱 · **更正了本庫對該數字四週的誤讀**
 
 ## 問題（1）
 
-- [[open-questions]] — 14 個開放問題 · **Q6「判斷力上移之後新的判斷力從哪裡長出來」仍是最有價值的空白；Q10 已 closed；Q12、Q13、Q14 可直接動手**
+- [[open-questions]] — 16 個開放問題 · **Q7、Q10 已 closed；Q15「好的 harness 能不能翻轉那個 19%」是目前最大的證據缺口；Q16 是下一份要 ingest 的來源**

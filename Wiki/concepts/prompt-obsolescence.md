@@ -7,7 +7,7 @@ created: 2026-08-02
 updated: 2026-08-29
 status: active
 confidence: medium
-sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
 ---
 
 # 規則檔的折舊
@@ -68,6 +68,23 @@ sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
 代價也要記下來：這讓 harness 從一次性 CapEx 變成 CapEx 加持續 OpEx。
 見 [[ai-development-economics]]。
 
+## 不只規則檔會折舊，測量也會
+
+[[metr-early-2025-ai-developer-productivity]] 把這一頁的範圍推廣了一級。
+那份 2025-07-10 的隨機對照試驗，**作者自己在原文頁首掛橫幅宣告它過期**：
+
+> "We believe these historical results no longer reflect the current impact of AI models
+> on open-source developer productivity."
+
+這是本庫第一頁 `status: stale`，而且不是我們判斷它過期，是來源自己說的。
+
+差別值得記下來：規則檔的折舊要靠 [[agent-config-evals|eval suite]] 才偵測得到，
+**一份被引用的測量結果過期時，引用它的人通常不會收到通知**。
+Google 白皮書（2026-05）引用這個 19% 時，就沒有提到任何時效限定。
+
+（推論）所以 `sources` 欄位不只要記「哪一份來源」，還要記「那份來源什麼時候被測量」。
+本庫目前沒有這個欄位——來源頁有 `published`，但引用它的概念頁看不到。
+
 ## 對本知識庫自己的意涵
 
 `CLAUDE.md` 目前沒有這份文件點名的反模式（沒有「再檢查一次」這類指令，
@@ -82,3 +99,4 @@ sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
 - [[ai-development-economics]] —— 折舊改變 CapEx 的算法
 - [[agent-config-evals]] —— 偵測折舊的做法
 - [[the-ai-native-sdlc-playbook]] —— Q11 的部分答案
+- [[metr-early-2025-ai-developer-productivity]] —— 測量也會折舊的實例

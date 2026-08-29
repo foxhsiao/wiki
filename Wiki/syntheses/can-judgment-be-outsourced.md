@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-29
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
 ---
 
 # 判斷力能不能外包
@@ -99,6 +99,29 @@ brand、security、compliance、UX 政策被編碼成 skill，在 `spec.md` 被�
 前者需要看得懂 agent 標記出來的東西；後者需要自己踩過那些坑。
 這讓 Q6 的問題更尖銳而不是更緩和——**閘門是判斷力的消費端，不是生產端**。
 
+## 更正：本頁對 METR 的引用是誤讀
+
+本頁先前寫「這是本庫第一次有**數據**站在『判斷力無法外包』那一側」，
+把 METR 的 19% 當成那條線的證據。讀完
+[[metr-early-2025-ai-developer-productivity]] 原始研究之後，**這個用法站不住**。
+
+METR 調查 20 個潛在因素、找到證據支持五個：對 AI 的過度樂觀、開發者對 repo 高度熟悉、
+repo 太大太複雜、AI 可靠度低、隱性脈絡缺失。
+**沒有一個因子是關於人類判斷力不可替代。** 五個全都指向工具與情境——
+而那些是可以被改善的條件。
+
+而且因子 2 的機制標註是「拉高**開發者**表現」，
+意思是那 19% 有一塊來自人類基準線特別高（專家在自己長年貢獻的 repo 上），
+不是 AI 特別差。
+
+**本頁保留這條記錄而不是刪掉它**，因為誤讀本身是有價值的資料：
+一份方法學嚴謹的研究，很容易被拿去支持它沒有主張的東西。
+完整的兩面分析見 [[what-the-19-percent-measures]]。
+
+（推論）扣掉 METR 之後，「判斷力無法外包」那一側**又回到沒有實證數據的狀態**，
+只剩 [[the-80-percent-problem|80% 問題]]這種框架式論證。
+本庫核心矛盾的證據天平因此往「可以外包」那側偏了一格。
+
 ## 三種可能的解法
 
 1. **有損壓縮說**：設計文件承載的是判斷的**結論**，不是產生結論的能力。
@@ -161,3 +184,5 @@ Naval 那兩篇是 2019 年、AI 普及之前的說法，他在 2026 年會不�
 - [[prompting-claude-opus-5]] —— 第四份來源，供應商的一手描述
 - [[the-ai-native-sdlc-playbook]] —— 第五份來源，把判斷力放到閘門上
 - [[advisory-vs-deterministic-control]] —— 人的判斷靠什麼被強制留在流程裡
+- [[metr-early-2025-ai-developer-productivity]] —— 被誤讀的那份研究
+- [[what-the-19-percent-measures]] —— 誤讀的完整拆解

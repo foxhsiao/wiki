@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-29
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]"]
 ---
 
 # 80% 問題
@@ -39,6 +39,32 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]"]
 （推論）最省事的解釋是：增益高度取決於任務是否已被良好規格化——
 這正好與 [[vibe-coding-spectrum|光譜]] 的主張一致，但白皮書沒有明說。
 
+## Q7 解開了：那兩組數字在測不同的東西
+
+上面那張表並列的兩組數字，白皮書沒有調和，本頁先前的推測是
+「增益取決於任務是否已被良好規格化」。**讀完原始研究後，那個推測可以退場了。**
+
+| 數字 | 方法 |
+|---|---|
+| 提升 25–39%、Deloitte 30–35% | **自陳調查** |
+| METR 慢 19% | **RCT 實測** |
+
+[[metr-early-2025-ai-developer-productivity]] 在同一批人身上量到：
+事前預測 +24%、**事後自認 +20%**、實際 −19%。
+自陳與實測差 **39 個百分點**，方向還是反的。
+原文的判斷是「已有強證據顯示自陳的加速估計可能非常不準」。
+
+落差來自**量測方法**，不是任務性質。展開見 [[self-report-vs-measurement]]。
+
+## 但這個 19% 不能拿來證明本頁原本想證明的事
+
+本頁把 METR 的數字當成「AI 不消滅實作工作，它把實作轉成審查工作」的佐證。
+方向沒錯（因子 4 顯示 AI 產出的接受率不到 44%、約 9% 的時間花在審查與清理），
+**但這個數字撐不起「判斷力無法外包」那個更大的主張**——
+METR 找到的五個因子沒有一個關於人類判斷不可替代。見 [[what-the-19-percent-measures]]。
+
+另外，原文頁首已由作者宣告這批結果過期，引用時要標明它是歷史測量。
+
 ## 與其他來源的張力
 
 [[dave-rensin|Rensin]] 說既有 monolith「一週就能餵完大象」，同時承認葉節點的 README
@@ -52,3 +78,6 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]"]
 - [[vibe-coding-spectrum]] —— 增益差異可能的解釋
 - [[elephants-goldfish]] —— 張力的另一方
 - [[judgment]] —— 那剩下的 20% 需要的東西
+- [[metr-early-2025-ai-developer-productivity]] —— 那個 19% 的原始研究
+- [[self-report-vs-measurement]] —— Q7 的解
+- [[what-the-19-percent-measures]] —— 這個數字能與不能主張什麼

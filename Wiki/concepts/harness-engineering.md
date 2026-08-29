@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-29
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
 ---
 
 # Harness 工程
@@ -97,6 +97,29 @@ agent 出錯時第一直覺是怪模型。但更常見的原因是：少了一�
 verifier 子 agent 是在 session 自認做完之後，用一個全新的脈絡視窗跑一次最終檢查**——
 目的是讓判定不被產生程式碼的那組假設污染。兩者不能互相取代。
 
+## 一份研究同時支持與削弱這一頁
+
+[[metr-early-2025-ai-developer-productivity]] 對本頁是雙面的，兩面都要記。
+
+**支持的一面。** METR 自己在「我們不提供證據支持」的表格裡寫：
+「Cursor 取樣的 token 不多，可能沒有最佳的提示或鷹架，
+領域／repo 特定的訓練、微調或 few-shot 有可能產生正向加速」。
+而且被排除的六個因子裡包含 **Non-frontier model usage**——
+模型夠不夠新被檢驗過並排除了，**鷹架夠不夠好沒有被檢驗**。
+（推論）這個形狀很符合本頁那句「多數 agent 失敗其實是設定失敗」。
+
+**但這條救援不能當證據用。** 那句話是作者主動劃出的界線，不是他們的發現。
+拿它解釋 19% 是一個**未經檢驗的假說**。
+
+**削弱的一面，而且更麻煩。** 本頁最硬的兩個數字——
+Terminal Bench 只改 harness 進 Top 5、LangChain +13.7 分——**都是 benchmark**。
+而同一份 METR 研究的判斷是：benchmark 因為只量「範圍界定良好、可演算法評分」的任務而
+**傾向高估**，且難以直接翻譯成真實世界的影響（[[evidence-types-for-ai-capability]]）。
+
+也就是說：這份研究給了 harness 論述一個可能的立足點，
+同時抽掉了它原本站的那塊地。**本頁目前沒有任何真實世界的 harness 效果數據。**
+完整拆解見 [[what-the-19-percent-measures]]。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 harness 就是 `CLAUDE.md`（規則檔）＋ `tools/lint.py`（確定性 guardrail）
@@ -114,3 +137,6 @@ verifier 子 agent 是在 session 自認做完之後，用一個全新的脈絡�
 - [[the-ai-native-sdlc-playbook]] —— harness 擴到組織層級的樣子
 - [[advisory-vs-deterministic-control]] —— harness 元件的兩種執行力
 - [[agent-config-evals]] —— harness 自己要被回歸測試
+- [[metr-early-2025-ai-developer-productivity]] —— 同時支持與削弱本頁的研究
+- [[evidence-types-for-ai-capability]] —— benchmark 證據的偏誤方向
+- [[what-the-19-percent-measures]] —— 兩面的完整拆解

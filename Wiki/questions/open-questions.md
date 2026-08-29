@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-29
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
 ---
 
 # 開放問題
@@ -74,16 +74,16 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - **目前掌握**：（推論）增益可能高度取決於任務是否已被良好規格化，
   這與 [[vibe-coding-spectrum]] 一致，但白皮書沒明說。
 - **缺什麼**：METR 那份研究的原文（尾註 10）。
-- **已找到，待 ingest（2026-08-29）**：
-  - 原始研究：`https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/`
-    （論文版 `https://arxiv.org/abs/2507.09089`）
-  - **後續更新**：`https://metr.org/blog/2026-02-24-uplift-update/`
-- **（網路搜尋結果，尚未 ingest，不可當作本庫主張）** 那份 2026 更新可能比原始研究更關鍵：
-  METR 沒有撤回 19%，但做了限定，而新一輪的估計區間**跨過 0**。
-  若屬實，本庫目前把「慢 19%」當作站在「判斷力無法外包」那側的硬數據會需要修正，
-  而且它會變成 [[prompt-obsolescence]] 的另一個實例——一份 2025 年的測量被原作者自己限定。
-  這些都要等來源頁建立後才算數。
-- **狀態**：open —— 來源已定位，**下一步是 ingest 而不是再找**
+- **已解答（2026-08-29，ingest [[metr-early-2025-ai-developer-productivity]] 之後）**：
+  **兩組數字不是互斥，是在測不同的東西。** 25–39% 與 Deloitte 的 30–35% 是**自陳調查**，
+  19% 是**RCT 實測**。同一批開發者身上：事前預測 +24%、事後自認 +20%、實際 −19%，
+  自陳與實測差 **39 個百分點**。原文的判斷是「已有強證據顯示自陳的加速估計可能非常不準」。
+  見 [[self-report-vs-measurement]]。
+- **本頁原本的推測要退場**：先前推測「增益取決於任務是否已被良好規格化」，
+  那沒有來源支撐。落差來自**量測方法**，不是任務性質。
+- **附帶發現**：本庫原本把這個 19% 當成「判斷力無法外包」的實證，那是誤讀
+  （五個因子沒有一個關於判斷力）。見 [[what-the-19-percent-measures]]。
+- **狀態**：**closed** —— 但 2026-02-24 的後續研究仍待 ingest（見 Q15）
 
 ## Q8. 「給判準」還是「給清單」？
 
@@ -189,12 +189,41 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   跑幾次 ingest 看有沒有退步——也就是 [[agent-config-evals]] 那套逐條移除重跑，成本是線性的。
 - **狀態**：open —— 不需要新來源，但需要決定願不願意付那個成本
 
+## Q15. 好的 harness 能不能翻轉那個 19%？
+
+- **為什麼重要**：這是 [[harness-engineering]] 最想要的證據，而目前一份都沒有。
+  [[metr-early-2025-ai-developer-productivity]] 把
+  「Cursor 取樣的 token 不多，可能沒有最佳的提示或鷹架」寫進
+  **「我們不提供證據支持」**的表格——它是作者劃出的界線，不是發現。
+- **目前掌握**：METR 檢驗並排除了「模型不夠新」（Non-frontier model usage 在六個被排除的因子裡），
+  但**沒有檢驗鷹架夠不夠好**。所以這個假說完全開放。
+- **為什麼不能繞過**：[[harness-engineering]] 現有最硬的兩個數字
+  （Terminal Bench、LangChain）都是 benchmark，而 METR 說 benchmark 傾向高估
+  （[[evidence-types-for-ai-capability]]）。**本庫目前沒有任何真實世界的 harness 效果數據。**
+- **缺什麼**：同樣設計但換掉鷹架的重跑。沒有人做過。
+  （推論）退而求其次的替代：本庫自己記錄「加了某條規則前後，同類任務的返工次數」——
+  這與 [[agent-config-evals]] 是同一套機制。
+- **狀態**：open —— **這是本庫目前最大的證據缺口**，取代原本 Q7 的位置
+
+## Q16. 2026-02-24 的後續研究會改變什麼？
+
+- **為什麼重要**：[[metr-early-2025-ai-developer-productivity]] 已被作者宣告過期，
+  本庫所有引用它的頁面現在都掛著時效限定。
+- **目前掌握**：（網路搜尋結果，尚未 ingest）新一輪 57 位開發者、800+ 任務，
+  原班開發者 −18%（區間 −38% 到 +9%）、新招募者 −4%（區間 −15% 到 +9%），**兩組區間都跨過 0**。
+  METR 沒有撤回，但認為 2026 年初的開發者「很可能比 2025 年初被加速得更多」。
+- **缺什麼**：ingest 那一份。網址 `https://metr.org/blog/2026-02-24-uplift-update/`
+- **狀態**：open —— **下一份就是它**（使用者已指示接著做）
+
 ## 相關頁面
 
 - [[can-judgment-be-outsourced]] —— Q1、Q2 的來源
 - [[first-principles-foundation]] —— Q3 的來源
 - [[leverage-and-compounding]] —— Q4 的來源
 - [[the-80-percent-problem]] —— Q7 的來源
+- [[metr-early-2025-ai-developer-productivity]] —— Q7 的解、Q15 與 Q16 的來源
+- [[what-the-19-percent-measures]] —— Q15 的展開
+- [[self-report-vs-measurement]] —— Q7 答案的核心
 - [[skill-design-patterns]] —— Q9 的來源
 - [[prompt-obsolescence]] —— Q10、Q11 的來源
 - [[agent-autonomy-cost]] —— Q9 反面證據的來源
