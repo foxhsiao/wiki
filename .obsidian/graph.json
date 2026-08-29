@@ -1,6 +1,6 @@
 {
   "collapse-filter": true,
-  "search": "-path:_templates",
+  "search": "-path:_templates -path:\"Wiki/index.md\" -path:\"Wiki/log.md\"",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,

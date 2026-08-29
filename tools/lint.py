@@ -154,6 +154,27 @@ for p in pages:
     elif n_src >= 2 and note:
         warnings.append(f"[confidence] {rel(p)}：已有 {n_src} 個來源，confidence_note 是多餘的")
 
+# 殘留的合併衝突標記
+# （2026-08-29 加入：PR #5 把一個 diff3 中段標記 ||||||| 帶進了 main，
+#  當時的人工驗證只 grep 了 <<< === >>> 三種，漏掉第四種）
+CONFLICT_RE = re.compile(r"^(<{7}|\|{7}|={7}|>{7})( |$)")
+for f in ROOT.rglob("*"):
+    if not f.is_file() or f.suffix not in {".md", ".py", ".json", ".yml", ".yaml"}:
+        continue
+    parts = f.relative_to(ROOT).parts
+    if any(x in {".git", ".obsidian", "__pycache__", ".trash"} for x in parts):
+        continue
+    if RAW in f.parents:          # Raw/ 唯讀，不歸這裡管
+        continue
+    try:
+        lines = f.read_text(encoding="utf-8").splitlines()
+    except (UnicodeDecodeError, OSError):
+        continue
+    for i, line in enumerate(lines, 1):
+        if CONFLICT_RE.match(line):
+            problems.append(f"[衝突標記] {rel(f)}:{i}：殘留的合併衝突標記 {line[:7]!r}")
+            break
+
 # 規則來由：CLAUDE.md 的每個編號都要在 rules-ledger 有一列，且證據等級要填
 # （2026-08-29 加入：Q10 的教訓是「來由要在寫規則的當下記，事後補不回來」，
 #  所以把這條紀律從自覺變成閘門）
