@@ -12,6 +12,9 @@ Agent 會讀完、跟你討論重點、寫摘要頁、更新所有相關頁面�
 
 **健檢**：說「跑一次 lint」。機械性問題由 `tools/lint.py` 抓，判斷性問題（矛盾、過期、缺頁）由 agent 判讀。
 
+**發布**：說「推上去」。Agent 會先查遠端 repo 的可見性、跟你確認推送範圍，才推。
+`Raw/` 永遠不入版控。
+
 ```bash
 python3 tools/lint.py          # 斷鏈 / 孤兒頁 / frontmatter 缺漏 / index 漏登 / Raw 未 ingest / 走失頁 / 規則來由缺漏
 grep "^## \[" Wiki/log.md | tail -5   # 最近 5 筆動作

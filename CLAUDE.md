@@ -40,9 +40,9 @@
 - `[K3]` 還沒有專頁的：值得成頁就開 `status: seed` 骨架頁，不值得就用粗體。**不留紅鏈。**
 - `[K4]` 每頁至少 3 條出鏈、1 條入鏈，結尾固定放「## 相關頁面」，每條附一句關聯說明。
 
-## 三種工作流程
+## 四種工作流程
 
-`[W1]` 動作只有 `ingest` / `query` / `lint`，每一次都要追加一筆 `Wiki/log.md`。
+`[W1]` 動作只有 `ingest` / `query` / `lint` / `publish`，每一次都要追加一筆 `Wiki/log.md`。
 
 - **ingest** `[W2]` —— 細節見 `.claude/skills/wiki-ingest/SKILL.md`。
   **預設一次只 ingest 一份**；先完整讀完，口頭回報 3–5 個重點等使用者確認，才動筆。
@@ -53,6 +53,8 @@
   要圖表就產 matplotlib 圖存進 `Raw/assets/`。
 - **lint** `[W5]` —— 跑 `python3 tools/lint.py` 拿機械性問題，再做判斷性檢查
   （見 `.claude/skills/wiki-lint/SKILL.md`）。輸出成清單逐項問，不要擅自大改。
+- **publish** `[W6]` —— 推上遠端前先查遠端 repo 的**可見性**，並跟使用者確認推送範圍。
+  `Raw/` 永遠不入版控。commit 作者用 GitHub noreply 信箱。
 
 ## 寫作
 

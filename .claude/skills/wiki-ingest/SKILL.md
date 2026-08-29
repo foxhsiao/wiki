@@ -90,6 +90,6 @@ append-only，新的加在最下面。格式固定，方便 grep：
 - 新問題：[[open-questions]] #3
 ```
 
-動作只有 `ingest` / `query` / `lint` 三種。
+動作只有 `ingest` / `query` / `lint` / `publish` 四種。
 
 **注意**：log 裡提到不存在的頁面時不要寫成 `[[...]]`，會被 lint 判成斷鏈。用反引號或純文字。

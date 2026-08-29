@@ -13,7 +13,7 @@ sources: []
 # 流水帳
 
 > Append-only，新的加在最下面。格式固定，可用 `grep "^## \[" Wiki/log.md | tail -5` 取最近紀錄。
-> 動作只有三種：ingest / query / lint。
+> 動作只有四種：ingest / query / lint / publish（`publish` 於 2026-08-29 加入）。
 
 ## [2026-08-01] lint | 建庫
 - 建立目錄結構、`CLAUDE.md` schema、五種頁面模板、`tools/lint.py`
@@ -127,3 +127,12 @@ sources: []
 - README 更正：「目前狀態」原本寫「空庫」，與實際的 7 份來源 / 43 頁不符
 - `.gitignore` 移除已失效的 `_to_delete/`
 - commit 作者信箱改用 GitHub noreply（帳號開了 email 隱私保護，原信箱會被 GH007 擋下），已設為本 repo 預設
+
+## [2026-08-29] publish | 新增 publish 動作，並推送本次變更
+- 使用者指示：加 `publish` 這個動作，並補來由。**本筆是第一筆 `publish` 動作**
+- `CLAUDE.md`：W1 從三種動作改為四種；新增 `[W6]` publish——推上遠端前先查遠端 repo 的可見性並確認推送範圍、`Raw/` 永遠不入版控、commit 作者用 GitHub noreply 信箱
+- **閘門在真實情境驗證成功**：只加 `[W6]` 沒補來由時，lint 立刻報「規則 W6 在 CLAUDE.md，但 rules-ledger 沒有對應列」並 exit 1。補完才過
+- `.claude/rules-ledger.md`：新增 W6 列，證據等級 **有紀錄**——這是帳裡第二條有紀錄的規則（另一條是 K1），因為它的來由就發生在今天，三條子規則當天全部觸發過
+- W1 那列的敘述與筆數一併更新
+- 同步「四種動作」到 `.claude/skills/wiki-ingest/SKILL.md` 與 `Wiki/log.md` 表頭；README 的「怎麼用」加上發布一節
+- 未動：2026-08-29 前幾筆 log 裡「三種動作」的敘述保持原狀（append-only，當時是準確的）
