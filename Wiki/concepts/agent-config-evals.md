@@ -1,0 +1,76 @@
+---
+title: 設定檔的回歸測試
+type: concept
+aliases: [continuous evals, agent config evals, eval suite]
+tags: [ai, agent, 測試, 工作方法]
+created: 2026-08-29
+updated: 2026-08-29
+status: active
+confidence: medium
+sources: ["[[the-ai-native-sdlc-playbook]]"]
+---
+
+# 設定檔的回歸測試
+
+> 操控 agent 的東西——`CLAUDE.md`、skills、hooks——**值得程式碼享有的那種回歸測試**。
+> 這是 [[open-questions]] Q11 的直接答案。
+
+## 做法
+
+1. 平台工程師從近期工作蒐集 **20 到 50 個真實任務**，連同期待或已被接受的結果。
+2. 每個任務寫成一條 eval：提示，加上「什麼算可接受」的檢查
+   （測試通過、lint 乾淨、行為不變、政策被遵守）。
+3. suite 在 CI 裡非互動執行，**排程跑**，而且**任何對 `CLAUDE.md`、skills、hooks 的改動都跑**。
+4. **設定變更以結果為閘門**：某個 skill 改動讓通過率掉下來，就要先被審查才能 merge。
+5. 每一個生產事故都由事故的擁有團隊寫成一條 eval，永久留在 suite 裡當回歸測試。
+
+原文的 GitHub Actions 範例用 `paths: ['CLAUDE.md', '.claude/**']` 觸發，
+加上 `cron: '0 2 * * *'` 每日排程，跑 `claude -p` 並限制 `--allowedTools`。
+
+## 為什麼這是 Q11 的答案
+
+[[prompt-obsolescence]] 提出的問題是：規則檔會折舊，
+但**版控保存了歷史，卻不會告訴你哪一條已經過期**。
+[[prompting-claude-opus-5]] 只說「在自己的 eval 上重跑 sweep」，沒說怎麼判斷哪些規則已經無用。
+
+這一頁補上了流程的形狀：**通過率是唯一的裁判**。換模型、改 skill、刪一條規則，
+都在同一組任務上重跑，看分數動不動。折舊因此變成可量測的東西，而不是靠人記得。
+
+**但它沒有完全解決 Q11。** 通過率告訴你「整體有沒有變差」，
+不告訴你「是哪一條規則在扣分」。要定位到規則層級，得一條一條移除重跑，成本是線性的。
+（推論）這就是為什麼 Q10「每條規則為什麼存在」仍然有價值——
+規則的來由能大幅縮小要重驗的範圍。
+
+## 一個會自己老化的東西
+
+> "The evals should be seen as a live suite. As models improve, cases that once discriminated
+> stop doing so and new ones must be added that arise from ongoing monitoring."
+
+eval suite 本身也會折舊：模型變強之後，曾經能分辨好壞的案例全部滿分，
+suite 就不再有鑑別度。新案例從持續監控裡長出來——這把
+[[autonomy-tiering|控制帶]]的事故流接回了測試。
+
+## 它改變了經濟模型
+
+[[ai-development-economics]] 把 harness 算成一次性 CapEx。
+維護一組 20–50 條、要跑真實 agent session 的 eval suite 不是一次性成本：
+每次排程跑都要付 API 費用，每個事故都要有人寫一條新 eval。
+（推論）**harness 從 CapEx 變成 CapEx 加一筆持續的 OpEx。**
+
+原文自己也承認成本問題——它給了一條出口：
+「有些團隊可能偏好照固定週期離線跑，而不是每次改動都跑」。
+
+## 與現有測試觀念的接合
+
+[[vibe-coding-spectrum]] 的判準是「輸出怎麼被驗證」，並區分 tests（確定性）與 evals（非確定性）。
+這一頁把 eval 的對象往上推了一層：**不只評估 agent 的產出，還評估操控 agent 的設定。**
+[[factory-model]] 說開發者的產出是產出程式碼的那套系統——如果那是產出，它就該被測試。
+
+## 相關頁面
+
+- [[the-ai-native-sdlc-playbook]] —— 來源
+- [[prompt-obsolescence]] —— 這一頁回答的問題
+- [[open-questions]] —— Q11 的狀態因此改變
+- [[vibe-coding-spectrum]] —— tests 與 evals 的區分
+- [[ai-development-economics]] —— 持續成本改變 CapEx 的算法
+- [[autonomy-tiering]] —— 事故流是新 eval 的來源

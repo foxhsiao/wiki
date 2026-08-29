@@ -1,0 +1,83 @@
+---
+title: 產物鏈
+type: concept
+aliases: [artifact chain, committed artifact, 稽核軌跡]
+tags: [ai, 軟體工程, 流程, 治理]
+created: 2026-08-29
+updated: 2026-08-29
+status: active
+confidence: medium
+sources: ["[[the-ai-native-sdlc-playbook]]"]
+---
+
+# 產物鏈
+
+> 每個階段以**寫一份產物進版控**收尾，下一個階段以**讀它**開始。
+> 那串 commit 同時就是稽核軌跡。
+
+## 鏈本身
+
+`intent.md` → `spec.md` → `plan.md` → diff 與它的測試 → PR 與審查發現 → 事故紀錄 → 回到 `intent.md`
+
+| 產物 | 誰寫 | 誰核 | 它觸發什麼 |
+|---|---|---|---|
+| [[intent-md]] | 提案者（不必是工程師）與 Claude | 產品負責人 | 需求與設計那一輪 |
+| `spec.md` | Claude，受組織 skill 約束 | 產品負責人，高風險找技術主管 | plan mode |
+| `plan.md` | Claude 在 plan mode 下，工程師逐輪修 | 工程師，高風險找架構師 | 實作 |
+| diff 與測試 | Claude | CI 與 code owner | PR |
+| PR 與審查發現 | Claude 審查回合 | code owner，經 branch protection | 管線 |
+| 事故紀錄 | 監控 agent | 服務負責人分流 | 下一份 `intent.md` |
+
+> "The chain of commits is also the audit trail: who asked for what, what the agent produced,
+> and who approved it."
+
+## 為什麼是 markdown
+
+早期階段用 `.md` 的理由只有一個：**產品負責人與 agent 讀的是同一個檔案**。
+人可讀、機器可執行，中間不需要翻譯。從 Build 之後產物變成程式碼與它的紀錄。
+
+## 它解決的是交接損耗
+
+傳統流程裡，一個想法要經過 backlog 條目、user story、故事點、細化會議才有人能動手，
+每一次交接所有權都轉移一次，**到工程師手上的東西已經離原意好幾層**。
+產物鏈讓原意用提案者自己的話被記下來一次，後面每一層都往回指得到它。
+
+## 它同時是治理機制
+
+原文對每個階段都問同樣三個問題：**證據是什麼、記在哪、誰核准**。
+產物鏈之所以能當治理答案，是因為它把三者疊在同一個東西上：
+git 的作者、時間戳與修訂歷史就是證據；merge 或 closed review 就是核准紀錄。
+
+不需要另外建一套稽核系統——這是它比「AI 加速每個階段」更強的地方。
+
+## 與舊系統共存
+
+既有的 Jira、需求工具、Figma、變更委員會不可能被取代，因為稽核與法規已經接受它們。
+原文的規則是**每一種產物指定唯一一個權威來源**：repo 為準、舊系統為準（Claude 經 MCP 讀寫）、
+或最低限度只做雙向連結（產物記 record ID，舊紀錄記 commit SHA）。
+只做連結是轉型起步點，代價是接受兩個真相來源。
+
+## 與「設計即新的程式碼」的差別
+
+[[design-is-the-new-code]] 說程式碼會變得不透明，**唯一還算數的產物是設計**。
+這一頁的說法不同：算數的不是某一份文件，是**整條鏈**，
+而且鏈的價值有一半在於它是稽核軌跡，不只是理解的載體。
+
+（推論）兩者可以調和成：[[dave-rensin|Rensin]] 關心的是**人能不能理解系統**，
+產物鏈關心的是**組織能不能證明誰決定了什麼**。前者是認知問題，後者是責任問題。
+但兩份來源都沒有處理鏈拉長之後的維護成本——六份產物要跟著程式碼一起不過期。
+
+## 一條可驗證的推論
+
+（推論）產物鏈給了 [[open-questions]] Q2（設計文件承載的是判斷的結論還是判斷力本身）
+一個更好的實驗設計：不是問「金魚能不能執行 `plan.md`」，
+而是問「金魚只拿 `intent.md` 能不能生成出等價的 `spec.md`」。
+原文自己的落後指標剛好在量這件事——`spec.md` 在第一份 `plan.md` 之後還被改幾次。
+
+## 相關頁面
+
+- [[the-ai-native-sdlc-playbook]] —— 來源
+- [[intent-md]] —— 鏈的頭，也是鏈的尾
+- [[ai-native-sdlc]] —— 產物鏈所在的框架
+- [[design-is-the-new-code]] —— 對「什麼產物算數」的另一種答案
+- [[context-engineering]] —— 產物鏈是刻意設計的動態脈絡

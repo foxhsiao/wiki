@@ -1,0 +1,8 @@
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.DS_Store
+.trash/
+__pycache__/
+
+# 第三方來源全文，只留本機
+Raw/

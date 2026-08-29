@@ -1,0 +1,110 @@
+---
+title: 流水帳
+type: synthesis
+aliases: [log]
+tags: [樞紐]
+created: 2026-08-01
+updated: 2026-08-01
+status: active
+confidence: high
+sources: []
+---
+
+# 流水帳
+
+> Append-only，新的加在最下面。格式固定，可用 `grep "^## \[" Wiki/log.md | tail -5` 取最近紀錄。
+> 動作只有三種：ingest / query / lint。
+
+## [2026-08-01] lint | 建庫
+- 建立目錄結構、`CLAUDE.md` schema、五種頁面模板、`tools/lint.py`
+- 建立樞紐頁：[[index]]、[[log]]、[[overview]]
+
+## [2026-08-01] lint | 清除建庫示範內容
+- 移除 7 個範例頁與範例來源，wiki 回到空庫狀態，只留樞紐頁與模板
+- 待處理：`Raw/` 已有 3 份未 ingest 的來源
+
+## [2026-08-01] ingest | Arm Yourself With Specific Knowledge、Read What You Love、Elephants Goldfish
+- 來源：三份一起處理（使用者指定批次），Raw 檔名改為 `YYYY-MM-DD--slug` 格式
+- 新增來源頁：[[arm-yourself-with-specific-knowledge]]、[[read-what-you-love]]、[[elephants-goldfish]]
+- 新增實體：[[naval-ravikant]]、[[dave-rensin]]
+- 新增概念：[[specific-knowledge]]、[[judgment]]、[[leverage-and-compounding]]（seed）、[[love-of-reading]]、[[first-principles-foundation]]、[[elephant-goldfish-model]]、[[design-is-the-new-code]]、[[ai-as-interrogator]]
+- 新增綜合：[[can-judgment-be-outsourced]]
+- 更新：[[overview]]（建立四條主軸）、[[index]]
+- **矛盾**：Naval「判斷力教不來」vs Rensin「把設計判斷寫進文件交給 agent」——記在 [[can-judgment-be-outsourced]]，兩邊都保留，confidence 壓在 medium
+- 新問題：[[open-questions]] Q1–Q5。下一份該找的來源是 Naval 談 leverage 的篇章（Q4）
+
+## [2026-08-01] ingest | 5 Agent Skill Design Patterns、The New SDLC With Vibe Coding
+- 來源：兩份一起處理。PDF 51 頁以文字擷取閱讀，Raw 檔名改為 `YYYY-MM-DD--slug` 格式
+- 新增來源頁：[[agent-skill-design-patterns]]、[[the-new-sdlc-with-vibe-coding]]
+- 新增實體：[[addy-osmani]]、[[shubham-saboo]]（唯一橫跨兩份來源的作者）
+- 新增概念：[[vibe-coding-spectrum]]、[[context-engineering]]、[[harness-engineering]]、[[factory-model]]、[[conductor-and-orchestrator]]、[[the-80-percent-problem]]、[[ai-development-economics]]、[[agent-skills]]、[[skill-design-patterns]]
+- 更新：[[judgment]]（第三份來源，confidence medium→high）、[[can-judgment-be-outsourced]]（白皮書畫出界線，層級移動說取得最多證據）、[[ai-as-interrogator]]（發現它等於 Inversion 模式）、[[design-is-the-new-code]]、[[elephant-goldfish-model]]（用 harness 詞彙重述）、[[overview]]、[[index]]
+- **矛盾（新增 2 條）**：
+  - 生產力數字互斥：25–39% 提升 vs METR「資深開發者慢 19%」，白皮書自己並列但沒調和 → Q7
+  - 「給成功判準」vs「列出每一個檔案」：[[factory-model]] 與 [[elephant-goldfish-model]] 表面衝突 → Q8
+- **收斂（2 條）**：[[ai-as-interrogator]] = Inversion 模式；[[conductor-and-orchestrator]] 與 Rensin 的「我們都是管理者了」獨立同構
+- 新問題：Q6（判斷力上移後新判斷力從哪長出來，五份來源共同盲點）、Q7、Q8、Q9
+- 下一份該找：METR 原始研究（白皮書尾註 10）
+
+## [2026-08-02] ingest | Prompting Claude Opus 5
+- 來源：Anthropic 官方文件，本庫第一份**供應商一手文件**
+- 新增來源頁：[[prompting-claude-opus-5]]
+- 新增實體：[[claude-opus-5]]
+- 新增概念：[[prompt-obsolescence]]、[[agent-autonomy-cost]]、[[effort-and-thinking]]
+- 更新：[[harness-engineering]]（harness 會折舊）、[[context-engineering]]（靜態脈絡有保鮮期）、[[skill-design-patterns]]（Reviewer 模式修正：別寫「只報高嚴重度」）、[[judgment]]（第四份來源，改由供應商描述模型的判斷）、[[can-judgment-be-outsourced]]（問題形狀改變）、[[overview]]、[[index]]
+- **矛盾（新增 1 條）**：本文顯示規則檔會折舊，直接挑戰 [[harness-engineering]]「建一次精煉很多次」與 [[ai-development-economics]] 把 harness 當一次性 CapEx 的假設 → [[prompt-obsolescence]]、Q11
+- **反轉**：Q9 原本打算在 CLAUDE.md 加 Inversion 硬閘門，本文建議相反方向（例行判斷讓模型自己做）→ 暫時擱置，兩份來源方向相反
+- **新主軸**：規則檔的折舊（overview 主軸 4）
+- 新問題：Q10（每條規則為什麼存在）、Q11（換代時 harness 怎麼重驗）
+- 本庫自檢：`CLAUDE.md` 沒有本文點名的反模式（無「再檢查一次」類指令，第 9 步用的是確定性 lint 而非模型自我複查），但沒有記錄任何規則的來由 → Q10
+
+## [2026-08-29] ingest | The AI-Native SDLC Playbook
+- 來源：Anthropic Applied AI team，`claude.com/blog/the-ai-native-sdlc-playbook`，六階段 13 個 play
+- Raw 改名：`The AI-Native SDLC playbook  Claude by Anthropic.md` → `2026-08-29--the-ai-native-sdlc-playbook.md`（只改檔名，內容未動）
+- 新增來源頁：[[the-ai-native-sdlc-playbook]]
+- 新增概念：[[ai-native-sdlc]]、[[artifact-chain]]、[[intent-md]]、[[advisory-vs-deterministic-control]]、[[autonomy-tiering]]、[[agent-config-evals]]
+- 更新：[[agent-skills]]（**skill 不是控制，只是建議**）、[[skill-design-patterns]]（Inversion 的「不可協商閘門」寫在 SKILL.md 裡其實可協商）、[[agent-autonomy-cost]]（畫界線的機制＝分級）、[[prompt-obsolescence]]（折舊可被偵測）、[[harness-engineering]]（managed settings；harness 擴到組織層級；回饋迴圈 vs verifier 子 agent）、[[context-engineering]]（`CLAUDE.md` 一頁以內）、[[design-is-the-new-code]]（新矛盾）、[[factory-model]]（Q8 新證據）、[[can-judgment-be-outsourced]]（第五份來源）、[[judgment]]、[[ai-development-economics]]（CapEx 不是一次性）、[[vibe-coding-spectrum]]（光譜位置可寫進環境設定）、[[overview]]、[[index]]
+- **新主軸**：治理（overview 主軸 5）。前六份來源全是個人／小團隊視角，這是第一份組織視角
+- **矛盾（新增 1 條）**：「唯一算數的產物是哪一個」——[[elephants-goldfish]] 說是單一設計文件、本份說是整條產物鏈；且 Rensin 把設計前置重壓，本份把需求與設計壓縮進同一個 session → 記在 [[design-is-the-new-code]]
+- **收斂（3 條）**：
+  - Q11（換代時 harness 怎麼重驗）→ partial，答案是 [[agent-config-evals]]，但只解決偵測不解決定位
+  - Q8（給判準還是給清單）→ 大致收斂，答案是拆成 `spec.md` 與 `plan.md` 兩份分別核准的文件
+  - Q9 被**改寫**：問題不是要不要有 Inversion 閘門，是閘門寫在哪裡。寫在規則檔裡的是建議，`tools/lint.py` 才是閘門
+- 新問題：Q12（產物鏈拉長之後誰讓它不過期）、Q13（「趨近於零」的指標，成功與停止量測長得一樣）
+- 本庫自檢：`CLAUDE.md` 遠超過原文建議的「一頁以內」；lint 全綠不等於 wiki 健康（Q13）
+- 來源獨立性警訊：七份來源裡兩份出自 Anthropic、三份出自 Google 或其員工。**治理這一軸目前只有賣方視角**
+- 下一份該找：METR 原始研究（Q7）仍是第一順位；治理軸需要一份買方或監管方的來源
+
+## [2026-08-29] lint | 清掉關聯圖上的雜訊
+- 起因：使用者從 Obsidian 關聯圖看出異常。**四團雜訊沒有一項來自 wiki 內容**
+- **刪除 `_to_delete/`**：2026-08-01「清除建庫示範內容」那次其實只把 7 個示範頁搬走沒刪，檔案一直在 vault 裡，包含一個與現行頁**同名的 `open-questions`**。該次 log 寫「移除」與事實不符，此處更正
+- 調整 `.obsidian/graph.json`：`search: -path:_templates`（模板與其佔位連結不入圖）、`hideUnresolved: true`（隱藏 Raw 擷取檔 frontmatter 帶進來的 `Naval`、`Dave Rensin`、`Google Cloud Tech (@GoogleCloudTech)` 這類幽靈節點——Raw 不可改，只能隱藏）、`showOrphans: false`（收掉 CLAUDE／README 孤島）
+- `tools/lint.py` 新增「走失頁」檢查：Wiki/ 以外出現帶合法 `type` frontmatter 的頁面就報。與 Wiki/ 現行頁同名 → 問題；否則 → 提醒。已用暫存檔自我驗證兩條路徑都會觸發
+- **這是 Q13 的第一個實例**：lint 當時全綠，但 vault 裡躺著 7 個重複頁。漏掉的原因是 lint 只掃 `Wiki/`——**檢查範圍本身就是盲點的來源**
+
+## [2026-08-29] lint | CLAUDE.md 精簡到一頁
+- 起因：[[the-ai-native-sdlc-playbook]] 建議 `CLAUDE.md` 控制在一頁以內（session 開頭全讀，過期內容白佔脈絡）。使用者指示照做
+- **204 行 / 5,211 字元 → 69 行 / 1,852 字元**（減 64%）
+- 做法是**搬不是砍**，配合原文「制度知識寫成 skill」的建議，把只在特定時刻需要的內容移到按需載入的地方：
+  - `.claude/skills/wiki-ingest/SKILL.md` —— 完整 frontmatter 規範、ingest 十步、擴散更新與矛盾處理、`index.md` 與 `log.md` 的格式、目錄結構
+  - `.claude/skills/wiki-lint/SKILL.md` —— 六項判斷性檢查、輸出方式、lint 自身的盲點（接 Q13）
+- CLAUDE.md 留下每次 session 都用得到的：三層權限、分類判斷順序、命名、連結規範、三種流程的入口、寫作風格、七條禁止
+- 逐條核對搬移，補回三條壓縮時漏掉的具體規則：query 的輸出格式（表格／時間軸／Marp／matplotlib）、「## 相關頁面」每條要附說明、頁面長度區間
+- 新增一條這次踩到的規則：帶別名的 wikilink（雙括號加豎線）別放進表格（跳脫與否都會壞——不跳脫壞排版，跳脫壞 lint 的連結解析）
+- **這是靜態脈絡搬到動態側的實例**（見 [[context-engineering]]、[[agent-skills]]）。但要記得 [[advisory-vs-deterministic-control]]：搬進 skill 之後這些規則的執行力從「常駐」降成「按需觸發」，是**建議型控制**。真正不可退讓的仍靠 `tools/lint.py`
+- 未做：Q10（每條規則為什麼存在）沒有一併處理，規則的來由仍未記錄
+
+## [2026-08-29] lint | 規則來由帳（Q10 結案）
+- 使用者指示：每條規則加上來由
+- `CLAUDE.md` 每條規則加穩定編號（L／C／N／K／W／S／X 共 26 條），69 → 73 行，仍在一頁內
+- 新增 `.claude/rules-ledger.md`：每條規則記**防什麼**、**證據等級**、**實際觸發紀錄**
+- **證據狀況比預期差**：建庫那筆 log 只寫「建立 `CLAUDE.md` schema」，沒記任何規則的理由；此 repo 不是 git repo，無版本歷史可查。結果 **26 條裡只有 1 條（K1，本 session 加的）證據等級是「有紀錄」**，其餘全是「推論」或「來由未知」
+- 帳裡明文禁止事後補一個聽起來合理的理由——編出來的來由讓沒人記得為什麼的規則看起來有據可查，比沒有來由更糟
+- 改用可查證的替代指標「這條規則實際被觸發過嗎」，跑出四個發現：
+  1. **`query` 流程從未被執行過**——log 8 筆全是 ingest 與 lint，零筆 query。W3、W4 從未被驗證
+  2. W2「不批次」的例外條款在早期是常態：2026-08-01 兩筆都是使用者指定批次，合計五份
+  3. 「禁止」那一節 7 條裡有 4 條是前文重述（L1、K3、W2、L3），改規則要改兩處
+  4. 編號規則裡只有 4 條有確定性後盾（N4、N5、K3、K4 由 lint 強制），其餘全是建議型控制
+- 自我驗證：帳裡的量化主張逐條回查，修正 2 處（log 筆數 9→8；lint 檢查項 4→9 種，其中 4 種對應編號規則）
+- Q10 → **closed**；新問題 Q14（沒有觸發紀錄的規則該刪還是該留——與 Q13 同構，在規則層）
+- 未做：日後每加一條規則要同時補一列到帳裡，這條紀律**沒有確定性後盾**，靠自覺
