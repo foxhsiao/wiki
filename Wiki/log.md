@@ -169,3 +169,10 @@ sources: []
 - 若後續更新屬實，本庫把「慢 19%」當硬數據的用法（[[the-80-percent-problem]]、[[can-judgment-be-outsourced]]）要修正，而且它會變成 [[prompt-obsolescence]] 的另一個實例
 - **刻意沒做**：沒有把搜尋結果寫進任何概念頁。依 `[X3]`，那些在來源頁建立前不算數。Q7 那段是待辦不是主張
 - 下一步：使用者用 Web Clipper 把 2025 原始研究剪進 `Raw/inbox/`，再 ingest。2026 更新留待下一輪去撞它
+
+## [2026-08-29] lint | README 補上 Prompt 使用說明
+- 使用者要求：README 要寫怎麼用的 prompt
+- 「怎麼用」一節從四段散文改寫成依四種動作（ingest／query／lint／publish）分節，每節給可直接照抄的 prompt
+- 補上三塊原本沒寫的：**改規則**的說法（含「這條規則為什麼存在？」）、**agent 會拒絕的事**（寫 `Raw/`、覆寫矛盾、無來源主張、直推 main）、**怎麼跳過 ingest 的確認步驟**及其代價
+- 「agent 會拒絕的事」那張表是刻意加的：規則寫在 `CLAUDE.md` 給 agent 看，但**使用者不知道哪些要求會被擋**，這是這份 README 原本的缺口
+- 未動 wiki 內容；METR 那份來源仍停在 ingest 第 2 步等使用者確認方向（lint 的 `[待處理]` 提醒正確反映了這件事）
