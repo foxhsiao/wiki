@@ -185,3 +185,12 @@ sources: []
 - 其他擷取缺口：FAQ 只剩問題、答案被剪存工具吃掉
 - 新問題：**Q15（好的 harness 能不能翻轉那個 19%——本庫最大的證據缺口，取代原本 Q7 的位置）**、Q16（2026-02-24 後續研究，下一份要 ingest）
 - 下一份：METR 2026-02-24 更新（使用者已指示接著做，兩次分開不算批次）
+
+## [2026-08-29] lint | 把機械性樞紐從關聯圖濾掉
+- 起因：使用者從關聯圖看出 `index` 變成知識庫的視覺核心，但它只是目錄、不是概念核心
+- 量化確認：`log` **48 條出鏈**（append-only，只會愈長）、`index` 47 條、`overview` 36 條。前兩者純粹是機械性樞紐
+- `.obsidian/graph.json` 的 filter 加上 `-path:"Wiki/index.md" -path:"Wiki/log.md"`。**保留 `overview`**——它有 36 條出鏈但內容是真的綜合判斷，不是目錄
+- 濾掉之後浮現的真實概念樞紐（入鏈數，已扣掉三個 hub）：[[the-ai-native-sdlc-playbook]] 19、[[the-new-sdlc-with-vibe-coding]] 18、[[judgment]] 17、[[can-judgment-be-outsourced]] 16、[[harness-engineering]] 15、[[context-engineering]] 14
+- 安全性確認：濾掉不會讓任何頁面變孤島，因為 `tools/lint.py` 的孤兒檢查本來就把 index／log／overview 排除在入鏈計算之外——**每頁都被強制要有樞紐以外的入鏈**
+- README 的「關係圖檢視」一條補上這個設定的理由
+- （推論）這是 [[context-engineering]] 靜態／動態那條線的視覺版：`index` 是導覽用的，不是知識結構的一部分；把導覽層混進知識層，兩邊都看不清楚

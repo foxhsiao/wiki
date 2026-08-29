@@ -42,7 +42,12 @@ grep "^## \[" Wiki/log.md | tail -5   # 最近 5 筆動作
 - **附件資料夾**：設定 → 檔案與連結 → 附件資料夾路徑 → `Raw/assets`
 - **下載附件**：設定 → 快速鍵 → 搜尋「Download」→ 綁定「Download attachments for current file」
 - **Web Clipper**：瀏覽器擴充，把網頁存成 markdown 丟進 `Raw/inbox/`
-- **關係圖檢視**：看孤兒頁與樞紐頁最快的方式
+- **關係圖檢視**：看孤兒頁與樞紐頁最快的方式。
+  預設已在 `.obsidian/graph.json` 把 `index.md`、`log.md` 與 `_templates/` 濾掉——
+  它們是**機械性樞紐**（`log` 有 48 條出鏈且只會愈長），會在圖上壓過真正的概念核心。
+  濾掉之後浮出來的才是實際的重心：`judgment`、`can-judgment-be-outsourced`、
+  `harness-engineering`、`context-engineering`。
+  濾掉不會讓任何頁面變孤島——`tools/lint.py` 已強制每頁都要有 index／log 以外的入鏈
 - **Dataview**（選用）：可對 frontmatter 的 `type` / `status` / `confidence` 跑動態表格
 
 ## 目前狀態
