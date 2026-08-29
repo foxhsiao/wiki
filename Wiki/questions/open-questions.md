@@ -74,7 +74,16 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - **目前掌握**：（推論）增益可能高度取決於任務是否已被良好規格化，
   這與 [[vibe-coding-spectrum]] 一致，但白皮書沒明說。
 - **缺什麼**：METR 那份研究的原文（尾註 10）。
-- **狀態**：open —— 讀原始研究就能大幅推進
+- **已找到，待 ingest（2026-08-29）**：
+  - 原始研究：`https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/`
+    （論文版 `https://arxiv.org/abs/2507.09089`）
+  - **後續更新**：`https://metr.org/blog/2026-02-24-uplift-update/`
+- **（網路搜尋結果，尚未 ingest，不可當作本庫主張）** 那份 2026 更新可能比原始研究更關鍵：
+  METR 沒有撤回 19%，但做了限定，而新一輪的估計區間**跨過 0**。
+  若屬實，本庫目前把「慢 19%」當作站在「判斷力無法外包」那側的硬數據會需要修正，
+  而且它會變成 [[prompt-obsolescence]] 的另一個實例——一份 2025 年的測量被原作者自己限定。
+  這些都要等來源頁建立後才算數。
+- **狀態**：open —— 來源已定位，**下一步是 ingest 而不是再找**
 
 ## Q8. 「給判準」還是「給清單」？
 
