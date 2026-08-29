@@ -45,6 +45,7 @@
 ## 四種工作流程
 
 `[W1]` 動作只有 `ingest` / `query` / `lint` / `publish`，每一次都要追加一筆 `Wiki/log.md`。
+log 記的是**知識庫的變化**；純 git 操作（合併 PR、刪分支）由 git 歷史負責，不另記一筆。
 
 - **ingest** `[W2]` —— 細節見 `.claude/skills/wiki-ingest/SKILL.md`。
   **預設一次只 ingest 一份**；先完整讀完，口頭回報 3–5 個重點等使用者確認，才動筆。
