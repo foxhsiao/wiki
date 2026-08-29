@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-29
 status: active
 confidence: medium
-sources: ["[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
 ---
 
 # 設計即新的程式碼
@@ -67,6 +67,15 @@ playbook 主張把需求與設計合併成一次 prompted session，理由是分
 playbook 壓縮掉的是**需求到設計的文書交接**，不是架構決策本身。
 但沒有來源這樣說，先並列。兩份來源都沒有處理產物過期後的維護成本。
 
+## 一個方向一致的實證
+
+[[metr-early-2025-ai-developer-productivity]] 的因子 3 是
+**Large and complex repositories (Limits AI performance)**——受試 repo 平均超過 110 萬行，
+開發者回報 AI 在複雜環境裡表現更差。方向與 **sizeof(docs) << sizeof(code)** 一致。
+
+（推論）但只是方向一致，**不是驗證**：METR 沒有測試「改餵設計文件會不會改善」。
+這條路線的後半段仍然是本庫的賭注。
+
 ## 未解之處
 
 （推論）這條主張把賭注押在「設計文件能完整承載判斷」上。
@@ -84,3 +93,4 @@ playbook 壓縮掉的是**需求到設計的文書交接**，不是架構決策�
 - [[the-new-sdlc-with-vibe-coding]] —— 第二份來源
 - [[the-ai-native-sdlc-playbook]] —— 第三份來源，給出不同答案
 - [[artifact-chain]] —— 「產物鏈」而非「單一設計文件」那一側
+- [[metr-early-2025-ai-developer-productivity]] —— 方向一致的實證，但未驗證後半段

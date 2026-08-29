@@ -169,3 +169,19 @@ sources: []
 - 若後續更新屬實，本庫把「慢 19%」當硬數據的用法（[[the-80-percent-problem]]、[[can-judgment-be-outsourced]]）要修正，而且它會變成 [[prompt-obsolescence]] 的另一個實例
 - **刻意沒做**：沒有把搜尋結果寫進任何概念頁。依 `[X3]`，那些在來源頁建立前不算數。Q7 那段是待辦不是主張
 - 下一步：使用者用 Web Clipper 把 2025 原始研究剪進 `Raw/inbox/`，再 ingest。2026 更新留待下一輪去撞它
+
+## [2026-08-29] ingest | METR：Early-2025 AI 對資深開源開發者生產力的影響
+- 來源：METR 2025-07-10，RCT。**本庫第一份實證研究**，也是第一頁 `status: stale`——**來源自己在頁首宣告結果過期**
+- Raw 改名：`Measuring the Impact of...md` → `2026-08-29--metr-early-2025-ai-developer-productivity.md`（只改檔名）
+- 新增來源頁：[[metr-early-2025-ai-developer-productivity]]
+- 新增實體：[[metr]]（seed）
+- 新增概念：[[self-report-vs-measurement]]、[[evidence-types-for-ai-capability]]
+- 新增綜合：[[what-the-19-percent-measures]]
+- 更新：[[the-80-percent-problem]]（Q7 解開）、[[can-judgment-be-outsourced]]（**更正誤讀**）、[[harness-engineering]]（兩面）、[[context-engineering]]（外部實證支持）、[[prompt-obsolescence]]（測量也會折舊）、[[judgment]]（第六份來源，且不支持該線）、[[design-is-the-new-code]]、[[overview]]、[[index]]
+- **Q7 closed**：兩組數字不是互斥，是在測不同的東西。25–39% 是自陳調查、19% 是 RCT 實測。同一批人：事前 +24%、事後自認 +20%、實際 −19%，**自陳與實測差 39 個百分點**。本頁原本「增益取決於任務是否已規格化」的推測退場
+- **矛盾（新增 1 條，且是本庫自己造成的）**：本庫把這個 19% 當成「判斷力無法外包」的實證用了四週，**那是誤讀**。METR 的五個因子全是工具與情境，沒有一個關於判斷力。記在 [[what-the-19-percent-measures]]，並在 [[can-judgment-be-outsourced]] 與 [[overview]] 明文更正。**保留誤讀紀錄而非刪除**，因為它本身是資料：方法學嚴謹的研究很容易被拿去支持它沒有主張的東西
+- **兩面都寫（使用者指定）**：harness 那條線同時被支持與削弱——支持的是因子 5「隱性脈絡」正是規則檔與 skill 在編碼的東西；削弱的是 [[harness-engineering]] 現有最硬的兩個數字（Terminal Bench、LangChain）都是 benchmark，而 METR 說 benchmark 傾向高估。且 harness 假說出現在原文「我們不提供證據支持」的表格裡，是作者劃的界線不是發現
+- **五個因子與六個被排除的因子取自 arXiv 全文，明確標註出處不在 `Raw/` 之內**（剪存檔對應位置只有 CDN 外連的圖）。未改規則
+- 其他擷取缺口：FAQ 只剩問題、答案被剪存工具吃掉
+- 新問題：**Q15（好的 harness 能不能翻轉那個 19%——本庫最大的證據缺口，取代原本 Q7 的位置）**、Q16（2026-02-24 後續研究，下一份要 ingest）
+- 下一份：METR 2026-02-24 更新（使用者已指示接著做，兩次分開不算批次）

@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-29
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
 ---
 
 # 判斷力
@@ -75,6 +75,19 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 不是在複雜環境裡從頭做模式比對。如果 Naval 對判斷力來源的說法成立，
 這種形狀的判斷力可能無法自我再生產——見 [[open-questions]] Q6。
 
+## 第六份來源：它**不**支持這條線
+
+前五份來源都在往同一個方向堆。[[metr-early-2025-ai-developer-productivity]] 是第一份
+被本庫拿來當佐證、但實際上**不支持**這個主張的來源。
+
+它量到資深開發者用 AI 慢 19%，本庫先前把這個數字當成
+「判斷力無法外包」的實證。但 METR 找到的五個原因是：
+對 AI 的過度樂觀、開發者對 repo 高度熟悉、repo 太大太複雜、AI 可靠度低、隱性脈絡缺失。
+**沒有一個是關於人類判斷力不可替代。**
+
+拆解見 [[what-the-19-percent-measures]]。
+淨效果是：扣掉這份誤讀之後，「判斷力無法外包」那一側**回到沒有實證數據的狀態**。
+
 ## 怎麼練
 
 - Naval：靠真實好奇心撐住長期投入，靠[[first-principles-foundation|第一原理地基]]分辨真假。
@@ -90,6 +103,7 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 | [[the-new-sdlc-with-vibe-coding]] | 生成已被解決，驗證／判斷／指揮才是新技藝；照判斷力招募 | 2026-05 |
 | [[prompting-claude-opus-5]] | **模型會「對任務應該是什麼行使自己的判斷」**，且被列為需要約束的行為 | 2026 |
 | [[the-ai-native-sdlc-playbook]] | 人的判斷力集中到**閘門**上；迴圈一直跑，人的判斷留在它上面 | 2026 |
+| [[metr-early-2025-ai-developer-productivity]] | **不支持這條線**：量到的拖慢，五個原因全是工具與情境，沒有一個關於判斷力 | 2025-07 |
 
 ## 相關頁面
 
@@ -100,3 +114,4 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 - [[the-80-percent-problem]] —— 剩下那 20% 就是判斷力的所在
 - [[conductor-and-orchestrator]] —— 判斷力被消耗的兩種模式
 - [[the-ai-native-sdlc-playbook]] —— 判斷力在流程裡的落點
+- [[what-the-19-percent-measures]] —— 唯一不支持這條線的來源
