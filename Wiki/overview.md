@@ -128,17 +128,20 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 [[harness-engineering|harness 規則檔]]；`Wiki/index.md` 是 progressive disclosure 的手工版；
 `tools/lint.py` 是確定性 guardrail；ingest 流程混用了
 [[skill-design-patterns|Pipeline、Generator、Reviewer]] 三種模式，
-唯一缺的是 **Inversion** 的硬閘門——[[prompting-claude-opus-5]] 給了相反方向的建議
-（例行判斷讓模型自己做），Q9 一度因此擱置，現在已被第七份來源改寫（見下）。
+原本認為缺的是 **Inversion** 硬閘門——[[prompting-claude-opus-5]] 給了相反方向的建議
+（例行判斷讓模型自己做），Q9 一度因此擱置，後來被第七份來源改寫成「閘門該寫在哪裡」。
+**現在 `tools/lint.py` 已有兩道確定性閘門**：規則來由缺漏、以及 `confidence` 與來源數不符。
 反而 `CLAUDE.md` 沒有記錄**每條規則為什麼存在**，這在折舊問題下是實際的缺陷（Q10）。
 
 **第七份來源給了三面新鏡子**：
 
 - `CLAUDE.md` 建議控制在**一頁以內**（session 開頭全讀，過期內容白佔脈絡）。
-  本庫的 `CLAUDE.md` 遠超過一頁，這現在是可以被檢討的成本項。
+  **已照做**（2026-08-29）：204 行壓到 76 行，細節搬進 `.claude/skills/`。
+  代價是那些規則的執行力從常駐降成按需觸發（[[advisory-vs-deterministic-control]]）。
 - Q9 被改寫了：問題不是「該不該加 Inversion 閘門」，是**閘門寫在哪裡**。
   寫在 `CLAUDE.md` 裡的是建議，`tools/lint.py` 才是確定性的閘門。
-  候選的下一條硬控制：ingest 完成前強制 lint 通過。
+  已據此加了兩道：規則來由缺漏、`confidence` 與來源數不符。
+  候選的下一條：ingest 完成前強制 lint 通過。
 - Q13 是本庫自己的量測問題：**lint 全綠不代表 wiki 健康**，
   只代表機械性檢查沒抓到東西。「趨近於零」的指標，成功與停止量測長得一樣。
 

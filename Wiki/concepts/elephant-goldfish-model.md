@@ -4,9 +4,9 @@ type: concept
 aliases: [EGM, 大象與金魚]
 tags: [ai, 工作方法, 軟體工程]
 created: 2026-08-01
-updated: 2026-08-01
+updated: 2026-08-29
 status: active
-confidence: high
+confidence: medium
 sources: ["[[elephants-goldfish]]"]
 ---
 

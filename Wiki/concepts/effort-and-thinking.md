@@ -4,9 +4,10 @@ type: concept
 aliases: [effort, thinking]
 tags: [ai, 模型, 成本]
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-29
 status: active
 confidence: high
+confidence_note: 同上：effort 與 thinking 是 Anthropic 自家參數的定義與行為，一手文件就是最高證據
 sources: ["[[prompting-claude-opus-5]]"]
 ---
 

@@ -133,6 +133,27 @@ for p in RAW_FILES:
     if p.stem not in ingested:
         warnings.append(f"[待處理] {rel(p)}：Raw 檔案尚未 ingest 成 sources/ 頁面")
 
+# confidence 與來源數（N6）：high 需要兩份以上來源，否則要寫 confidence_note
+# （2026-08-29 加入：規範建庫時就寫了，但沒有機制，一次健檢抓到 5 頁違規）
+for p in pages:
+    stem = p.stem
+    if stem in HUBS:
+        continue
+    fm = parse_fm(p.read_text(encoding="utf-8")) or {}
+    if fm.get("type") == "source" or fm.get("confidence") != "high":
+        if fm.get("confidence_note") and fm.get("confidence") != "high":
+            warnings.append(f"[confidence] {rel(p)}：有 confidence_note 但 confidence 不是 high")
+        continue
+    n_src = len(re.findall(r"\[\[", fm.get("sources", "")))
+    note = fm.get("confidence_note", "").strip()
+    if n_src < 2 and not note:
+        problems.append(
+            f"[confidence] {rel(p)}：confidence: high 但只有 {n_src} 個來源，"
+            f"需要第二份來源，或加一行 confidence_note 說明理由"
+        )
+    elif n_src >= 2 and note:
+        warnings.append(f"[confidence] {rel(p)}：已有 {n_src} 個來源，confidence_note 是多餘的")
+
 # 規則來由：CLAUDE.md 的每個編號都要在 rules-ledger 有一列，且證據等級要填
 # （2026-08-29 加入：Q10 的教訓是「來由要在寫規則的當下記，事後補不回來」，
 #  所以把這條紀律從自覺變成閘門）

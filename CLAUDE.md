@@ -32,6 +32,8 @@
 - `[N3]` 一個檔名一個概念。同義詞寫進 `aliases`，不另開頁。
 - `[N4]` 每頁都要有 frontmatter，欄位規範以 `Wiki/_templates/` 為準，`tools/lint.py` 強制檢查。
 - `[N5]` **除了 `type: source`，每頁的 `sources` 都必須列出支撐它的來源頁。**
+- `[N6]` `confidence: high` 要兩份以上來源。單一來源仍要 high 的，必須加一行
+  `confidence_note:` 說明理由（例如供應商描述自家產品的定義性事實）。lint 會擋。
 
 ## 連結
 
@@ -55,6 +57,8 @@
   （見 `.claude/skills/wiki-lint/SKILL.md`）。輸出成清單逐項問，不要擅自大改。
 - **publish** `[W6]` —— 推上遠端前先查遠端 repo 的**可見性**，並跟使用者確認推送範圍。
   `Raw/` 永遠不入版控。commit 作者用 GitHub noreply 信箱。
+  `[W7]` git 一律走 **GitHub flow**：`main` 永遠可用，任何改動先開描述性分支，
+  推分支後開 PR，合併進 `main` 才算完成。**不直接 commit 到 `main`。**
 
 ## 寫作
 

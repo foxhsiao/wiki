@@ -4,9 +4,9 @@ type: concept
 aliases: [the 80% problem]
 tags: [ai, 軟體工程]
 created: 2026-08-01
-updated: 2026-08-01
+updated: 2026-08-29
 status: active
-confidence: high
+confidence: medium
 sources: ["[[the-new-sdlc-with-vibe-coding]]"]
 ---
 

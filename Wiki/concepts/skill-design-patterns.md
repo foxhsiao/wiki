@@ -101,8 +101,14 @@ Tool Wrapper 與 Generator 不同——它們影響的是產出品質而非合�
 ingest 流程是 **Pipeline**（十個步驟、有檢查點）、
 頁面模板是 **Generator**、
 lint 那一節是 **Reviewer**。
-唯一缺的是 **Inversion**——ingest 流程第 2 步「回報重點等使用者確認」是很弱的版本，
-沒有不可協商的閘門。這是一個可以直接改進的地方。
+
+**Inversion 那條後來被改寫了（2026-08-29）。** 原本的結論是「唯一缺的是 Inversion，
+因為 ingest 第 2 步沒有不可協商的閘門」。[[the-ai-native-sdlc-playbook]] 指出問題出在
+**閘門寫在哪裡**——寫進規則檔的閘門是建議，模型可以不理它。
+
+所以改進不是在 `CLAUDE.md` 加 Inversion，是在 `tools/lint.py` 加確定性檢查。
+目前有兩道：規則編號沒有對應的來由紀錄就擋、`confidence: high` 但來源不足就擋。
+兩道都會 exit 1，這才是不可協商的版本。見 [[open-questions]] Q9。
 
 ## 相關頁面
 
