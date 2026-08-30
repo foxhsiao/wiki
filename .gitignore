@@ -6,3 +6,7 @@ __pycache__/
 
 # 第三方來源全文，只留本機
 Raw/
+
+# Obsidian 每日筆記（daily-notes 外掛已啟用，預設寫在 vault 根目錄）
+# 只鎖根目錄，不會誤傷 Raw/ 的 YYYY-MM-DD--slug.md
+/20??-??-??.md
