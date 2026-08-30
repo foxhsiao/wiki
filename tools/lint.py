@@ -175,6 +175,30 @@ for f in ROOT.rglob("*"):
             problems.append(f"[衝突標記] {rel(f)}:{i}：殘留的合併衝突標記 {line[:7]!r}")
             break
 
+# C1：type 與資料夾必須相符（2026-08-30 加入，把 C1 從建議變成閘門）
+FOLDER_OF = {"source": "sources", "entity": "entities", "concept": "concepts",
+             "synthesis": "syntheses", "question": "questions"}
+for p in pages:
+    if p.stem in HUBS:
+        continue
+    fm = parse_fm(p.read_text(encoding="utf-8")) or {}
+    want = FOLDER_OF.get(fm.get("type"))
+    if want and p.parent.name != want:
+        problems.append(
+            f"[分類] {rel(p)}：type 是 {fm.get('type')}，應該放在 {want}/ 而不是 {p.parent.name}/"
+        )
+
+# S5：空區塊——標題底下沒有內容，且下一個標題不是它的子標題
+HEAD_RE = re.compile(r"^(#{2,6}) (.+)$", re.M)
+for p in pages:
+    body = FM_RE.sub("", p.read_text(encoding="utf-8"))
+    heads = [(m.start(), len(m.group(1)), m.group(2)) for m in HEAD_RE.finditer(body)]
+    for i, (pos, lvl, txt) in enumerate(heads):
+        nxt = heads[i + 1] if i + 1 < len(heads) else None
+        seg = body[pos:(nxt[0] if nxt else len(body))]
+        if not HEAD_RE.sub("", seg).strip() and (nxt is None or nxt[1] <= lvl):
+            warnings.append(f"[空區塊] {rel(p)}：「{txt}」底下沒有內容")
+
 # 規則來由：CLAUDE.md 的每個編號都要在 rules-ledger 有一列，且證據等級要填
 # （2026-08-29 加入：Q10 的教訓是「來由要在寫規則的當下記，事後補不回來」，
 #  所以把這條紀律從自覺變成閘門）
