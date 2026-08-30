@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[elephants-goldfish]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[elephants-goldfish]]", "[[bainbridge-ironies-of-automation]]", "[[metr-2026-uplift-update]]"]
 ---
 
 # 指揮家與協調者
@@ -35,6 +35,31 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[elephants-goldfish]]"]
 3. **評估**：快速判斷產出有沒有到標準
 4. **系統設計**：設計那些讓 agent 保持生產力的限制、測試與回饋迴圈
 
+## 協調者模式就是 Bainbridge 說教不出能力的那個模式（2026-08-30）
+
+上面那張表把「只在檢查點介入、不逐行看」當成協調者的**風險**（品質失控）。
+[[bainbridge-ironies-of-automation]] 指出的是另一件事：那也是**能力的風險**。
+
+協調者的四項技能裡，第 3 項「快速判斷產出有沒有到標準」正是
+[[monitoring-does-not-teach]] 說**結構上無法靠做這件事累積**的東西：
+
+> "one of the worst types [of tasks]; it is very boring but very responsible,
+> yet **there is no opportunity to acquire or maintain the qualities required to
+> handle the responsibility**."
+
+（推論）本頁原本的敘述有一個沒說出口的預設：**協調者已經當過指揮家。**
+判斷「產出有沒有到標準」要靠對標準的手感，而手感來自做過。
+表格說「同一個開發者一天內會在兩種模式間流動」——如果那個流動是真的，
+本頁與 Bainbridge 沒有衝突，因為指揮家模式就是 Bainbridge 建議的
+「每班保留一段手動時間」。
+
+但 [[metr-2026-uplift-update]] 記錄的行為方向相反：資深開發者**不願意**回到無 AI 條件，
+30% 到 50% 承認會避開 AI 增益高的任務。流動不是自動發生的
+（[[control-group-collapse]] 描述同一個機制怎麼摧毀研究方法）。
+
+**所以「兩種模式間流動」從描述變成了處方**——它是本頁需要主動維持的條件，
+不是可以假設的現況。展開見 [[judgment-supply]]。
+
 ## 交叉比對
 
 [[dave-rensin|Rensin]] 從完全不同的來源得到幾乎相同的結論——
@@ -51,3 +76,5 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[elephants-goldfish]]"]
 - [[elephants-goldfish]] —— 獨立得到相同結論的另一份來源
 - [[factory-model]] —— 兩種模式都在工廠模型底下
 - [[judgment]] —— 兩種模式都在消耗同一種東西
+- [[monitoring-does-not-teach]] —— 協調者模式為什麼不產生它消耗的東西
+- [[judgment-supply]] —— 「兩種模式間流動」為什麼是處方而不是現況

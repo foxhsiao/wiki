@@ -297,6 +297,29 @@ else:
             f"[計數] README.md 目前狀態寫 {got}，實際 ({n_sources}, {n_pages}, {n_questions})"
         )
 
+# K1：帶別名的 wikilink 不能放進表格（2026-08-30 加入）
+# （規則 2026-08-29 寫進 CLAUDE.md，隔天在單一頁面違反 9 次，2026-08-30 健檢時
+#  我自己又在改 overview 的當下踩了一次，另外還有兩處建庫時留下的。
+#  跳脫與否都會出事：跳脫了 lint 的 LINK_RE 解不出 target，不跳脫 Obsidian 的表格會被切開。）
+TABLE_ROW_RE = re.compile(r"^\|.*\|$")
+ALIAS_IN_LINK_RE = re.compile(r"\[\[[^\]]*\|")
+for f in sorted(ROOT.rglob("*.md")):
+    if ".git" in f.parts:
+        continue
+    in_fence = False
+    for i, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+        s = line.strip()
+        if s.startswith("```"):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if TABLE_ROW_RE.match(s) and ALIAS_IN_LINK_RE.search(s):
+            problems.append(
+                f"[表格別名] {rel(f)}:{i}：表格列裡有帶別名的 wikilink，"
+                f"跳脫與否都會出事（規則 K1）"
+            )
+
 quiet = "--quiet" in sys.argv
 print(f"檢查 {len(pages)} 頁 / {len(RAW_FILES)} 份原始檔\n")
 if problems:

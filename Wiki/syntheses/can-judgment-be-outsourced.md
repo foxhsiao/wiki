@@ -18,11 +18,11 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", 
 
 ## 兩邊的說法
 
-| | [[naval-ravikant|Naval]]（2019） | [[dave-rensin|Rensin]]（2026） |
+| | [[naval-ravikant]]（2019） | [[dave-rensin]]（2026） |
 |---|---|---|
 | 判斷力是什麼 | 在複雜環境做模式比對累積出來的東西 | 公司雇你的唯一理由 |
 | 能不能教 | **教不來**，只能學（[[specific-knowledge]]） | 沒直接談，但整套流程在教 |
-| 怎麼變現 | 靠[[leverage-and-compounding|槓桿]]放大 | 寫成設計文件，交給 agent 執行 |
+| 怎麼變現 | 靠[[leverage-and-compounding]]放大 | 寫成設計文件，交給 agent 執行 |
 | 對機器的態度 | 可訓練的東西終將被機器取代 | **不要把判斷力外包給機器** |
 
 （Naval 這一欄出自 [[arm-yourself-with-specific-knowledge]]，2019 年的兩篇之一。）
