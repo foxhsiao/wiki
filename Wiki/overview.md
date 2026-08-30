@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]"]
 ---
 
 # 總覽
@@ -23,7 +23,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 ## 目前的主軸
 
-十份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
+十一份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
 
 ### 1. 判斷力是共同答案（5 份來源，跨 7 年）—— 本庫收斂度最高的一條
 
@@ -69,6 +69,13 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 展開見 [[monitoring-does-not-teach]] 與 [[judgment-supply]]。
 
 （推論）本庫花了九份來源、四週，重新發現了一個 1983 年的結論。
+
+**原文已補進本庫**（[[bainbridge-ironies-of-automation]]），並更正了轉引的數處失真。
+原文比轉引版強：現在這代自動系統之所以能運作，是因為它們
+「**riding on their skills**」——騎在一批**在自動化之前就練成**的人身上，
+而「later generations of operators cannot be expected to have」那些技能。
+原文也自己給了對策（每班保留一段手動時間，做不到就用模擬器），
+以及一句把成本算法翻過來的話：**最成功的自動化，需要最多的人員訓練投資**。
 
 **新的裂縫（兩條）**：
 
@@ -219,7 +226,7 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 
 | 項目 | 數量 |
 |---|---|
-| 來源 | 10 |
+| 來源 | 11 |
 | Wiki 頁面 | 50 |
 | 開放問題 | 16（3 條 closed） |
 | 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |

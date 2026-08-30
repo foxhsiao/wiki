@@ -326,3 +326,23 @@ sources: []
 - Q6 仍為 partial：H1 已反駁、對策已知，但**那些對策在軟體開發脈絡下有沒有效未被驗證**
 - 下一份該找：Bainbridge 1983 原文
 
+## [2026-08-30] ingest | Bainbridge 1983 原文
+- 使用者指示：找 Bainbridge 1983 原文
+- **找到了**：`ckrybus.com` 的公開鏡像，出版商排版完整掃描 5 頁。先前失敗的三條路——原站 `ise.ncsu.edu` 已 404、`web.archive.org` 本環境擋、ScienceDirect 付費牆
+- 依 `[L6]` 由我代放檔並在來源頁註明取得方式。**本文非開放取用**（© 1983 IFAC / Pergamon），`Raw/` 不入版控故僅供本機閱讀
+- 新增來源頁：[[bainbridge-ironies-of-automation]]。**本庫最舊也是唯一的原典**（Automatica 19(6), 775–779）
+- 更新：[[monitoring-does-not-teach]]（引文更正＋補原文對策與「最後的反諷」）、[[ironies-of-automation-public-service]]（標明為轉引來源）、[[judgment-supply]]、[[automation-fragmentation]]、[[harness-engineering]]、[[the-80-percent-problem]]、[[ai-development-economics]]、[[open-questions]]、[[overview]]、[[index]]
+- **補原文的價值立刻兌現：轉引有五處失真**，方向一致——轉引版都比原文弱一點、鬆一點：
+  - `something wrong **in** the process` → 原文是 `**with** the process`
+  - 接手那句**被截斷**，原文句尾還有「**and less rather than more loaded, than average**」——需要接手時人不只要更熟練，**還要更有餘裕**，而閘門位置通常相反
+  - `one of the worst types **[of tasks]**` → 原文無方括號補字
+  - 逐代惡化被轉述得較弱 → 原文是「present generation … **riding on their skills**, which later generations of operators cannot be expected to have」
+  - irony 定義多了冠詞
+  - （推論）這是本庫第一次能比對原典與轉引，結論支持 `[S2]`「引文照抄」那條規則
+- **原文自己就給了 Q6 的對策，而且是 1983 年寫的**：「每個班次讓操作員有一小段時間手動控制；**如果這個建議聽起來很可笑**，那就必須提供模擬器練習」。Bainbridge 自己預期會被嘲笑所以先備了退路。（推論）瑞典自治市的做法是這句話四十一年後的實作，本庫先前把它當成新發現
+- **新增一句把經濟學翻過來的話**：「**最成功的自動化系統——極少需要人工介入的那些——可能需要最多的人員訓練投資**」。[[ai-development-economics]] 與 [[ai-native-sdlc]] 都沒有把訓練列成成本項
+- **本庫沒有的社會面向**：原文談 deskilling 與「不合理的薪資落差」——被降級成監控的工人堅持高薪，作為**一個已不再由工作內容證成的地位的殘餘象徵**
+- **具體數字**：vigilance 上限約 **半小時**（Mackworth 1950）。所以監控不尋常狀況必須由自動警報系統做——**要再裝一套自動系統來監控自動系統**
+- 對 [[harness-engineering]] 的兩點：原文說蒐集設計者錯誤資料的人「**不願意發表**」，四十三年後本庫十一份來源同樣沒有一份公布 harness 失敗率；且 1983 年的自動系統是確定性的，**agent 不是**，這讓反諷 #1 在 LLM 上更嚴重
+- 弱點：領域是工業製程控制、五頁 Brief Paper 無實證資料、引用的 vigilance 研究是 1950 年的
+

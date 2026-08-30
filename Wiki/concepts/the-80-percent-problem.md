@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # 80% 問題
@@ -88,9 +88,12 @@ Q7 的解（自陳與實測的方法差異）不受影響，那是方法學發�
 
 [[ironies-of-automation-public-service]] 記的 Bainbridge 反諷 #4：
 
-> "… when manual take-over is needed there is likely to be something wrong in the process,
-> so that unusual actions will be needed to control it, and one can argue that
-> **the operator needs to be more rather than less skilled**"
+> "When manual take-over is needed there is likely to be something wrong **with** the process,
+> so that unusual actions will be needed to control it, and one can argue that the operator
+> needs to be **more rather than less skilled, and less rather than more loaded, than average**."
+>
+> ——[[bainbridge-ironies-of-automation|Bainbridge 1983]], p.775（原文；本庫先前引的轉引版
+> 截掉了句尾的「負載要比平均更低」）
 
 （推論）這與本頁是同一個結構，只是換了領域與四十三年：
 自動化接手的是規律的部分，**留給人的正是最難的那一段**，
@@ -111,3 +114,4 @@ Q7 的解（自陳與實測的方法差異）不受影響，那是方法學發�
 - [[metr-2026-uplift-update]] —— 那個 19% 為什麼不能再引用
 - [[control-group-collapse]] —— 新數字不可解讀的原因
 - [[ironies-of-automation-public-service]] —— 這條 1983 年的先驅版
+- [[bainbridge-ironies-of-automation]] —— 這條的 1983 原文

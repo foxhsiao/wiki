@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # AI 開發的經濟學
@@ -74,6 +74,21 @@ harness 是資產，但它有折舊、有保養費，而保養費隨 repo 數與
 注意 Lindgren 明說**反諷 #5 是她自己的產物**、不是 Bainbridge 的，
 而且應視為待進一步檢驗的假說。
 
+## 一句把這頁算法翻過來的話
+
+[[bainbridge-ironies-of-automation|Bainbridge 1983]] 的結尾：
+
+> "Perhaps the final irony is that it is **the most successful automated systems, with rare
+> need for manual intervention, which may need the greatest investment in human operator
+> training**."
+
+（推論）本頁的 CapEx／OpEx 框架預設自動化程度愈高、人力成本愈低。
+這句話說相反：**自動化愈成功，訓練投資愈高**——
+因為需要人介入的次數愈少，人愈沒機會維持介入所需的能力
+（[[monitoring-does-not-teach]]），於是只能靠刻意的、不產出的訓練來補。
+
+本頁與 [[ai-native-sdlc]] 都沒有把訓練列成成本項。
+
 ## 相關頁面
 
 - [[the-new-sdlc-with-vibe-coding]] —— 來源
@@ -84,3 +99,4 @@ harness 是資產，但它有折舊、有保養費，而保養費隨 repo 數與
 - [[agent-config-evals]] —— 最主要的那筆持續支出
 - [[prompt-obsolescence]] —— 折舊那一面
 - [[ironies-of-automation-public-service]] —— 反諷 #5：成本沒有被歸戶
+- [[bainbridge-ironies-of-automation]] —— 最成功的自動化需要最多訓練投資

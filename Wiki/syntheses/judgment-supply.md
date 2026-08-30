@@ -7,7 +7,7 @@ created: 2026-08-30
 updated: 2026-08-30
 status: active
 confidence: low
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # 判斷力的供給問題
@@ -135,6 +135,12 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
    確保組織裡還有人有能力監控與接手。
    （推論）這是把訓練場域當成一項**要編列預算的成本**，
    而不是指望它作為工作的副產品自然出現。代價明擺著：那部分工作刻意不自動化。
+
+   **這個做法 1983 年就寫在原文裡了**（[[bainbridge-ironies-of-automation]]）：
+   「讓操作員在每個班次裡有一小段時間手動控制；如果這個建議聽起來很可笑，
+   那就必須提供模擬器練習。」Bainbridge 自己預期會有人覺得可笑，所以先備了退路。
+   （推論）四十年後在軟體開發脈絡下，第一個選項聽起來一樣可笑，
+   而第二個選項——**給 agent 時代的模擬器**——沒有人做過。
 2. **參與設計**——參與建置的承辦人員發展出流程與技術的新技能，因而成為適合的監控者。
    但這造成對少數個人的依賴，而且**不可規模化**：
    不可能讓每一代人都參與同一套系統的初次設計。
@@ -145,10 +151,10 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
 
 按價值排序：
 
-1. ~~自動化普及後專業技能怎麼維持的先例~~ —— **2026-08-30 已補上**
-   （[[ironies-of-automation-public-service]]），而且結果是 H1 被反駁。
-   剩下的缺口是 **Bainbridge 1983 原文本身**：本庫對它的引用全部經由 Lindgren 轉引，
-   原始站點已 404、存檔站抓不到。若要在核心論證上用力壓，應該去補原文。
+1. ~~自動化普及後專業技能怎麼維持的先例~~ —— **2026-08-30 已補上**，
+   而且**原文也補了**（[[bainbridge-ironies-of-automation]]）。結果是 H1 被反駁。
+   原文比轉引版更強：「present generation of automated systems … are **riding on their
+   skills**, which later generations of operators cannot be expected to have」。
 2. **談 AI 時代資淺工程師養成的實證研究。** 直接對應，但（推論）現在可能還太早。
 3. **買方或監管方視角的組織來源。** 本庫九份來源出自兩家公司，全是賣方。
 
@@ -172,3 +178,4 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
 - [[what-the-19-percent-measures]] —— 本頁刻意避免重蹈的那個錯誤
 - [[ironies-of-automation-public-service]] —— 反駁 H1 的跨領域來源
 - [[monitoring-does-not-teach]] —— 反駁的核心論證
+- [[bainbridge-ironies-of-automation]] —— 反駁 H1 的原典
