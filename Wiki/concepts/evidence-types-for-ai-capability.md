@@ -4,10 +4,10 @@ type: concept
 aliases: [evidence types, benchmark vs RCT, 證據層級]
 tags: [ai, 方法學, 評估]
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
 ---
 
 # AI 能力的三種證據
@@ -36,6 +36,26 @@ sources: ["[[metr-early-2025-ai-developer-productivity]]"]
 也就是說 benchmark 測的是能力上限，RCT 測的是**當前實務下的實際交付**。
 兩者都對，只是別互相冒充。
 
+## RCT 那一格的限制，從「適用範圍窄」變成「可能跑不動」
+
+本頁原本記 RCT 的問題是**適用範圍窄**——只涵蓋受試者實際的用法。
+[[metr-2026-uplift-update]] 加上了更嚴重的一條：**這種設計可能招不到人、收不到代表性的任務**。
+
+當工具好用到受試者拒絕在沒有它的條件下工作，隨機化就失去意義。
+30–50% 的開發者承認會避開「AI 增益高」的任務，有一位在被禁止用 AI 的組別裡一個任務都沒完成。
+展開見 [[control-group-collapse]]。
+
+這讓三種證據的處境變成：
+
+| 證據 | 狀態 |
+|---|---|
+| Benchmark | 傾向高估，但**還跑得動** |
+| 自陳 | 已知不可靠，但**還跑得動**，而且正在被迫重新啟用 |
+| **RCT** | 偏誤最小，但**在這個題目上正在失去可行性** |
+
+（推論）最不偏誤的方法最先失效，這個順序很糟：
+剩下的兩種都偏向高估，而且沒有第三方可以校準它們。
+
 ## 對本庫的意義
 
 （推論）本庫收錄的八份來源裡，**七份的證據等級是軼事或框架**，
@@ -56,3 +76,5 @@ sources: ["[[metr-early-2025-ai-developer-productivity]]"]
 - [[self-report-vs-measurement]] —— 自陳那一格的具體資料
 - [[harness-engineering]] —— 證據基礎被這一頁削弱的對象
 - [[what-the-19-percent-measures]] —— 三種證據在本庫的實際對撞
+- [[metr-2026-uplift-update]] —— RCT 失去可行性的紀錄
+- [[control-group-collapse]] —— 失效的機制

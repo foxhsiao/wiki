@@ -215,3 +215,21 @@ sources: []
 - **pattern 刻意加了根目錄錨點**：不加的話會誤傷 `Raw/` 的 `YYYY-MM-DD--slug.md` 命名（規則 `[N2]`）。已驗證：`2026-08-30.md` 命中、`2026-08-29--metr-early-2025-ai-developer-productivity.md` 不命中
 - （推論）`git add -A` 在一個同時是 Obsidian vault 的 repo 裡是有風險的預設——外掛會在你不知情時建檔。這與 `[W6]` 的「推之前確認推送範圍」是同一件事，只是尺度更小
 
+## [2026-08-30] ingest | METR：我們正在改變開發者生產力實驗的設計
+- 來源：METR 2026-02-24。**一份宣告自己量不準的研究報告**
+- Raw：`Raw/inbox/We are Changing...md` → `Raw/2026-08-30--metr-2026-uplift-update.md`（只改檔名）
+- 新增來源頁：[[metr-2026-uplift-update]]
+- 新增概念：[[control-group-collapse]]
+- 更新：[[metr-early-2025-ai-developer-productivity]]（**解除 stale**、補上信賴區間）、[[what-the-19-percent-measures]]（可主張清單重寫）、[[self-report-vs-measurement]]、[[evidence-types-for-ai-capability]]、[[metr]]、[[the-80-percent-problem]]、[[can-judgment-be-outsourced]]、[[prompt-obsolescence]]、[[open-questions]]、[[overview]]、[[index]]
+- **重壓的那條：三組信賴區間**
+  - 2025 早期：慢 19%，區間 **`+2% 到 +39%`**，**不含 0**——這是本庫第一次拿到，當年的結果是**顯著的**
+  - 2025 晚期・原班 10 位：慢 18%，區間 `−38% 到 +9%`，**跨過 0**
+  - 2025 晚期・新招募 47 位：慢 4%，區間 `−15% 到 +9%`，**跨過 0**
+  - METR 自己：中央估計值「很可能是真實生產力影響的糟糕代理」
+- **淨結果：本庫一個生產力數字都不能直接引用。** 2025 那份顯著但過期，2026 那份當期但不可解讀。存活的只有 [[self-report-vs-measurement]] 這條方法學發現
+- **連帶影響**：「判斷力無法外包」那一側連一個可引用的數字都沒有了。沒有證據不等於證據為否，但本庫應停止說它有數據支撐
+- **對 Q15 是壞消息（本 ingest 最重要的判斷）**：2026 那份表面像在回答 harness 問題（估計值從 −19% 移到 −4%），**但無法歸因**——新招募組同時換了三件事：不同的人、較小較新較不成熟的 repo、更新的 agentic 工具。而 2025 的因子 3 與因子 5 已指出 repo 規模與隱性脈絡本身就是主因。**最想被分離的變數正好被綁在另外兩個已知有影響的變數上。** Q15 因此比一個月前更難填
+- **Q16 closed**；Q15 狀態更新為「仍是最大缺口，且更難填」
+- **新概念 [[control-group-collapse]] 是本次最可移植的收穫**：工具好到受試者拒絕在沒有它的條件下工作，RCT 就失效。它把 [[prompt-obsolescence]] 推到第三層——規則過期 → 結果過期 → **量測方法本身失效**。也是 Q13「成功與停止量測長得一樣」在真實研究上發生的樣子，而答案是**分不出來**
+- 判讀保留的三個盲點：趨勢判斷的依據是訪談不是數據；時薪 150→50 美元這個共變數未被分離；新舊兩組的差異無法歸因
+
