@@ -7,7 +7,7 @@ created: 2026-08-30
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[bainbridge-ironies-of-automation]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[ironies-of-automation-public-service]]", "[[the-ai-native-sdlc-playbook]]"]
 ---
 
 # 監控學不到東西

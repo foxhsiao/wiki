@@ -16,7 +16,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 - **為什麼重要**：[[can-judgment-be-outsourced]] 整條對撞，是拿 2019 年的說法對撞 2026 年的實作。
   若 Naval 之後修正過「教不來」的判準，這條矛盾可能已經被他自己處理掉了。
-- **目前掌握**：本庫只有 2019 年同一系列的兩篇。
+- **目前掌握**：本庫只有 2019 年同一系列的兩篇（[[arm-yourself-with-specific-knowledge]]、[[read-what-you-love]]）。
 - **缺什麼**：Naval 2023 年之後談 AI 的文字或訪談。
 - **狀態**：open
 
@@ -115,7 +115,8 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   那沒有來源支撐。落差來自**量測方法**，不是任務性質。
 - **附帶發現**：本庫原本把這個 19% 當成「判斷力無法外包」的實證，那是誤讀
   （五個因子沒有一個關於判斷力）。見 [[what-the-19-percent-measures]]。
-- **狀態**：**closed** —— 但 2026-02-24 的後續研究仍待 ingest（見 Q15）
+- **狀態**：**closed** —— 2026-02-24 的後續研究已於 2026-08-30 ingest（[[metr-2026-uplift-update]]，見 Q16），
+  結論不變：兩組數字仍在測不同的東西。
 
 ## Q8. 「給判準」還是「給清單」？
 
@@ -130,7 +131,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 ## Q9. 本庫的 `CLAUDE.md` 該不該加 Inversion 閘門？
 
-- **為什麼重要**：[[skill-design-patterns]] 指出 ingest 流程第 2 步
+- **為什麼重要**：[[agent-skill-design-patterns]] 歸納的 [[skill-design-patterns|模式]]指出 ingest 流程第 2 步
   「回報重點等使用者確認」是很弱的 Inversion——沒有不可協商的閘門。
 - **新的反面證據（2026-08-02）**：[[prompting-claude-opus-5]] 的建議方向相反——
   「例行判斷自己做，只在不同解讀會導致實質不同的工作時才確認」。

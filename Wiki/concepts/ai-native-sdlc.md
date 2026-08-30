@@ -7,7 +7,7 @@ created: 2026-08-29
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-ai-native-sdlc-playbook]]", "[[the-new-sdlc-with-vibe-coding]]"]
 ---
 
 # AI-native SDLC

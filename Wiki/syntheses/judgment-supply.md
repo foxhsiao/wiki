@@ -62,7 +62,11 @@ sources: ["[[bainbridge-ironies-of-automation]]", "[[arm-yourself-with-specific-
 
 ### H1 場域轉移說：審查與規格也是複雜環境的模式比對
 
-**支持**：[[addy-osmani|Osmani]] 的「依判斷力而非實作能力招募」隱含這條；
+（「判斷力是在複雜環境做模式比對累積出來的」這個定義出自
+[[arm-yourself-with-specific-knowledge]]，本頁三個假說都建立在它上面。）
+
+**支持**：[[addy-osmani|Osmani]] 在 [[the-new-sdlc-with-vibe-coding]] 給的建議
+「依判斷力而非實作能力重新設計招募」隱含這條；
 [[conductor-and-orchestrator|協調者]]要的四種技能（規格、拆解、評估、系統設計）
 是上移之後那一層的具體內容。
 
@@ -90,6 +94,7 @@ Bainbridge 1983 的論證——監控**結構上就不提供累積條件**：
 ### H2 有損壓縮說：文件承載結論，不承載能力
 
 這條在 [[can-judgment-be-outsourced]] 已經列為三種解法之一，但一直沒有證據。
+它要壓縮的對象就是 [[elephants-goldfish]] 那套「把設計判斷全寫進一份文件交給 agent」的做法。
 **現在有了一筆，而且來自本庫自己。**
 
 `.claude/rules-ledger.md` 的第一筆觀察：規則 `[K1]`（帶別名的 wikilink 別放表格）

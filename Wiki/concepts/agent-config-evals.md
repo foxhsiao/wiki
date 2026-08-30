@@ -4,10 +4,10 @@ type: concept
 aliases: [continuous evals, agent config evals, eval suite]
 tags: [ai, agent, 測試, 工作方法]
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-ai-native-sdlc-playbook]]", "[[prompting-claude-opus-5]]"]
 ---
 
 # 設定檔的回歸測試

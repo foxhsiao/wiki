@@ -108,8 +108,10 @@ ingest 預設會停下來等你確認方向。趕時間可以：
 代價是你失去在擴散更新前介入的機會。第一次處理陌生領域的來源不建議這樣做。
 
 ```bash
-python3 tools/lint.py          # 斷鏈 / 孤兒頁 / frontmatter 缺漏 / index 漏登 / Raw 未 ingest / 走失頁 / 規則來由缺漏
-python3 tools/test_lint.py     # 反向對照：注入 15 種缺陷，確認 lint 真的抓得到
+python3 tools/lint.py          # 斷鏈 / 孤兒頁 / frontmatter 缺漏 / index 漏登 / Raw 未 ingest / 走失頁
+                               # / 規則來由缺漏 / 衝突標記 / confidence 與來源數 / type 與資料夾 / 空區塊
+                               # / sources 與內文一致 / README 與 overview 的計數
+python3 tools/test_lint.py     # 反向對照：注入 19 種缺陷，確認 lint 真的抓得到
 grep "^## \[" Wiki/log.md | tail -5   # 最近 5 筆動作
 ```
 
@@ -137,7 +139,7 @@ grep "^## \[" Wiki/log.md | tail -5   # 最近 5 筆動作
 - **Web Clipper**：瀏覽器擴充，把網頁存成 markdown 丟進 `Raw/inbox/`
 - **關係圖檢視**：看孤兒頁與樞紐頁最快的方式。
   預設已在 `.obsidian/graph.json` 把 `index.md`、`log.md` 與 `_templates/` 濾掉——
-  它們是**機械性樞紐**（`log` 有 48 條出鏈且只會愈長），會在圖上壓過真正的概念核心。
+  它們是**機械性樞紐**（`log` 的出鏈數已破兩百，而且只會愈長），會在圖上壓過真正的概念核心。
   濾掉之後浮出來的才是實際的重心：`judgment`、`can-judgment-be-outsourced`、
   `harness-engineering`、`context-engineering`。
   濾掉不會讓任何頁面變孤島——`tools/lint.py` 已強制每頁都要有 index／log 以外的入鏈
@@ -145,9 +147,10 @@ grep "^## \[" Wiki/log.md | tail -5   # 最近 5 筆動作
 
 ## 目前狀態
 
-7 份來源、43 個 wiki 頁面、14 個開放問題（最後更新 2026-08-29）。
+11 份來源、56 個 wiki 頁面、16 個開放問題（最後更新 2026-08-30）。
 主題集中在「機器能做掉實作之後，人還剩下什麼」——判斷力、脈絡工程、
-agent harness、AI-native SDLC 的治理。從 `Wiki/overview.md` 進去最快。
+agent harness、AI-native SDLC 的治理。來源橫跨 1983 到 2026，
+從工業製程控制到軟體開發。從 `Wiki/overview.md` 進去最快。
 
 ## 版本控制
 

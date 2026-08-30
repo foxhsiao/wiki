@@ -25,6 +25,8 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", 
 | 怎麼變現 | 靠[[leverage-and-compounding|槓桿]]放大 | 寫成設計文件，交給 agent 執行 |
 | 對機器的態度 | 可訓練的東西終將被機器取代 | **不要把判斷力外包給機器** |
 
+（Naval 這一欄出自 [[arm-yourself-with-specific-knowledge]]，2019 年的兩篇之一。）
+
 ## 矛盾在哪
 
 Rensin 說「不要把判斷力外包給機器」，但 [[elephant-goldfish-model]] 做的事情是：

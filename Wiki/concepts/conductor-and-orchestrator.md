@@ -4,10 +4,10 @@ type: concept
 aliases: [conductor, orchestrator]
 tags: [ai, 工作方法, 職涯]
 created: 2026-08-01
-updated: 2026-08-01
+updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[elephants-goldfish]]"]
 ---
 
 # 指揮家與協調者
@@ -40,6 +40,10 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]"]
 [[dave-rensin|Rensin]] 從完全不同的來源得到幾乎相同的結論——
 「我們都是管理者了」，並建議 IC 現在就去上基礎管理課、從同時管 3–5 個 agent 開始。
 兩份來源獨立收斂，這條的可信度比單一來源高。
+
+但收斂的只有「協調者需要不同的技能組」這一條。
+**兩種模式的分類本身仍然只有 [[the-new-sdlc-with-vibe-coding]] 一份來源**——
+所以整頁的 `confidence` 停在 `medium`，不是 `high`。
 
 ## 相關頁面
 
