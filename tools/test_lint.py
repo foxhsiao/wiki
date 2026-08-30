@@ -221,6 +221,12 @@ def m_count_anchor_gone(root):
                  encoding="utf-8")
 
 
+def m_alias_in_table(root):
+    p = root / "Wiki" / "concepts" / "alpha.md"
+    p.write_text(p.read_text(encoding="utf-8").replace(
+        "一句話。", "| 欄 | 值 |\n|---|---|\n| a | [[beta|貝他]] |"), encoding="utf-8")
+
+
 MUTATIONS = [
     ("frontmatter 缺欄位", "[frontmatter]", True, m_missing_field),
     ("type 值不合法", "[frontmatter]", True, m_bad_type),
@@ -241,6 +247,7 @@ MUTATIONS = [
     ("sources 列了但內文沒用", "[來源一致]", False, m_source_unused),
     ("README 計數與實際不符", "[計數]", True, m_count_mismatch),
     ("overview 統計表的錨點不見了", "[計數]", True, m_count_anchor_gone),
+    ("表格裡的別名 wikilink", "[表格別名]", True, m_alias_in_table),
 ]
 
 

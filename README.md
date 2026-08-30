@@ -110,8 +110,8 @@ ingest 預設會停下來等你確認方向。趕時間可以：
 ```bash
 python3 tools/lint.py          # 斷鏈 / 孤兒頁 / frontmatter 缺漏 / index 漏登 / Raw 未 ingest / 走失頁
                                # / 規則來由缺漏 / 衝突標記 / confidence 與來源數 / type 與資料夾 / 空區塊
-                               # / sources 與內文一致 / README 與 overview 的計數
-python3 tools/test_lint.py     # 反向對照：注入 19 種缺陷，確認 lint 真的抓得到
+                               # / sources 與內文一致 / README 與 overview 的計數 / 表格裡的別名 wikilink
+python3 tools/test_lint.py     # 反向對照：注入 20 種缺陷，確認 lint 真的抓得到
 grep "^## \[" Wiki/log.md | tail -5   # 最近 5 筆動作
 ```
 
