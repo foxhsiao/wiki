@@ -4,7 +4,7 @@ type: concept
 aliases: [judgment, 品味, taste]
 tags: [能力, ai, 職涯]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: high
 sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
@@ -88,6 +88,16 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 拆解見 [[what-the-19-percent-measures]]。
 淨效果是：扣掉這份誤讀之後，「判斷力無法外包」那一側**回到沒有實證數據的狀態**。
 
+## 供給端：這些說法都沒處理的一件事
+
+六份來源都在談判斷力**是什麼**、**值多少**、**該放在哪**。
+沒有一份談它**從哪裡長出來**——如果累積場域正在消失，
+上面所有主張都只有一代的壽命。
+
+[[judgment-supply]] 把這個問題拆成供給、機制、傳遞三塊，
+並指出一件本庫先前假設錯的事：**場域不是被 agent 拿走的，是人自己不回去**
+（[[control-group-collapse]]）。
+
 ## 怎麼練
 
 - Naval：靠真實好奇心撐住長期投入，靠[[first-principles-foundation|第一原理地基]]分辨真假。
@@ -115,3 +125,4 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 - [[conductor-and-orchestrator]] —— 判斷力被消耗的兩種模式
 - [[the-ai-native-sdlc-playbook]] —— 判斷力在流程裡的落點
 - [[what-the-19-percent-measures]] —— 唯一不支持這條線的來源
+- [[judgment-supply]] —— 這個能力從哪裡長出來
