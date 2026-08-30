@@ -4,10 +4,10 @@ type: concept
 aliases: [the 80% problem]
 tags: [ai, 軟體工程]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
 ---
 
 # 80% 問題
@@ -65,6 +65,18 @@ METR 找到的五個因子沒有一個關於人類判斷不可替代。見 [[wha
 
 另外，原文頁首已由作者宣告這批結果過期，引用時要標明它是歷史測量。
 
+## 那個 19% 現在不能再引用了
+
+[[metr-2026-uplift-update]] 讓本頁表格裡的 METR 那一列失效。
+
+它同時給了本庫先前沒有的信賴區間：2025 那輪是 **19%，區間 `+2% 到 +39%`**，不含 0，
+所以當年**是顯著的**。但後續兩組的區間都跨過 0（原班 `−38% 到 +9%`、新招募 `−15% 到 +9%`），
+而且 METR 自己說那些數字「很可能是真實生產力影響的糟糕代理」。
+
+所以本頁的表格現在要這樣讀：**「提升 25–39%」仍然是自陳調查（不可靠），
+而「慢 19%」是一個顯著但已過期的測量**。兩邊都不能當事實用。
+Q7 的解（自陳與實測的方法差異）不受影響，那是方法學發現，不是那個數字。
+
 ## 與其他來源的張力
 
 [[dave-rensin|Rensin]] 說既有 monolith「一週就能餵完大象」，同時承認葉節點的 README
@@ -81,3 +93,5 @@ METR 找到的五個因子沒有一個關於人類判斷不可替代。見 [[wha
 - [[metr-early-2025-ai-developer-productivity]] —— 那個 19% 的原始研究
 - [[self-report-vs-measurement]] —— Q7 的解
 - [[what-the-19-percent-measures]] —— 這個數字能與不能主張什麼
+- [[metr-2026-uplift-update]] —— 那個 19% 為什麼不能再引用
+- [[control-group-collapse]] —— 新數字不可解讀的原因

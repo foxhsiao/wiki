@@ -4,10 +4,10 @@ type: concept
 aliases: [prompt obsolescence, 提示過期]
 tags: [ai, agent, 工作方法]
 created: 2026-08-02
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
 ---
 
 # 規則檔的折舊
@@ -85,6 +85,23 @@ Google 白皮書（2026-05）引用這個 19% 時，就沒有提到任何時效�
 （推論）所以 `sources` 欄位不只要記「哪一份來源」，還要記「那份來源什麼時候被測量」。
 本庫目前沒有這個欄位——來源頁有 `published`，但引用它的概念頁看不到。
 
+## 折舊的第三層：量測方法本身
+
+[[metr-2026-uplift-update]] 把這一頁再推一級。三層由淺到深：
+
+| 層 | 什麼過期 | 實例 |
+|---|---|---|
+| 1 | **規則檔** | [[prompting-claude-opus-5]] 列出該刪的指令 |
+| 2 | **測量結果** | [[metr-early-2025-ai-developer-productivity]] 被作者宣告過期 |
+| 3 | **量測方法本身** | RCT 因為受試者拒絕無 AI 條件而失效（[[control-group-collapse]]） |
+
+第三層最麻煩，因為前兩層都還有辦法偵測——
+規則檔靠 [[agent-config-evals|eval suite]]、測量結果靠作者更新。
+但方法失效時，你拿到的是**看起來正常的數字**，只有做研究的人知道它不能解讀。
+
+（推論）而驅動這三層的是同一件事：工具變好。
+**工具愈有價值，關於它的知識折舊愈快。**
+
 ## 對本知識庫自己的意涵
 
 `CLAUDE.md` 目前沒有這份文件點名的反模式（沒有「再檢查一次」這類指令，
@@ -100,3 +117,5 @@ Google 白皮書（2026-05）引用這個 19% 時，就沒有提到任何時效�
 - [[agent-config-evals]] —— 偵測折舊的做法
 - [[the-ai-native-sdlc-playbook]] —— Q11 的部分答案
 - [[metr-early-2025-ai-developer-productivity]] —— 測量也會折舊的實例
+- [[metr-2026-uplift-update]] —— 折舊的第三層
+- [[control-group-collapse]] —— 方法失效的機制

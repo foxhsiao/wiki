@@ -4,10 +4,10 @@ type: synthesis
 aliases: [overview]
 tags: [樞紐]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
 ---
 
 # 總覽
@@ -23,7 +23,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 ## 目前的主軸
 
-八份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
+九份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
 
 ### 1. 判斷力是共同答案（5 份來源，跨 7 年）—— 本庫收斂度最高的一條
 
@@ -105,8 +105,17 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 - **[[evidence-types-for-ai-capability|三種證據各自的偏誤方向]]**——benchmark 傾向高估、
   自陳更不可靠、RCT 適用範圍窄。本庫八份來源裡**七份是敘事或框架**，
   而這把尺說那一類最弱。
-- **測量也會折舊**：這份研究被作者自己在頁首宣告過期，是本庫第一頁 `status: stale`
-  （[[prompt-obsolescence]]）。
+- **測量也會折舊**：這份研究被作者自己在頁首宣告過期（[[prompt-obsolescence]]）。
+- **而且量測方法本身也會失效**：[[metr-2026-uplift-update]] 記錄了
+  [[control-group-collapse|對照組崩解]]——開發者拒絕在無 AI 條件下工作、
+  30–50% 承認會避開 AI 增益高的任務，使 RCT 在這個題目上正在失去可行性。
+  **工具愈有價值，關於它的知識折舊愈快。**
+
+**代價要講清楚：本庫現在一個生產力數字都不能直接引用。**
+2025 那份顯著（區間 `+2% 到 +39%`）但已過期；2026 那份當期但兩組區間都跨過 0
+且被作者宣告不可解讀。存活下來的只有[[self-report-vs-measurement|自陳不可信]]這條方法學發現。
+連帶地，「判斷力無法外包」那一側**連一個可引用的數字都沒有了**——
+沒有證據不等於證據為否，但本庫應該停止說它有數據支撐。
 
 最不舒服的一條：它同時**支持與削弱**本庫的 harness 論述。
 支持的是因子 5「隱性脈絡」正是規則檔與 skill 在編碼的東西；
@@ -185,20 +194,22 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
   但它也有自己的方向——組織動機是 AI 風險評估，（推論）這會讓它對
   「AI 能力被高估」的證據更敏感。
 - Naval 的兩篇都在 AI 普及之前（2019）。他 2026 年的說法是最大的缺口（Q1）。
-- **八份裡只有兩份帶資料**（白皮書、METR），其餘六份全是敘事與框架。
-  而 METR 那份已被作者宣告過期，白皮書引用的數字多半是自陳調查。
+- **九份裡只有三份帶資料**（白皮書、METR 兩份），其餘六份全是敘事與框架。
+  而 METR 兩份的數字現在都不可直接引用，白皮書引用的數字多半是自陳調查。
+  **實質上本庫沒有可用的量化證據。**
 - [[leverage-and-compounding]] 仍是 seed，撐著主軸 3 的關鍵一步。
 - **治理那一軸目前只有一份來源，而且是賣方的**。需要一份買方或監管方視角的來源來對撞。
-- 十六個開放問題見 [[open-questions]]，Q7 與 Q10 已結案。
-  **最大的證據缺口換成 Q15：好的 harness 能不能翻轉那個 19%——本庫一份真實世界的資料都沒有。**
-  下一份要 ingest 的是 METR 2026-02-24 的後續研究（Q16）。
+- 十六個開放問題見 [[open-questions]]，Q7、Q10、Q16 已結案。
+  **最大的證據缺口仍是 Q15（好的 harness 能不能翻轉那個 19%），而且比一個月前更難填**——
+  2026 那份把 harness 這個變數綁在「不同的人」與「不同成熟度的 repo」上，無法歸因。
+  （推論）外部研究做不動的情況下，本庫自己記錄「加規則前後的返工次數」可能是唯一可行的路。
   Q12、Q13、Q14 不需要新來源，動手就能推進。
 
 ## 統計
 
 | 項目 | 數量 |
 |---|---|
-| 來源 | 8 |
-| Wiki 頁面 | 48 |
-| 開放問題 | 16（2 條 closed） |
+| 來源 | 9 |
+| Wiki 頁面 | 50 |
+| 開放問題 | 16（3 條 closed） |
 | 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |

@@ -4,10 +4,10 @@ type: synthesis
 aliases: [judgment outsourcing]
 tags: [ai, 能力, 論點]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
 ---
 
 # 判斷力能不能外包
@@ -122,6 +122,19 @@ repo 太大太複雜、AI 可靠度低、隱性脈絡缺失。
 只剩 [[the-80-percent-problem|80% 問題]]這種框架式論證。
 本庫核心矛盾的證據天平因此往「可以外包」那側偏了一格。
 
+## 後續研究讓這一側的處境更差
+
+[[metr-2026-uplift-update]] 之後，本頁先前那個誤讀不只是「用錯了」，
+而是**那個數字現在整個不能用**：2025 那輪已過期，2026 那輪的兩組信賴區間都跨過 0，
+且被作者宣告不可解讀（[[control-group-collapse]]）。
+
+（推論）淨效果是：「判斷力無法外包」那一側**連一個可引用的數字都沒有了**，
+剩下的全是框架式論證（[[the-80-percent-problem|80% 問題]]、架構是最頑固的人類環節）。
+而框架式論證正是 [[evidence-types-for-ai-capability]] 裡最弱的那一類。
+
+這不代表那一側是錯的——**沒有證據不等於證據為否**。
+但本庫應該停止把它描述成「有數據支撐」。
+
 ## 三種可能的解法
 
 1. **有損壓縮說**：設計文件承載的是判斷的**結論**，不是產生結論的能力。
@@ -186,3 +199,4 @@ Naval 那兩篇是 2019 年、AI 普及之前的說法，他在 2026 年會不�
 - [[advisory-vs-deterministic-control]] —— 人的判斷靠什麼被強制留在流程裡
 - [[metr-early-2025-ai-developer-productivity]] —— 被誤讀的那份研究
 - [[what-the-19-percent-measures]] —— 誤讀的完整拆解
+- [[metr-2026-uplift-update]] —— 讓這一側連數字都沒有了

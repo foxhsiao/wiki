@@ -4,7 +4,7 @@ type: synthesis
 aliases: [index]
 tags: [樞紐]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: high
 sources: []
@@ -20,7 +20,7 @@ sources: []
 - [[overview]] — 全庫總覽與當前主軸
 - [[log]] — 時序流水帳
 
-## 來源（8）
+## 來源（9）
 
 - [[arm-yourself-with-specific-knowledge]] — Naval 2019：教不來但學得會的知識才有報酬
 - [[read-what-you-love]] — Naval 2019：先讀你愛讀的，再往原典走；慾望比手段稀缺
@@ -29,7 +29,8 @@ sources: []
 - [[the-new-sdlc-with-vibe-coding]] — Google 白皮書 2026：51 頁，vibe coding 到 agentic engineering 的光譜 · **本庫唯一帶數據的來源**
 - [[prompting-claude-opus-5]] — Anthropic 官方文件：哪些為前代調校的指令現在會反過來傷害你 · session 層級
 - [[the-ai-native-sdlc-playbook]] — Anthropic 2026：六階段 13 個 play，把 SDLC 重建成迴圈 · **本庫唯一的組織治理來源**
-- [[metr-early-2025-ai-developer-productivity]] — METR 2025：RCT 量到資深開發者用 AI 慢 19% · **本庫唯一的實證研究，且已被作者宣告過期**
+- [[metr-early-2025-ai-developer-productivity]] — METR 2025：RCT 量到慢 19%（區間 +2% 到 +39%，顯著）· 本庫第一份實證研究，已被後續限定
+- [[metr-2026-uplift-update]] — METR 2026：後續兩組區間都跨過 0，作者宣告自己的估計「很可能是糟糕的代理」· **一份宣告自己量不準的研究**
 
 ## 實體（6）
 
@@ -40,7 +41,7 @@ sources: []
 - [[claude-opus-5]] — 1M 脈絡、thinking 預設開；本庫第一個會自己做判斷的實體 · seed
 - [[metr]] — 做 AI 評估的研究組織；本庫唯一沒有產品要賣的來源方 · seed
 
-## 概念（28）
+## 概念（29）
 
 - [[specific-knowledge]] — 教不來但學得會；判準是「能被訓練的就能被量產」
 - [[judgment]] — 兩份來源共同指認的、唯一不會貶值的能力
@@ -70,6 +71,7 @@ sources: []
 - [[agent-config-evals]] — 規則檔要像程式一樣被回歸測試 · Q11 的部分答案
 - [[self-report-vs-measurement]] — 自認快 20%，實際慢 19%，差 39 個百分點 · **Q7 的解**
 - [[evidence-types-for-ai-capability]] — benchmark 高估、自陳更高估、RCT 適用窄
+- [[control-group-collapse]] — 工具好到受試者拒絕沒有它，RCT 就失效了 · **工具愈有價值愈難量測它的價值**
 
 ## 綜合（2）
 
@@ -78,4 +80,4 @@ sources: []
 
 ## 問題（1）
 
-- [[open-questions]] — 16 個開放問題 · **Q7、Q10 已 closed；Q15「好的 harness 能不能翻轉那個 19%」是目前最大的證據缺口；Q16 是下一份要 ingest 的來源**
+- [[open-questions]] — 16 個開放問題 · **Q7、Q10、Q16 已 closed；Q15「好的 harness 能不能翻轉那個 19%」仍是最大缺口，且比一個月前更難填**
