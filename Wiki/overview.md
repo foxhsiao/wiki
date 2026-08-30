@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # 總覽
@@ -23,7 +23,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 ## 目前的主軸
 
-九份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
+十份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
 
 ### 1. 判斷力是共同答案（5 份來源，跨 7 年）—— 本庫收斂度最高的一條
 
@@ -62,6 +62,13 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 但它同時把政策本身寫成 skill 交出去了，
 而且（推論）**閘門上的判斷是審查別人做完的東西，不是從頭做模式比對**——
 這讓 Q6 更尖銳而不是更緩和。
+
+**第六份來源說這題四十三年前就有答案了**：[[ironies-of-automation-public-service]]
+把 Bainbridge 1983 帶進本庫。它的反諷 #3 直接反駁了「判斷力上移到閘門」這個安排——
+監控**結構上不提供能力累積的條件**，而且 Bainbridge 預測這會**逐代惡化**。
+展開見 [[monitoring-does-not-teach]] 與 [[judgment-supply]]。
+
+（推論）本庫花了九份來源、四週，重新發現了一個 1983 年的結論。
 
 **新的裂縫（兩條）**：
 
@@ -189,6 +196,9 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 
 ## 目前的缺口
 
+- **第一次跨出領域**：[[ironies-of-automation-public-service]] 是十份裡唯一不談軟體開發的，
+  也是唯一一份四十年尺度的。它證明本庫先前的「來源獨立性不足」不只是獨立性問題，
+  是**整個庫困在一個領域的近期文獻裡**。
 - **來源獨立性略有改善**：八份裡三份出自 Google 或 Google 員工、兩份出自 Anthropic、
   兩篇是 [[naval-ravikant|Naval]]，第八份 [[metr|METR]] 是**第一個沒有產品要賣的來源方**。
   但它也有自己的方向——組織動機是 AI 風險評估，（推論）這會讓它對
@@ -209,7 +219,7 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 
 | 項目 | 數量 |
 |---|---|
-| 來源 | 9 |
+| 來源 | 10 |
 | Wiki 頁面 | 50 |
 | 開放問題 | 16（3 條 closed） |
 | 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |

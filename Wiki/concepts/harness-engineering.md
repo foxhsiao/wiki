@@ -4,10 +4,10 @@ type: concept
 aliases: [harness, Agent = Model + Harness]
 tags: [ai, 軟體工程, agent]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # Harness 工程
@@ -120,6 +120,19 @@ Terminal Bench 只改 harness 進 Top 5、LangChain +13.7 分——**都是 benc
 同時抽掉了它原本站的那塊地。**本頁目前沒有任何真實世界的 harness 效果數據。**
 完整拆解見 [[what-the-19-percent-measures]]。
 
+## 「多數失敗是設定失敗」有個 1983 年的同構命題
+
+[[ironies-of-automation-public-service]] 的反諷 #1：所有涉入者都可能出錯，
+**包括設計者**，而設計者的錯誤是操作問題的主因之一。
+自動化不是消除錯誤，**是換一個錯誤來源**。
+
+（推論）本頁那句「多數 agent 失敗，誠實檢視之後，都是設定失敗」
+與它隔了四十三年但形狀相同——**錯誤從執行者移到設計者**，
+而設計者的錯誤更難被察覺，因為它嵌在系統裡而不是發生在動作上。
+
+差別是本頁把這當成好消息（設定可以改進），Bainbridge 把它當成反諷
+（自動化宣稱要消除人為錯誤，實際上只是換了個人來犯）。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 harness 就是 `CLAUDE.md`（規則檔）＋ `tools/lint.py`（確定性 guardrail）
@@ -140,3 +153,4 @@ Terminal Bench 只改 harness 進 Top 5、LangChain +13.7 分——**都是 benc
 - [[metr-early-2025-ai-developer-productivity]] —— 同時支持與削弱本頁的研究
 - [[evidence-types-for-ai-capability]] —— benchmark 證據的偏誤方向
 - [[what-the-19-percent-measures]] —— 兩面的完整拆解
+- [[ironies-of-automation-public-service]] —— 反諷 #1 與本頁隔 43 年同構

@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # 開放問題
@@ -78,13 +78,21 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   H1 場域轉移（審查也是練習）、H2 有損壓縮（文件承載結論不承載能力）、H3 需求下降。
 - **H2 有了第一筆證據，來自本庫自己**：規則 `[K1]` 寫進 `CLAUDE.md` 隔天，
   我在單一頁面違反它 9 次。（推論）結論傳遞成功了，能力沒有。n=1，不能推廣。
-- **缺什麼（按價值排序）**：
-  1. **自動化普及後專業技能怎麼維持的先例**——這題在軟體業是新的，在別的領域不是。
-     本庫目前沒有任何跨領域來源。
+- **跨領域先例已補上（2026-08-30）**：[[ironies-of-automation-public-service]]
+  把 Bainbridge 1983 帶進本庫。結果是 **H1 被直接反駁**——
+  監控「**沒有機會取得或維持**履行那個責任所需的能力」（Bainbridge 1983, p.776），
+  機制是速度超出認知限制加上系統黑箱。見 [[monitoring-does-not-teach]]。
+- **而且 Bainbridge 預測了逐代惡化**：「潛在地對每一個新世代的操作員而言更困難」。
+  （推論）第一代監控者能監控，是因為能力來自自動化**之前**的實作——那個場域對下一代不存在。
+- **有兩個被實際採用的對策**：刻意保留一小部分案件由人工處理（把訓練場域當成要編列預算的成本）；
+  讓人參與系統設計（但造成對少數個人的依賴，且不可規模化）。
+- **本庫的處境**：（推論）花了九份來源、四週，重新發現一個四十三年前的結論。
+- **還缺什麼**：
+  1. **Bainbridge 1983 原文**——本庫的引用全部經由 Lindgren 轉引，原始站點已 404、存檔站抓不到。
   2. 談 AI 時代資淺工程師養成的實證研究。
   3. 買方或監管方視角的組織來源。
-- **狀態**：**open → partial** —— 問題已拆清楚、否證條件已列出，但沒有一份來源直接談它。
-  仍是本庫最有價值的空白之一
+- **狀態**：**partial** —— H1 已被反駁、對策已知，但那些對策在軟體開發脈絡下有沒有效**未被驗證**
+  （來源的技術是 RPA，不是 LLM；領域是公共服務，不是軟體開發）
 
 ## Q7. 生產力數字為什麼互相矛盾？
 
@@ -298,6 +306,8 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - [[metr-2026-uplift-update]] —— Q16 的答案，且讓 Q15 更難回答
 - [[control-group-collapse]] —— Q13 在真實研究上發生的樣子，也是 Q6 供給那一節的機制
 - [[judgment-supply]] —— Q6 的拆解與三個假說
+- [[ironies-of-automation-public-service]] —— 反駁 H1 的跨領域來源
+- [[monitoring-does-not-teach]] —— 反駁的核心論證
 - [[what-the-19-percent-measures]] —— Q15 的展開
 - [[self-report-vs-measurement]] —— Q7 答案的核心
 - [[skill-design-patterns]] —— Q9 的來源
