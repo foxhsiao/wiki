@@ -7,7 +7,7 @@ created: 2026-08-30
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # 自動化造成的工作碎片化
@@ -24,6 +24,19 @@ sources: ["[[ironies-of-automation-public-service]]"]
 那些剩餘任務之間沒有內在的連貫性——它們的共同點只有「機器做不到」。
 
 後果是三個：**新的錯誤來源**、**壓力上升**、**工作滿意度下降**。
+
+## 原文的用語
+
+[[bainbridge-ironies-of-automation|Bainbridge 1983]] 講這件事的原句：
+
+> "the designer who tries to eliminate the operator still leaves the operator to do the tasks
+> which the designer cannot think how to automate … the operator can be left with an
+> **arbitrary collection of tasks**, and little thought may have been given to
+> **providing support for them**."
+
+兩個重點：**arbitrary collection of tasks**（任意的任務集合），
+以及**沒有人替這些任務設計支援**。後者是本庫先前漏掉的一半——
+碎片化的痛不只來自零碎，也來自零碎的部分沒有工具。
 
 ## 本庫原本沒有這條
 
@@ -60,3 +73,4 @@ sources: ["[[ironies-of-automation-public-service]]"]
 - [[the-80-percent-problem]] —— 剩餘工作的另一個屬性
 - [[factory-model]] —— 主張剩餘工作是升級的那一側
 - [[conductor-and-orchestrator]] —— 同上
+- [[bainbridge-ironies-of-automation]] —— 原文

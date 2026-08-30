@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]"]
 ---
 
 # 開放問題
@@ -87,10 +87,15 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - **有兩個被實際採用的對策**：刻意保留一小部分案件由人工處理（把訓練場域當成要編列預算的成本）；
   讓人參與系統設計（但造成對少數個人的依賴，且不可規模化）。
 - **本庫的處境**：（推論）花了九份來源、四週，重新發現一個四十三年前的結論。
+- **原文已補上（2026-08-30）**：[[bainbridge-ironies-of-automation]]。
+  比對後發現轉引有數處失真，且**原文比轉引版更強**：
+  現在這代自動系統「**riding on their skills**」——騎在一批在自動化之前就練成的人身上。
+  原文也自己給了對策：**每個班次保留一小段手動控制時間，做不到就提供模擬器練習**。
+  瑞典自治市的做法是這句話四十一年後的實作。
 - **還缺什麼**：
-  1. **Bainbridge 1983 原文**——本庫的引用全部經由 Lindgren 轉引，原始站點已 404、存檔站抓不到。
-  2. 談 AI 時代資淺工程師養成的實證研究。
-  3. 買方或監管方視角的組織來源。
+  1. 談 AI 時代資淺工程師養成的實證研究。
+  2. 買方或監管方視角的組織來源。
+  3. （推論）**agent 時代的「模擬器」**——Bainbridge 的退路選項在軟體開發脈絡下沒有人做過。
 - **狀態**：**partial** —— H1 已被反駁、對策已知，但那些對策在軟體開發脈絡下有沒有效**未被驗證**
   （來源的技術是 RPA，不是 LLM；領域是公共服務，不是軟體開發）
 
@@ -308,6 +313,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - [[judgment-supply]] —— Q6 的拆解與三個假說
 - [[ironies-of-automation-public-service]] —— 反駁 H1 的跨領域來源
 - [[monitoring-does-not-teach]] —— 反駁的核心論證
+- [[bainbridge-ironies-of-automation]] —— 原典，Q6 的答案與對策都在裡面
 - [[what-the-19-percent-measures]] —— Q15 的展開
 - [[self-report-vs-measurement]] —— Q7 答案的核心
 - [[skill-design-patterns]] —— Q9 的來源

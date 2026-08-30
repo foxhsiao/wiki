@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # Harness 工程
@@ -133,6 +133,22 @@ Terminal Bench 只改 harness 進 Top 5、LangChain +13.7 分——**都是 benc
 差別是本頁把這當成好消息（設定可以改進），Bainbridge 把它當成反諷
 （自動化宣稱要消除人為錯誤，實際上只是換了個人來犯）。
 
+## 原文對「設計者的錯誤」多說了一句
+
+[[bainbridge-ironies-of-automation|Bainbridge 1983]] 的第一個反諷是
+"designer errors can be a major source of operating problems"，
+但他接著補的那句本庫該記住：
+
+> Unfortunately people who have collected data on this are **reluctant to publish** them,
+> as the actual figures are difficult to interpret.
+
+（推論）四十三年後這個問題沒變——本庫收錄的十份來源裡，
+沒有一份公布過自己的 harness 失敗率。[[the-new-sdlc-with-vibe-coding]] 給的兩個
+benchmark 數字是**改進幅度**，不是失敗率。
+
+**一個 1983 年沒有的差異**：Bainbridge 的自動系統是確定性的，設計者原則上知道它會做什麼。
+agent 不是。（推論）這讓反諷 #1 在 LLM 上更嚴重——連設計者都無法完全預期系統行為。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 harness 就是 `CLAUDE.md`（規則檔）＋ `tools/lint.py`（確定性 guardrail）
@@ -154,3 +170,4 @@ Terminal Bench 只改 harness 進 Top 5、LangChain +13.7 分——**都是 benc
 - [[evidence-types-for-ai-capability]] —— benchmark 證據的偏誤方向
 - [[what-the-19-percent-measures]] —— 兩面的完整拆解
 - [[ironies-of-automation-public-service]] —— 反諷 #1 與本頁隔 43 年同構
+- [[bainbridge-ironies-of-automation]] —— 反諷 #1 的原文

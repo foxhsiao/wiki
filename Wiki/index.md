@@ -20,7 +20,7 @@ sources: []
 - [[overview]] — 全庫總覽與當前主軸
 - [[log]] — 時序流水帳
 
-## 來源（10）
+## 來源（11）
 
 - [[arm-yourself-with-specific-knowledge]] — Naval 2019：教不來但學得會的知識才有報酬
 - [[read-what-you-love]] — Naval 2019：先讀你愛讀的，再往原典走；慾望比手段稀缺
@@ -31,7 +31,8 @@ sources: []
 - [[the-ai-native-sdlc-playbook]] — Anthropic 2026：六階段 13 個 play，把 SDLC 重建成迴圈 · **本庫唯一的組織治理來源**
 - [[metr-early-2025-ai-developer-productivity]] — METR 2025：RCT 量到慢 19%（區間 +2% 到 +39%，顯著）· 本庫第一份實證研究，已被後續限定
 - [[metr-2026-uplift-update]] — METR 2026：後續兩組區間都跨過 0，作者宣告自己的估計「很可能是糟糕的代理」· **一份宣告自己量不準的研究**
-- [[ironies-of-automation-public-service]] — Lindgren 2024：把 Bainbridge 1983 的五個反諷套到公共服務自動化 · **本庫第一份跨領域來源；Q6 的答案 1983 年就寫好了**
+- [[bainbridge-ironies-of-automation]] — Bainbridge 1983 原文：自動化把人的工作換成監控與接手，而監控學不到東西 · **本庫最舊也是唯一的原典；Q6 的答案**
+- [[ironies-of-automation-public-service]] — Lindgren 2024：把 Bainbridge 的五個反諷套到公共服務自動化 · 本庫第一份跨領域來源；**引 Bainbridge 請用原文頁**
 
 ## 實體（6）
 

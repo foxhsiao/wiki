@@ -29,8 +29,10 @@ ingested: 2026-08-30
 本檔由 LLM 代為取得，不是使用者剪存的。取得方式：WebFetch 抓 DiVA 的公開全文 PDF，
 再放進 `Raw/`。**是出版商版本的完整 PDF，11 頁，沒有缺漏**——
 論文為 CC BY 4.0 開放取用（Government Information Quarterly 41 (2024) 101974）。
-Bainbridge 1983 原文本身沒有進本庫：原始站點已 404，存檔站抓不到，
-所以本頁對 Bainbridge 的引用**全部是經由 Lindgren 的轉引**。
+**2026-08-30 更新：原文已補進本庫**（[[bainbridge-ironies-of-automation]]）。
+本頁對 Bainbridge 的引用**全部是經由 Lindgren 的轉引**，
+比對之後發現有數處失真（`in`／`with`、句尾遭截斷、方括號補字、逐代惡化被轉述得較弱）。
+**要引 Bainbridge 請用原文頁，不要用本頁。** 差異清單見原文頁。
 
 ## Bainbridge 1983 是什麼
 
@@ -144,3 +146,4 @@ Lindgren 引 Hancock (2014, p.453) 在 Bainbridge 之上追問：
 - [[judgment-supply]] —— 被這份來源大幅改寫的那一頁
 - [[the-80-percent-problem]] —— 反諷 #4 是它的先驅
 - [[harness-engineering]] —— 反諷 #1 與它隔 43 年同構
+- [[bainbridge-ironies-of-automation]] —— 本頁轉引的原文；引用請以原文為準
