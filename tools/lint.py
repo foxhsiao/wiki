@@ -248,6 +248,55 @@ if RULES_FILE.exists():
                     f"必須是 {'／'.join(sorted(VALID_EVIDENCE))} 之一"
                 )
 
+# N5：sources 與內文的雙向一致（2026-08-30 加入）
+# （2026-08-30 健檢抓到 7 頁內文引用了某份來源卻沒列進 sources、4 頁列了卻從未提到。
+#  這直接影響 N6——它的門檻就是數 sources 有幾份。index/log 是目錄，天生列全部，豁免。）
+CATALOGS = {"index", "log"}
+source_stems = {p.stem for p in pages if (parse_fm(p.read_text(encoding="utf-8")) or {}).get("type") == "source"}
+for p in pages:
+    stem = p.stem
+    if stem in CATALOGS or stem in source_stems:
+        continue
+    text = p.read_text(encoding="utf-8")
+    fm = parse_fm(text) or {}
+    declared = set(LINK_RE.findall(fm.get("sources", "")))
+    body = FM_RE.sub("", text, count=1)
+    used = set(LINK_RE.findall(body)) & source_stems
+    for miss in sorted(used - declared):
+        problems.append(
+            f"[來源一致] {rel(p)}：內文引用了 [[{miss}]] 但 frontmatter sources 沒列（規則 N5）"
+        )
+    for unused in sorted(declared - used):
+        warnings.append(
+            f"[來源一致] {rel(p)}：sources 列了 [[{unused}]] 但內文從未提到"
+        )
+
+# L5：維護型產物的計數要跟著現況（2026-08-30 加入）
+# （2026-08-30 健檢時 README 停在四份來源之前的快照：7/43/14，實際是 11/56/16；
+#  overview 的統計表也少算 6 頁、少算 3 條結案。這兩處都是 L5 說的維護型產物。）
+n_sources = len(source_stems)
+n_pages = len(pages)
+n_questions = len(re.findall(r"^## Q\d", (WIKI / "questions" / "open-questions.md").read_text(encoding="utf-8"), re.M))
+
+ov = (WIKI / "overview.md").read_text(encoding="utf-8")
+for label, actual in (("來源", n_sources), ("Wiki 頁面", n_pages)):
+    m = re.search(rf"^\|\s*{re.escape(label)}\s*\|\s*(\d+)", ov, re.M)
+    if not m:
+        problems.append(f"[計數] Wiki/overview.md 的統計表找不到「{label}」那一列，計數閘門失效")
+    elif int(m.group(1)) != actual:
+        problems.append(f"[計數] Wiki/overview.md 統計表：{label} 寫 {m.group(1)}，實際 {actual}")
+
+readme = (ROOT / "README.md").read_text(encoding="utf-8")
+m = re.search(r"(\d+) 份來源、(\d+) 個 wiki 頁面、(\d+) 個開放問題", readme)
+if not m:
+    problems.append("[計數] README.md 找不到「N 份來源、N 個 wiki 頁面、N 個開放問題」那一行，計數閘門失效")
+else:
+    got = tuple(int(x) for x in m.groups())
+    if got != (n_sources, n_pages, n_questions):
+        problems.append(
+            f"[計數] README.md 目前狀態寫 {got}，實際 ({n_sources}, {n_pages}, {n_questions})"
+        )
+
 quiet = "--quiet" in sys.argv
 print(f"檢查 {len(pages)} 頁 / {len(RAW_FILES)} 份原始檔\n")
 if problems:

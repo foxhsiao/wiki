@@ -227,6 +227,6 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 | 項目 | 數量 |
 |---|---|
 | 來源 | 11 |
-| Wiki 頁面 | 50 |
-| 開放問題 | 16（3 條 closed） |
+| Wiki 頁面 | 56 |
+| 開放問題 | 16（6 條 closed、1 條改寫） |
 | 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |

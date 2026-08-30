@@ -7,7 +7,7 @@ created: 2026-08-29
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
+sources: ["[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[the-new-sdlc-with-vibe-coding]]"]
 ---
 
 # 自陳與實測的落差

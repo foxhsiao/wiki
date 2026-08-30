@@ -49,6 +49,7 @@ def build(root: Path):
     (root / "Raw").mkdir()
     (root / "Wiki" / "sources").mkdir(parents=True)
     (root / "Wiki" / "concepts").mkdir()
+    (root / "Wiki" / "questions").mkdir()
     (root / "Wiki" / "_templates").mkdir()
 
     (root / "CLAUDE.md").write_text("# 規則\n\n- `[T1]` 測試用規則。\n", encoding="utf-8")
@@ -60,7 +61,7 @@ def build(root: Path):
     )
     (root / "Raw" / "2026-01-01--src.md").write_text("原始來源。\n", encoding="utf-8")
 
-    others = {"alpha": ["beta", "gamma", "src"],
+    others = {"alpha": ["beta", "gamma", "src", "open-questions"],
               "beta": ["alpha", "gamma", "src"],
               "gamma": ["alpha", "beta", "src"]}
     for name, outs in others.items():
@@ -81,12 +82,24 @@ def build(root: Path):
           "status: active\nconfidence: high\nsources: []\n---\n\n# {t}\n\n{body}\n"
     (root / "Wiki" / "index.md").write_text(
         hub.format(t="index", body="\n".join(f"- [[{n}]] — 摘要"
-                                             for n in ("src", "alpha", "beta", "gamma"))),
+                                             for n in ("src", "alpha", "beta", "gamma", "open-questions"))),
         encoding="utf-8")
     (root / "Wiki" / "log.md").write_text(hub.format(t="log", body="## [2026-01-01] lint | x"),
                                           encoding="utf-8")
-    (root / "Wiki" / "overview.md").write_text(hub.format(t="overview", body="總覽。"),
-                                               encoding="utf-8")
+    q = PAGE.format(title="open-questions", type="question", sources='"[[src]]"',
+                    links="\n".join(f"- [[{o}]] —— 說明" for o in ("alpha", "beta", "src")))
+    q = q.replace("一句話。", "## Q1. 一個問題？\n\n- **狀態**：open")
+    (root / "Wiki" / "questions" / "open-questions.md").write_text(q, encoding="utf-8")
+
+    n_pages, n_src, n_q = 8, 1, 1
+    (root / "Wiki" / "overview.md").write_text(
+        hub.format(t="overview",
+                   body="總覽。見 [[open-questions]]。\n\n## 統計\n\n| 項目 | 數量 |\n|---|---|\n"
+                        f"| 來源 | {n_src} |\n| Wiki 頁面 | {n_pages} |\n"),
+        encoding="utf-8")
+    (root / "README.md").write_text(
+        f"# fixture\n\n## 目前狀態\n\n{n_src} 份來源、{n_pages} 個 wiki 頁面、{n_q} 個開放問題。\n",
+        encoding="utf-8")
 
 
 def run(root: Path):
@@ -114,10 +127,8 @@ def m_broken_link(root):
 
 
 def m_orphan(root):
-    for n in ("beta", "gamma", "src"):
-        p = root / "Wiki" / "concepts" / f"{n}.md"
-        if not p.exists():
-            p = root / "Wiki" / "sources" / f"{n}.md"
+    for n in ("beta", "gamma", "src", "open-questions"):
+        p = next(root.glob(f"Wiki/*/{n}.md"))
         p.write_text(p.read_text(encoding="utf-8").replace("[[alpha]]", "[[beta]]"),
                      encoding="utf-8")
 
@@ -186,6 +197,30 @@ def m_raw_not_ingested(root):
     (root / "Raw" / "2026-01-02--another.md").write_text("x\n", encoding="utf-8")
 
 
+def m_source_undeclared(root):
+    p = root / "Wiki" / "concepts" / "beta.md"
+    p.write_text(p.read_text(encoding="utf-8").replace('sources: ["[[src]]"]', "sources: []"),
+                 encoding="utf-8")
+
+
+def m_source_unused(root):
+    p = root / "Wiki" / "concepts" / "gamma.md"
+    p.write_text(p.read_text(encoding="utf-8").replace("- [[src]] —— 說明\n", ""),
+                 encoding="utf-8")
+
+
+def m_count_mismatch(root):
+    p = root / "README.md"
+    p.write_text(p.read_text(encoding="utf-8").replace("8 個 wiki 頁面", "43 個 wiki 頁面"),
+                 encoding="utf-8")
+
+
+def m_count_anchor_gone(root):
+    p = root / "Wiki" / "overview.md"
+    p.write_text(p.read_text(encoding="utf-8").replace("| Wiki 頁面 | 8 |", "頁面數：很多"),
+                 encoding="utf-8")
+
+
 MUTATIONS = [
     ("frontmatter 缺欄位", "[frontmatter]", True, m_missing_field),
     ("type 值不合法", "[frontmatter]", True, m_bad_type),
@@ -202,6 +237,10 @@ MUTATIONS = [
     ("type 與資料夾不符", "[分類]", True, m_wrong_folder),
     ("空區塊", "[空區塊]", False, m_empty_section),
     ("Raw 未 ingest", "[待處理]", False, m_raw_not_ingested),
+    ("內文引用但 sources 沒列", "[來源一致]", True, m_source_undeclared),
+    ("sources 列了但內文沒用", "[來源一致]", False, m_source_unused),
+    ("README 計數與實際不符", "[計數]", True, m_count_mismatch),
+    ("overview 統計表的錨點不見了", "[計數]", True, m_count_anchor_gone),
 ]
 
 

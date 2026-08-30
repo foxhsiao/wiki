@@ -92,8 +92,9 @@ benchmark 因為只量「範圍界定良好、可演算法評分」的任務而*
 討論段講得更具體：AI 的表現在「品質標準很高、或**有很多隱性要求**
 （文件、測試覆蓋率、lint／格式）——那些人類要花很多時間才學會的東西」的場景相對更低。
 
-**那正是 `CLAUDE.md`、skill、[[artifact-chain|產物鏈]]在編碼的東西。**
-[[context-engineering]] 的核心提問——「一個新來的隊友需要知道什麼才能有效貢獻，
+**那正是 `CLAUDE.md`、skill、[[artifact-chain|產物鏈]]在編碼的東西**
+（[[the-ai-native-sdlc-playbook]] 的產物鏈設計）。
+[[the-new-sdlc-with-vibe-coding]] 提出的 [[context-engineering]] 核心提問——「一個新來的隊友需要知道什麼才能有效貢獻，
 我怎麼把那份知識編碼成 AI 能用的形式」——在這裡拿到了外部的、實證的支持。
 
 這個支持比表面上更有份量，因為它來自一份**結論對 AI 不利**的研究。
@@ -102,7 +103,7 @@ benchmark 因為只量「範圍界定良好、可演算法評分」的任務而*
 ### 2. 大型程式碼庫對 AI 不利，支持「設計文件即脈絡」
 
 因子 3 說 repo 平均超過 110 萬行，開發者回報 AI 在複雜環境裡表現更差。
-[[design-is-the-new-code]] 的成本論證 **sizeof(docs) << sizeof(code)** ——
+[[elephants-goldfish]] 的成本論證 **sizeof(docs) << sizeof(code)**（見 [[design-is-the-new-code]]）——
 用白話設計文件餵脈絡，比逼 AI 讀幾十萬行原始碼便宜可靠——方向一致。
 
 （推論）但注意這只是方向一致，不是驗證。METR 沒有測試「給設計文件會不會改善」。

@@ -346,3 +346,41 @@ sources: []
 - 對 [[harness-engineering]] 的兩點：原文說蒐集設計者錯誤資料的人「**不願意發表**」，四十三年後本庫十一份來源同樣沒有一份公布 harness 失敗率；且 1983 年的自動系統是確定性的，**agent 不是**，這讓反諷 #1 在 LLM 上更嚴重
 - 弱點：領域是工業製程控制、五頁 Brief Paper 無實證資料、引用的 vigilance 研究是 1950 年的
 
+
+## [2026-08-30] lint | 完整健檢（A/B/D，C 另開）
+
+`tools/lint.py` 十一種檢查全綠、`tools/test_lint.py` 15/15 通過，判斷性檢查仍抓到 15 項
+**機械上完全可判定**的問題。這是本庫第二次量到同一件事：全綠只代表「已經寫成檢查的東西沒事」。
+
+**A 計數過期（4 項）**：`Wiki/overview.md` 統計表寫 50 頁、3 條結案（實際 56 頁、6 條結案、1 條改寫）；
+`Wiki/index.md` 與 overview 對「結案幾條」給出兩個不同的錯數字（7 與 3）；
+`README.md` 停在四份來源之前的快照（7/43/14 → 11/56/16），log 出鏈數 48 → 196；
+README 的 lint 檢查清單漏了四種。
+
+**B `sources` 與內文不一致（11 頁）**：7 頁內文引用了某份來源卻沒列進 `sources`
+（[[conductor-and-orchestrator]]、[[the-80-percent-problem]]、[[ai-native-sdlc]]、
+[[self-report-vs-measurement]]、[[automation-fragmentation]]、[[monitoring-does-not-teach]]、
+[[agent-config-evals]]），4 頁列了卻從未提到（[[judgment-supply]]、[[what-the-19-percent-measures]]、
+[[open-questions]]、[[can-judgment-be-outsourced]]）。
+兩個方向相反但後果相同：**`sources` 這個欄位同時在漏記與灌水，而 `[N6]` 的門檻就是數它有幾份。**
+處理方式是補進 frontmatter、以及把來源連結補在主張實際落地的那一句上，不是刪掉宣告。
+
+- [[conductor-and-orchestrator]] 最尖銳：內文寫「兩份來源獨立收斂」但 frontmatter 只列一份。
+  已補列，並寫明收斂的只有「協調者需要不同技能組」這一條，兩種模式的分類仍是單一來源，
+  所以 `confidence` 維持 `medium`。
+
+**D 事實錯誤（1 項）**：Q7 的狀態行還寫「後續研究仍待 ingest」，那份當天稍早已經 ingest 完。
+
+**新增兩道閘門**：`[來源一致]`（`sources` 與內文雙向比對，漏列＝問題、未用＝提醒，機制化 `[N5]`）、
+`[計數]`（overview 統計表與 README 的計數必須等於實際，機制化 `[L5]` 的維護型定義）。
+`tools/test_lint.py` 的缺陷注入從 15 種加到 19 種，全部抓得到。
+兩道閘門都把「找不到錨點」也算成問題——**閘門靜默失效比沒有閘門更糟**。
+
+**來由帳新增第二筆觀察**：`[N5]` 是建庫時就寫的建議型規則，四週後 56 頁裡 7 頁漏列、4 頁灌水。
+與 `[K1]` 那筆（隔天違反 9 次）形狀相同，差別只在時間尺度。
+
+**未處理（C，另開 PR）**：Bainbridge 進來之後沒擴散到的三處——
+[[conductor-and-orchestrator]] 停在 2026-08-01 而它整頁講的正是被反駁的模式；
+`overview.md` 仍寫 Q6 是「七份來源共同的盲點」（現在對策已知）；
+overview 有三處舊分母（八份／九份）與「ironies 是唯一不談軟體開發的」（現在是兩份）。
+lint 現在對 overview 有 4 項 `[來源一致]` 提醒，一併在 C 處理。
