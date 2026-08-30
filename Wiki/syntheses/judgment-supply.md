@@ -7,14 +7,17 @@ created: 2026-08-30
 updated: 2026-08-30
 status: active
 confidence: low
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # 判斷力的供給問題
 
 > [[open-questions]] Q6 問：判斷力上移之後，新的判斷力從哪裡長出來。
-> **沒有任何一份來源直接談這件事**，本頁是把其他主題的材料轉用過來。
-> 結論偏向壞消息，而且最有力的一塊證據來自本庫自己。
+>
+> **2026-08-30 更新**：本頁原本寫「沒有任何一份來源直接談這件事」。
+> 那句話錯了——[[ironies-of-automation-public-service]] 顯示
+> **Bainbridge 1983 年就完整描述過這個問題**，包括逐代惡化的預測。
+> 本庫花了九份來源、四週，重新發現了一個四十三年前的結論。
 
 ## 先把問題拆開
 
@@ -70,7 +73,19 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", 
 **High developer familiarity with repositories**，機制標註是「拉高**開發者**表現」。
 專家的優勢來自對 repo 的熟悉——而熟悉是**做**出來的，不是**看**出來的。
 
-**怎麼否證**：如果 H1 成立，只做審查不做實作的人應該也能累積出等量的判斷力。可測。
+**2026-08-30：這條被直接反駁了。** [[monitoring-does-not-teach]] 記的是
+Bainbridge 1983 的論證——監控**結構上就不提供累積條件**：
+
+> "one of the worst types [of tasks]; it is very boring but very responsible,
+> yet **there is no opportunity to acquire or maintain the qualities required to
+> handle the responsibility**."
+
+機制有兩個：速度超出人的認知限制、系統是黑箱。
+（推論）能力來自「做出決定 → 看到後果 → 修正」的迴圈，監控只提供後果、不提供決定。
+
+**H1 在 1983 年就被論證過不成立，而且那份論證比本庫任何材料都直接。**
+
+**怎麼否證**：如果 H1 仍成立，只做審查不做實作的人應該也能累積出等量的判斷力。可測。
 
 ### H2 有損壓縮說：文件承載結論，不承載能力
 
@@ -112,15 +127,28 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
 
 這條測不了 H1 與 H3，那兩個需要真人與組織層級的資料。
 
+## 已經有人試過的對策（2026-08-30 新增）
+
+[[ironies-of-automation-public-service]] 記了兩個**被實際採用**的做法：
+
+1. **刻意保留一小部分案件由人工處理**——瑞典有些自治市這樣做，
+   確保組織裡還有人有能力監控與接手。
+   （推論）這是把訓練場域當成一項**要編列預算的成本**，
+   而不是指望它作為工作的副產品自然出現。代價明擺著：那部分工作刻意不自動化。
+2. **參與設計**——參與建置的承辦人員發展出流程與技術的新技能，因而成為適合的監控者。
+   但這造成對少數個人的依賴，而且**不可規模化**：
+   不可能讓每一代人都參與同一套系統的初次設計。
+
+本頁先前完全沒有「對策」這一節，因為沒有材料。現在有兩個，而且第一個可以直接照做。
+
 ## 該找什麼來源
 
 按價值排序：
 
-1. **自動化普及後專業技能怎麼維持的先例。** 這個問題在軟體業是新的，
-   在別的領域不是——（推論）航空業關於自動化依賴與手動操作能力衰退的討論
-   應該是最接近的類比，而且有數十年的資料。
-   **這是本頁最想要的來源**，因為它能同時檢驗 H1（監督算不算練習）與供給那一節。
-   本庫目前沒有任何一份跨領域來源。
+1. ~~自動化普及後專業技能怎麼維持的先例~~ —— **2026-08-30 已補上**
+   （[[ironies-of-automation-public-service]]），而且結果是 H1 被反駁。
+   剩下的缺口是 **Bainbridge 1983 原文本身**：本庫對它的引用全部經由 Lindgren 轉引，
+   原始站點已 404、存檔站抓不到。若要在核心論證上用力壓，應該去補原文。
 2. **談 AI 時代資淺工程師養成的實證研究。** 直接對應，但（推論）現在可能還太早。
 3. **買方或監管方視角的組織來源。** 本庫九份來源出自兩家公司，全是賣方。
 
@@ -142,3 +170,5 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
 - [[can-judgment-be-outsourced]] —— 傳遞那一半的問題
 - [[control-group-collapse]] —— 供給那一節的機制來源
 - [[what-the-19-percent-measures]] —— 本頁刻意避免重蹈的那個錯誤
+- [[ironies-of-automation-public-service]] —— 反駁 H1 的跨領域來源
+- [[monitoring-does-not-teach]] —— 反駁的核心論證

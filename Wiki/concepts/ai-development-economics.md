@@ -4,10 +4,10 @@ type: concept
 aliases: [CapEx OpEx, token economy]
 tags: [ai, 軟體工程, 經濟]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # AI 開發的經濟學
@@ -60,6 +60,20 @@ harness 是資產，但它有折舊、有保養費，而保養費隨 repo 數與
 
 「首次成功率」值得當成可量測的指標追蹤，白皮書沒給任何實際數字。
 
+## 成本被掩蓋，這條有先例
+
+[[ironies-of-automation-public-service]] 的反諷 #5：
+自動化為了省人力成本，卻在組織他處生成本（IT、更高技能人員、外部顧問），
+而且**分散在多個功能與部門**，因此**掩蓋了自動化的總成本**。
+結果自動化可能比人工更貴，而組織不自知。
+
+（推論）這與本頁的 CapEx／OpEx 框架接得上，但指出一個本頁沒處理的問題：
+**不是成本算錯，是成本根本沒被歸戶。** 本頁假設你算得出總持有成本；
+反諷 #5 說在真實組織裡那個數字通常沒有人在算。
+
+注意 Lindgren 明說**反諷 #5 是她自己的產物**、不是 Bainbridge 的，
+而且應視為待進一步檢驗的假說。
+
 ## 相關頁面
 
 - [[the-new-sdlc-with-vibe-coding]] —— 來源
@@ -69,3 +83,4 @@ harness 是資產，但它有折舊、有保養費，而保養費隨 repo 數與
 - [[the-ai-native-sdlc-playbook]] —— harness 的持續成本項
 - [[agent-config-evals]] —— 最主要的那筆持續支出
 - [[prompt-obsolescence]] —— 折舊那一面
+- [[ironies-of-automation-public-service]] —— 反諷 #5：成本沒有被歸戶

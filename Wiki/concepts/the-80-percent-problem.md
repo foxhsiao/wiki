@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # 80% 問題
@@ -84,6 +84,21 @@ Q7 的解（自陳與實測的方法差異）不受影響，那是方法學發�
 80% 問題與 METR 的數字都指向同一件事：**AI 不消滅實作工作，它把實作轉成審查工作**，
 而審查工作的成本被系統性低估。
 
+## 這條有一個 1983 年的先驅
+
+[[ironies-of-automation-public-service]] 記的 Bainbridge 反諷 #4：
+
+> "… when manual take-over is needed there is likely to be something wrong in the process,
+> so that unusual actions will be needed to control it, and one can argue that
+> **the operator needs to be more rather than less skilled**"
+
+（推論）這與本頁是同一個結構，只是換了領域與四十三年：
+自動化接手的是規律的部分，**留給人的正是最難的那一段**，
+所以人需要的技能不降反升。
+
+差別在於本頁把它當成「AI 的能力邊界」，Bainbridge 把它當成
+**自動化的結構性後果**——與工具多強無關，因為工具愈強，剩下的殘餘就愈是異常情況。
+
 ## 相關頁面
 
 - [[the-new-sdlc-with-vibe-coding]] —— 來源
@@ -95,3 +110,4 @@ Q7 的解（自陳與實測的方法差異）不受影響，那是方法學發�
 - [[what-the-19-percent-measures]] —— 這個數字能與不能主張什麼
 - [[metr-2026-uplift-update]] —— 那個 19% 為什麼不能再引用
 - [[control-group-collapse]] —— 新數字不可解讀的原因
+- [[ironies-of-automation-public-service]] —— 這條 1983 年的先驅版

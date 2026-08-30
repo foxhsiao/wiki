@@ -20,7 +20,7 @@ sources: []
 - [[overview]] — 全庫總覽與當前主軸
 - [[log]] — 時序流水帳
 
-## 來源（9）
+## 來源（10）
 
 - [[arm-yourself-with-specific-knowledge]] — Naval 2019：教不來但學得會的知識才有報酬
 - [[read-what-you-love]] — Naval 2019：先讀你愛讀的，再往原典走；慾望比手段稀缺
@@ -31,6 +31,7 @@ sources: []
 - [[the-ai-native-sdlc-playbook]] — Anthropic 2026：六階段 13 個 play，把 SDLC 重建成迴圈 · **本庫唯一的組織治理來源**
 - [[metr-early-2025-ai-developer-productivity]] — METR 2025：RCT 量到慢 19%（區間 +2% 到 +39%，顯著）· 本庫第一份實證研究，已被後續限定
 - [[metr-2026-uplift-update]] — METR 2026：後續兩組區間都跨過 0，作者宣告自己的估計「很可能是糟糕的代理」· **一份宣告自己量不準的研究**
+- [[ironies-of-automation-public-service]] — Lindgren 2024：把 Bainbridge 1983 的五個反諷套到公共服務自動化 · **本庫第一份跨領域來源；Q6 的答案 1983 年就寫好了**
 
 ## 實體（6）
 
@@ -41,7 +42,7 @@ sources: []
 - [[claude-opus-5]] — 1M 脈絡、thinking 預設開；本庫第一個會自己做判斷的實體 · seed
 - [[metr]] — 做 AI 評估的研究組織；本庫唯一沒有產品要賣的來源方 · seed
 
-## 概念（29）
+## 概念（31）
 
 - [[specific-knowledge]] — 教不來但學得會；判準是「能被訓練的就能被量產」
 - [[judgment]] — 兩份來源共同指認的、唯一不會貶值的能力
@@ -72,6 +73,8 @@ sources: []
 - [[self-report-vs-measurement]] — 自認快 20%，實際慢 19%，差 39 個百分點 · **Q7 的解**
 - [[evidence-types-for-ai-capability]] — benchmark 高估、自陳更高估、RCT 適用窄
 - [[control-group-collapse]] — 工具好到受試者拒絕沒有它，RCT 就失效了 · **工具愈有價值愈難量測它的價值**
+- [[monitoring-does-not-teach]] — 監控結構上不提供能力累積的條件，接手卻要求更高技能 · **Bainbridge 1983，直接反駁本庫的 H1**
+- [[automation-fragmentation]] — 留給人的不是更高階的工作，可能只是機器做不到的碎片集合
 
 ## 綜合（4）
 
@@ -82,4 +85,4 @@ sources: []
 
 ## 問題（1）
 
-- [[open-questions]] — 16 個開放問題 · **7 條已結案；Q15（harness 能不能翻轉 19%）與 Q6（判斷力從哪長出來）是剩下最有價值的兩題**
+- [[open-questions]] — 16 個開放問題 · **7 條已結案；Q6 的 H1 已被 1983 年的論證反駁，Q15（harness 能不能翻轉 19%）是剩下最大的缺口**

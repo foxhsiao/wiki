@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-08-30
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
 ---
 
 # 判斷力
@@ -115,6 +115,18 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 | [[the-ai-native-sdlc-playbook]] | 人的判斷力集中到**閘門**上；迴圈一直跑，人的判斷留在它上面 | 2026 |
 | [[metr-early-2025-ai-developer-productivity]] | **不支持這條線**：量到的拖慢，五個原因全是工具與情境，沒有一個關於判斷力 | 2025-07 |
 
+## 一個四十三年前就寫好的警告
+
+[[ironies-of-automation-public-service]] 把 Bainbridge 1983 帶進本庫。
+它對這一頁的意義是：**「判斷力集中到閘門上」不是一個解決方案，是問題的一部分**。
+
+閘門就是監控位置，而監控**結構上不提供能力累積的條件**
+（[[monitoring-does-not-teach]]）。Bainbridge 還預測了逐代惡化：
+「潛在地對每一個新世代的操作員而言更困難」。
+
+（推論）本庫六份來源花了力氣論證判斷力該放哪，
+但沒有一份問過**放在那裡之後它還長不長得出來**。
+
 ## 相關頁面
 
 - [[specific-knowledge]] —— 同源概念
@@ -126,3 +138,4 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 - [[the-ai-native-sdlc-playbook]] —— 判斷力在流程裡的落點
 - [[what-the-19-percent-measures]] —— 唯一不支持這條線的來源
 - [[judgment-supply]] —— 這個能力從哪裡長出來
+- [[monitoring-does-not-teach]] —— 閘門位置不產生能力
