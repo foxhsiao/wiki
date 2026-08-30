@@ -73,10 +73,11 @@ sources: []
 - [[evidence-types-for-ai-capability]] — benchmark 高估、自陳更高估、RCT 適用窄
 - [[control-group-collapse]] — 工具好到受試者拒絕沒有它，RCT 就失效了 · **工具愈有價值愈難量測它的價值**
 
-## 綜合（2）
+## 綜合（3）
 
 - [[can-judgment-be-outsourced]] — Naval 說判斷力教不來，Rensin 的方法卻在把它寫成文件 · 本庫核心矛盾
 - [[what-the-19-percent-measures]] — METR 的結果對本庫既是支持也是削弱 · **更正了本庫對該數字四週的誤讀**
+- [[two-sdlc-frameworks]] — Google 與 Anthropic 兩份 SDLC 框架的逐項比較 · 六階段幾乎逐格對應，但一份問「你怎麼工作」、一份問「一個變更怎麼走」
 
 ## 問題（1）
 

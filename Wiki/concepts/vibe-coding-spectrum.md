@@ -4,7 +4,7 @@ type: concept
 aliases: [vibe coding, agentic engineering, 光譜]
 tags: [ai, 軟體工程]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: high
 sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"]
@@ -71,3 +71,4 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"
 - [[factory-model]] —— agentic engineering 那一端的心智模型
 - [[the-ai-native-sdlc-playbook]] —— 把光譜位置做成環境設定
 - [[autonomy-tiering]] —— 分級的具體機制
+- [[two-sdlc-frameworks]] —— 與 Anthropic 那份的框架比較
