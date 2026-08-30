@@ -205,10 +205,19 @@ if RULES_FILE.exists():
             warnings.append(
                 f"[來由] {rel(LEDGER)} 有 {rid} 這一列，但 CLAUDE.md 已無此編號（規則被刪或編號改了？）"
             )
+        # W8：2026-08-30 之後新增的規則，還要寫可否證的預期效果
+        # （不回溯要求既有規則——來由補不回來，預期效果的基準線更補不回來）
+        W8_FROM = "2026-08-30"
         for rid in sorted(rule_ids & set(ledger_rows)):
             cols = ledger_rows[rid]
             if not cols[3]:
                 problems.append(f"[來由] 規則 {rid} 的「防什麼」欄是空的")
+            dates = re.findall(r"\d{4}-\d{2}-\d{2}", cols[2])
+            if dates and max(dates) >= W8_FROM and "預期效果" not in cols[3]:
+                problems.append(
+                    f"[來由] 規則 {rid} 於 {max(dates)} 加入，"
+                    f"必須在「防什麼」欄寫一句「預期效果：…」（規則 W8）"
+                )
             if cols[4] not in VALID_EVIDENCE:
                 problems.append(
                     f"[來由] 規則 {rid} 的證據等級是 {cols[4]!r}，"
