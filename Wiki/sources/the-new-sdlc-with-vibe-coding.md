@@ -4,7 +4,7 @@ type: source
 aliases: [新的軟體開發生命週期]
 tags: [ai, 軟體工程, 工作方法, 白皮書]
 created: 2026-08-01
-updated: 2026-08-01
+updated: 2026-08-30
 status: active
 confidence: high
 source_type: report
@@ -106,7 +106,11 @@ agentic engineering 是高 CapEx、低 OpEx。**Context engineering 是財務槓
 
 ## 我的判讀
 
-（推論）這是本庫目前**唯一帶數據的來源**，也是唯一會自己引用反面證據（METR）的來源，這點加分。
+（推論）這是本庫**第一份帶數據的來源**（2026-08-30 更新：[[metr-early-2025-ai-developer-productivity]]
+與 [[metr-2026-uplift-update]] 之後不再是唯一），也是唯一會自己引用反面證據的來源，這點加分。
+
+**但它引用 METR 的方式有問題**：只取了「慢 19%」這個數字，沒有提時效限定，
+也沒有提那份研究的作者已在頁首宣告結果過期。見 [[what-the-19-percent-measures]]。
 但它是 Google 出的白皮書，結論指向 ADK、Agents CLI、Jules、Gemini——利益方向要打折。
 最硬的是 harness 那兩個 benchmark 數字（只改 harness 就大幅移動排名），那是可驗證的。
 最軟的是「85% 的專業開發者」——尾註指向兩個內容行銷型網站，不是調查機構。
@@ -118,3 +122,4 @@ agentic engineering 是高 CapEx、低 OpEx。**Context engineering 是財務槓
 - [[harness-engineering]] —— Agent = Model + Harness
 - [[the-80-percent-problem]] —— 最誠實的一節
 - [[addy-osmani]] —— 主要作者
+- [[two-sdlc-frameworks]] —— 與 Anthropic 那份 SDLC 框架的逐項比較

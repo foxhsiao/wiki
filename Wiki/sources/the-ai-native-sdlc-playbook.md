@@ -4,7 +4,7 @@ type: source
 aliases: [AI-native SDLC, agentic SDLC, SDLC playbook]
 tags: [ai, 軟體工程, agent, 流程, 治理, 官方文件]
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: high
 source_type: article
@@ -204,3 +204,4 @@ Claude Security、Claude Tag、Code Review、claude-code-action 全部在文內�
 - [[agent-config-evals]] —— 對 [[open-questions]] Q11 的直接回答
 - [[the-new-sdlc-with-vibe-coding]] —— 同主題的另一份白皮書，帶數據但不談治理
 - [[prompting-claude-opus-5]] —— 同一供應商，session 層級；這份是組織層級
+- [[two-sdlc-frameworks]] —— 與 Google 白皮書的逐項比較

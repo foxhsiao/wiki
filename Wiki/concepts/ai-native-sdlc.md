@@ -4,7 +4,7 @@ type: concept
 aliases: [agentic SDLC, AI SDLC, agentic software development]
 tags: [ai, 軟體工程, 流程, 治理]
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-08-30
 status: active
 confidence: medium
 sources: ["[[the-ai-native-sdlc-playbook]]"]
@@ -66,3 +66,4 @@ sources: ["[[the-ai-native-sdlc-playbook]]"]
 - [[autonomy-tiering]] —— 迴圈閉合之後的自治分級
 - [[factory-model]] —— 同一主張的個人／團隊版
 - [[the-80-percent-problem]] —— 瓶頸為什麼卡在審查
+- [[two-sdlc-frameworks]] —— 與 Google 白皮書的框架比較
