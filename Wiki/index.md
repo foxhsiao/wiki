@@ -73,12 +73,13 @@ sources: []
 - [[evidence-types-for-ai-capability]] — benchmark 高估、自陳更高估、RCT 適用窄
 - [[control-group-collapse]] — 工具好到受試者拒絕沒有它，RCT 就失效了 · **工具愈有價值愈難量測它的價值**
 
-## 綜合（3）
+## 綜合（4）
 
 - [[can-judgment-be-outsourced]] — Naval 說判斷力教不來，Rensin 的方法卻在把它寫成文件 · 本庫核心矛盾
 - [[what-the-19-percent-measures]] — METR 的結果對本庫既是支持也是削弱 · **更正了本庫對該數字四週的誤讀**
 - [[two-sdlc-frameworks]] — Google 與 Anthropic 兩份 SDLC 框架的逐項比較 · 六階段幾乎逐格對應，但一份問「你怎麼工作」、一份問「一個變更怎麼走」
+- [[judgment-supply]] — Q6：判斷力從哪長出來 · **場域不是被 agent 拿走的，是人自己不回去**；`confidence: low`，沒有來源直接談這題
 
 ## 問題（1）
 
-- [[open-questions]] — 16 個開放問題 · **Q7、Q10、Q16 已 closed；Q15「好的 harness 能不能翻轉那個 19%」仍是最大缺口，且比一個月前更難填**
+- [[open-questions]] — 16 個開放問題 · **7 條已結案；Q15（harness 能不能翻轉 19%）與 Q6（判斷力從哪長出來）是剩下最有價值的兩題**
