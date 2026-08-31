@@ -4,10 +4,10 @@ type: concept
 aliases: [specific knowledge]
 tags: [能力, 職涯, naval]
 created: 2026-08-01
-updated: 2026-08-01
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
 ---
 
 # 特定知識
@@ -46,12 +46,33 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]"]
 另一個未解問題：AI 讓「可訓練」的邊界快速外移，昨天的特定知識今天可能就被量產了。
 [[judgment]] 與 [[can-judgment-be-outsourced]] 處理這條。
 
+## 邊界外移的一個具體事例
+
+上一節說「AI 讓可訓練的邊界快速外移」，本庫原本沒有實例。
+[[ai-engineering-skills-map-software-fundamentals|Ng]] 給了一個：
+
+> "Some parts of coding knowledge — like **memorizing coding syntax** — are becoming obsolete.
+> But developers who **deeply understand how software works vastly outperform** those who vibe
+> code without understanding."
+
+背語法完全符合 Naval 的判準——**可以開一堂課教會**，於是可量產，於是報酬歸零。
+它被量產掉的方式不是有人開了更好的課，是模型把它做完了。
+
+（推論）值得注意的是 Ng 這句話的後半在做一件 Naval 的框架沒做的事：
+他主張留下來的東西（深入理解軟體如何運作、[[tradeoff-literacy|知道有哪些取捨]]）
+是**可以教的**——他整個系列就是在教它。
+按 Naval 的反向判準，可教即可量產，所以那也會被外移。
+兩人沒有互相反駁，因為他們對「教得會」的門檻預設不同：
+Naval 說的是課程能複製的東西，Ng 說的是需要大量實作才長得出來的理解。
+（推論）這個分歧沒有辦法只靠這兩份來源解決，它是 [[can-judgment-be-outsourced]] 的同一條裂縫。
+
 ## 各來源怎麼說
 
 | 來源 | 說法 | 日期 |
 |---|---|---|
 | [[arm-yourself-with-specific-knowledge]] | 教不來但學得會；四件套之一 | 2019-03 |
 | [[read-what-you-love]] | 好奇心是它的燃料，慾望比手段稀缺 | 2019-04 |
+| [[ai-engineering-skills-map-software-fundamentals]] | 背語法正在過時，深懂軟體運作的人表現遠勝 | 2026（發表日未取得） |
 
 ## 相關頁面
 
@@ -60,3 +81,5 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]"]
 - [[naval-ravikant]] —— 提出者
 - [[love-of-reading]] —— 好奇心的餵養
 - [[open-questions]] —— AI 是否正在侵蝕這條邊界
+- [[ai-engineering-skills-map-software-fundamentals]] —— 邊界外移的具體事例
+- [[tradeoff-literacy]] —— Ng 主張留下來的那一塊

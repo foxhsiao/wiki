@@ -4,10 +4,10 @@ type: concept
 aliases: [context engineering]
 tags: [ai, 工作方法]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
 ---
 
 # 脈絡工程
@@ -98,6 +98,35 @@ AI 缺少資深開發者仰賴的隱性程式碼庫知識。討論段更具體�
 （推論）但要誠實界定它證明了什麼：METR 指認隱性脈絡是瓶頸，
 **沒有測試過「把它寫成檔案會不會改善」**。前半有實證，後半仍是本庫的賭注。
 
+## 脈絡的上限在資料層就被決定了
+
+本頁到目前為止談的脈絡都在**提示與檔案層**：規則檔、skill、產物、記憶。
+[[ai-engineering-skills-map-software-fundamentals|Ng]] 把這條往上游推了一層：
+
+> "Deciding how to manage data requires significant human-provided context. **Your AI systems
+> will get their own input context from your data source, so if data architecture is chosen
+> poorly, the AI doesn’t know what it doesn’t know.**"
+
+也就是說，六種脈絡裡的 **Knowledge** 有一個沒被本頁寫出來的上限——
+如果資料模型本身沒有記錄某件事，再好的檢索、再大的視窗都取不出它。
+而資料架構「相對難改」（原文說即使 agent 能幫忙做遷移也一樣），
+所以這是本頁談的所有脈絡決策裡**最早做、最難反悔**的那一個。
+
+（推論）這與 [[tradeoff-literacy]] 是同一個結構往前推：
+agent 看不見的維度它不會替你補，而資料層的缺漏在提示層完全看不出來——
+模型會照樣給出流暢的答案，只是那個答案不知道自己漏了什麼。
+
+原文另外提醒 best practice 本身在移動：
+
+> "How to build data infrastructure for agents — rather than only traditional software or
+> humans — is also a rapidly evolving area, and you should continue to adjust your best
+> practices as the field evolves."
+
+（推論）這是 [[prompt-obsolescence]] 的資料層版本。折舊的不只是規則檔，還有
+「怎麼替 agent 準備資料」這件事的做法本身。**但要注意這份來源沒有任何證據支撐**
+（見 [[ai-engineering-skills-map-software-fundamentals]] 的〈我的判讀〉），
+它提供的是一個角度，不是一個結論。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 `CLAUDE.md` 正是白皮書點名的那種靜態脈絡檔；
@@ -116,3 +145,5 @@ AI 缺少資深開發者仰賴的隱性程式碼庫知識。討論段更具體�
 - [[artifact-chain]] —— 用產物承載跨階段的記憶
 - [[metr-early-2025-ai-developer-productivity]] —— 隱性脈絡是瓶頸的實證
 - [[what-the-19-percent-measures]] —— 這份支持的邊界
+- [[ai-engineering-skills-map-software-fundamentals]] —— 把脈絡上限推到資料層的來源
+- [[tradeoff-literacy]] —— 看不見的維度不會被 agent 補上，資料層是同一回事

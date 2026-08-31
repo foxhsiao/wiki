@@ -4,10 +4,10 @@ type: concept
 aliases: [vibe coding, agentic engineering, 光譜]
 tags: [ai, 軟體工程]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
 ---
 
 # Vibe coding 到 agentic engineering 的光譜
@@ -63,6 +63,25 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"
 可以由 repo、分支與環境的設定決定。本頁說「真正的技能是知道每個任務該畫在哪裡」——
 那份 playbook 的回答是：把那個判斷做一次，然後寫進版控。
 
+## 光譜沒說的先決條件：你得看得見旋鈕
+
+本頁把選位置的判準定在「輸出怎麼被驗證」，並說真正的技能是知道每個任務該畫在哪裡。
+[[ai-engineering-skills-map-software-fundamentals|Ng]] 補的是**再往前一步**：
+要在光譜上選位置，得先知道有哪些東西可選。
+
+他的說法是新手 vibe code 之所以出事，不是因為驗證不足，
+是因為「the developer didn’t know such tradeoffs even existed」——
+latency、availability、consistency、reliability、maintainability、simplicity、cost
+這七條旋鈕看不見（[[tradeoff-literacy]]）。
+
+（推論）這對本頁那張三段表加了一格沒寫出來的東西：
+表裡「適用範圍：原型、腳本、個人專案」預設了選位置的人**有能力評估風險**。
+不知道可用性與一致性是兩件事的人，不會知道自己正在做一個生產系統的決定。
+
+Ng 給的解法是能力清單（全端、資料、架構、安全可靠、規模化維運）。
+本頁給的解法是驗證機制。（推論）兩者互補而不是競爭：
+**驗證機制擋得住你想得到的失敗，能力清單決定你想得到多少種。**
+
 ## 相關頁面
 
 - [[the-new-sdlc-with-vibe-coding]] —— 來源
@@ -72,3 +91,5 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"
 - [[the-ai-native-sdlc-playbook]] —— 把光譜位置做成環境設定
 - [[autonomy-tiering]] —— 分級的具體機制
 - [[two-sdlc-frameworks]] —— 與 Anthropic 那份的框架比較
+- [[tradeoff-literacy]] —— 在光譜上選位置的先決條件
+- [[ai-engineering-skills-map-software-fundamentals]] —— 補上「該懂什麼」那一軸的來源

@@ -4,10 +4,10 @@ type: synthesis
 aliases: [overview]
 tags: [樞紐]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
 ---
 
 # 總覽
@@ -23,7 +23,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 ## 目前的主軸
 
-十一份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
+十二份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
 
 ### 1. 判斷力是共同答案（5 份來源，跨 7 年）—— 本庫收斂度最高的一條
 
@@ -120,7 +120,7 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 - **[[self-report-vs-measurement|自陳與實測差 39 個百分點]]**——同一批人自認快 20%、實際慢 19%。
   這解開了 Q7：白皮書並列的「提升 25–39%」是自陳調查，「慢 19%」是 RCT，兩者在測不同的東西。
 - **[[evidence-types-for-ai-capability|三種證據各自的偏誤方向]]**——benchmark 傾向高估、
-  自陳更不可靠、RCT 適用範圍窄。本庫十一份來源裡**八份是敘事或框架**，
+  自陳更不可靠、RCT 適用範圍窄。本庫十二份來源裡**九份是敘事或框架**，
   而這把尺說那一類最弱。
 - **測量也會折舊**：這份研究被作者自己在頁首宣告過期（[[prompt-obsolescence]]）。
 - **而且量測方法本身也會失效**：[[metr-2026-uplift-update]] 記錄了
@@ -159,7 +159,32 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 
 原則一句話：**agent 可以做到 production gate 為止，過不了那道門。**
 
-### 7. 已經可以直接照做的操作（5 份來源）
+### 7. 「該懂什麼」是新的一軸（1 份來源，本庫證據最弱的一份）
+
+前面六條軸線談的是流程、姿勢、機制、證據與治理，**沒有一條談能力清單**。
+[[ai-engineering-skills-map-software-fundamentals]] 補上這一格：
+五塊技能（全端、資料管理、系統架構、安全與可靠、規模化與維運），
+以及 coding agent 在無人引導時會做壞取捨的七條軸線
+（latency、availability、consistency、reliability、maintainability、simplicity、cost）。
+
+它的主張是：不懂這些的人不是選錯，是**根本不知道有得選**，於是 agent 用預設值填。
+本庫把這條記成 [[tradeoff-literacy]]，並把它定位成
+[[the-80-percent-problem]] 的輸入端——同一個失敗的另一半，而且**在 diff 裡不留痕跡**。
+
+它最有用的一句在資料架構那段：**AI 的輸入脈絡來自你的資料來源，
+所以資料架構選壞了，「the AI doesn’t know what it doesn’t know」。**
+這把 [[context-engineering]] 的上限從提示與檔案層推到**資料模型層**，
+而那是本庫所有脈絡決策裡最早做、最難反悔的一個。
+
+**但要把它的份量講清楚：這是本庫證據等級最低的一份來源。**
+零數字、零外部引用，唯一依據是「our study of AI Engineering Skills shows」
+——一份沒公開、沒方法、沒樣本數的內部研究；而作者的商業形式是課程，
+結論與產品方向一致。它提供的是**角度**，不是證據。
+
+它同時把裂縫 1 又拉大一格：它是本庫對「上移之後需要什麼能力」講得最具體的一份，
+**卻通篇不談那些能力從哪裡長出來**（見下方缺口與 [[judgment-supply]]）。
+
+### 8. 已經可以直接照做的操作（5 份來源）
 
 這是庫裡不需要再驗證就能今天動手的部分：
 
@@ -173,8 +198,9 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 - [[advisory-vs-deterministic-control]] —— 分清楚哪些規則是建議、哪些需要確定性的東西墊底
 - [[intent-md]] —— 讓非工程師也能提出可執行的提案
 - [[agent-config-evals]] —— 規則檔改動要有回歸測試
+- [[tradeoff-literacy]] —— 動手前先問：這個任務有哪幾條取捨軸線我還沒說出來
 
-### 8. 這個庫在照鏡子
+### 9. 這個庫在照鏡子
 
 四個概念直接指向本庫自己的設計：`CLAUDE.md` 是白皮書定義的**靜態脈絡**與
 [[harness-engineering|harness 規則檔]]；`Wiki/index.md` 是 progressive disclosure 的手工版；
@@ -211,12 +237,12 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 
 ## 目前的缺口
 
-- **已經跨出領域，但只跨了一條線**：十一份裡有**兩份**不談軟體開發——
+- **已經跨出領域，但只跨了一條線**：十二份裡有**兩份**不談軟體開發——
   [[ironies-of-automation-public-service]]（公共服務，2024）與
   [[bainbridge-ironies-of-automation]]（工業製程控制，1983）。兩份是同一條線的兩端，
   後者是前者的原始出處。所以**跨出去的是一個領域、一條論證，不是多個獨立領域**。
   時間尺度倒是真的拉開了：從六個月變成四十三年。
-- **來源獨立性（十一份的實際分布）**：
+- **來源獨立性（十二份的實際分布）**：
 
   | 來源方 | 份數 | 有沒有東西要賣 |
   |---|---|---|
@@ -225,16 +251,24 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
   | [[naval-ravikant]] | 2 | [[arm-yourself-with-specific-knowledge]]、[[read-what-you-love]] |
   | [[metr]] | 2 | 沒有產品，但組織動機是 AI 風險評估 |
   | 學術（Lindgren、Bainbridge） | 2 | 沒有 |
+  | [[andrew-ng]] | 1 | [[ai-engineering-skills-map-software-fundamentals]]，商業形式是課程 |
 
-  **賣方仍佔 5/11**，但已不再過半。（推論）METR 的方向偏誤是對
+  **賣方回到過半（6/12）**，而且新增的這一份是本庫證據等級最低的一份。
+  （推論）METR 的方向偏誤是對
   「AI 能力被高估」的證據更敏感；學術那兩份的偏誤是領域不同，移植成不成立要自己論證。
 - Naval 的兩篇都在 AI 普及之前（2019）。他 2026 年的說法是最大的缺口（Q1）。
-- **十一份裡只有三份帶資料**（白皮書、METR 兩份），其餘八份全是敘事與框架。
+- **十二份裡只有三份帶資料**（白皮書、METR 兩份），其餘九份全是敘事與框架。
   而 METR 兩份的數字現在都不可直接引用，白皮書引用的數字多半是自陳調查。
   **實質上本庫沒有可用的量化證據。**
   Bainbridge 帶進來的唯一數字是轉引的——vigilance 上限約半小時（Mackworth 1950）。
+  最新一份（[[ai-engineering-skills-map-software-fundamentals]]）連轉引的數字都沒有。
 - [[leverage-and-compounding]] 仍是 seed，撐著主軸 3 的關鍵一步。
 - **治理那一軸目前只有一份來源，而且是賣方的**。需要一份買方或監管方視角的來源來對撞。
+- **一個結構性的缺口浮出來了（2026-09-01）**：把十二份排開之後，
+  **要求某種能力的來源不談那種能力從哪來，描述供給消失的來源不談軟體開發，
+  量到人不願回頭的來源不談能力累積**——沒有一份同時處理兩邊。
+  對照表在 [[judgment-supply]]。（推論）這不是還沒找到，是要處理兩邊
+  得追蹤同一批人在 agentic 環境裡數年的能力變化，而工具穩定的時間比養成一個資深工程師短。
 - 十六個開放問題見 [[open-questions]]，Q7、Q10、Q12、Q13、Q14、Q16 已結案，Q9 改寫。
   **最大的證據缺口仍是 Q15（好的 harness 能不能翻轉那個 19%），而且比一個月前更難填**——
   2026 那份把 harness 這個變數綁在「不同的人」與「不同成熟度的 repo」上，無法歸因。
@@ -245,7 +279,7 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 
 | 項目 | 數量 |
 |---|---|
-| 來源 | 11 |
-| Wiki 頁面 | 56 |
+| 來源 | 12 |
+| Wiki 頁面 | 59 |
 | 開放問題 | 16（6 條 closed、1 條改寫） |
 | 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |

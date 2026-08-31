@@ -4,10 +4,10 @@ type: concept
 aliases: [monitoring does not teach, 監控的反諷, irony of monitoring]
 tags: [自動化, 能力, 技能維持, 人因工程]
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[bainbridge-ironies-of-automation]]", "[[ironies-of-automation-public-service]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[ironies-of-automation-public-service]]", "[[the-ai-native-sdlc-playbook]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
 ---
 
 # 監控學不到東西
@@ -84,6 +84,23 @@ Bainbridge 的論證是這條的**直接反面**，而且早了四十三年：
 「**riding on their skills**」——現在這代自動系統之所以能運作，
 是因為它們騎在一批**在自動化之前就練成**的人身上。那批人退場之後沒有補充機制。
 
+## 一份 2026 年的來源正好示範了這個缺口
+
+[[ai-engineering-skills-map-software-fundamentals|Ng 2026]] 主張：agentic coding 之後，
+能不能操縱 agent 取決於你懂不懂軟體基本功——五大塊技能、七條取捨軸線
+（[[tradeoff-literacy]]）。他要的是「deeply understand how software works」。
+
+**通篇沒有一句談這種理解從哪裡累積。**
+
+（推論）這不是矛盾，是**假設了供給**。而本頁的論證正是那個假設不成立的理由：
+過去這種理解來自反覆做實作決定、承受後果、修正——
+也就是 agentic coding 正在接手的那一段。
+Bainbridge 的「riding on their skills」講的就是這個結構：
+會 steer 的那批人，他們的 steering 能力來自自動化**之前**。
+
+這份來源因此對本頁是**佐證而非反例**：
+它是四十三年後、換到軟體開發領域的同一個缺口，而且提出者自己沒有察覺。
+
 ## 對策：原文 1983 年就寫了
 
 > "it can be important to **maintain manual skills**. One possibility is to allow the operator
@@ -130,3 +147,5 @@ Bainbridge 自己預期會有人覺得「留一段時間手動操作」很可笑
 - [[the-ai-native-sdlc-playbook]] —— 把人的判斷力放在閘門上的那份
 - [[the-80-percent-problem]] —— 接手那半的現代版
 - [[bainbridge-ironies-of-automation]] —— 原文，本頁的引文已據它更正
+- [[ai-engineering-skills-map-software-fundamentals]] —— 假設供給存在的 2026 年例子
+- [[tradeoff-literacy]] —— 那份來源要求、卻沒說怎麼取得的能力

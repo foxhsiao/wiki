@@ -424,3 +424,23 @@ lint 現在對 overview 有 4 項 `[來源一致]` 提醒，一併在 C 處理�
 - （推論）第三次的位置最值得記：**是在執行「檢查規則有沒有被遵守」這件事的當下踩的**。
   這比前兩次更強地支持 [[advisory-vs-deterministic-control]]——
   連注意力完全放在合規上的時候，建議型規則還是沒有生效
+
+## [2026-09-01] ingest | AI Engineering Skills Map：軟體工程基本功
+
+- 新增：[[ai-engineering-skills-map-software-fundamentals]]、[[andrew-ng]]（seed）、[[tradeoff-literacy]]
+- 更新：[[context-engineering]]（脈絡上限往上游推到資料模型層）、
+  [[the-80-percent-problem]]（補上輸入端那一半）、
+  [[vibe-coding-spectrum]]（選光譜位置的先決條件）、
+  [[specific-knowledge]]（「背語法過時」是可訓練邊界外移的具體事例）、
+  [[monitoring-does-not-teach]]（一份 2026 年來源正好示範了那個缺口）、
+  [[judgment-supply]]（十二份來源的形狀對照表）、
+  [[open-questions]]（Q6 新增一條）、[[overview]]（新增主軸 7、更新來源獨立性與統計）
+- 矛盾：無。與 [[monitoring-does-not-teach]] 之間是**張力**——Ng 要求那種理解，
+  但通篇不談它從哪累積，也沒有否認 Bainbridge。記在雙方頁面上，未降 confidence。
+- 新問題：[[open-questions]] Q6 新增第 4 項缺口——一份**同時**處理
+  「需要什麼能力」與「那些能力怎麼長出來」的來源。（推論）這是結構性缺口。
+- 證據等級：本庫最低的一份。零數字、零外部引用，唯一依據是不可查證的內部研究，
+  且作者的商業形式是課程。來源頁 `confidence` 因此設 `medium`（其餘來源頁慣用 `high`），
+  [[tradeoff-literacy]] 設 `low`。
+- 缺漏：原檔引用的技能地圖圖片是 `pbs.twimg.com` 外部連結，未取得，圖內容本庫沒有。
+  X 貼文發表日未取得，`published` 記為 `unknown`。

@@ -4,10 +4,10 @@ type: synthesis
 aliases: [judgment supply, Q6, 累積場域]
 tags: [ai, 能力, 職涯, 論點]
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: low
-sources: ["[[bainbridge-ironies-of-automation]]", "[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
 ---
 
 # 判斷力的供給問題
@@ -132,6 +132,31 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
 
 這條測不了 H1 與 H3，那兩個需要真人與組織層級的資料。
 
+## 又一份來源要求它、卻不談它從哪來（2026-09-01）
+
+[[ai-engineering-skills-map-software-fundamentals|Ng 2026]] 把本頁的問題示範了一次。
+他主張 agentic coding 之後，開發者必須深入理解軟體如何運作才有辦法操縱 agent，
+並列出五大塊技能與七條取捨軸線（[[tradeoff-literacy]]）。
+**這是本庫目前對「上移之後需要什麼」講得最具體的一份**——
+它把抽象的「判斷力」換成一張可以逐項檢查的清單。
+
+然後通篇沒有一個字談這些能力在 agent 寫掉大部分程式碼之後從哪裡長出來。
+
+（推論）這讓本頁的來源清單出現一個很整齊的形狀：
+
+| 來源立場 | 對 Q6 的處理 |
+|---|---|
+| 要求這種能力（Ng、白皮書、playbook） | 不談供給 |
+| 描述供給消失的機制（Bainbridge、Lindgren） | 不談軟體開發 |
+| 量到人不願回到無 AI 狀態（METR 2026） | 不談能力累積 |
+
+**沒有任何一份同時處理兩邊。**這不是偶然——（推論）要同時處理，
+得追蹤同一批人在 agentic 環境裡幾年之後的能力變化，而那種研究現在還做不出來
+（工具穩定的時間比養成一個資深工程師的時間短）。
+
+順帶一提，Ng 這份的證據等級是本庫最低的一份（零數據、課程立場），
+所以它的作用是**把問題講得更清楚**，不是提供證據。
+
 ## 已經有人試過的對策（2026-08-30 新增）
 
 [[ironies-of-automation-public-service]] 記了兩個**被實際採用**的做法：
@@ -162,6 +187,8 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
    skills**, which later generations of operators cannot be expected to have」。
 2. **談 AI 時代資淺工程師養成的實證研究。** 直接對應，但（推論）現在可能還太早。
 3. **買方或監管方視角的組織來源。** 本庫九份來源出自兩家公司，全是賣方。
+4. **一份同時處理「需要什麼能力」與「那些能力怎麼長出來」的來源。**
+   （推論）上表顯示本庫十二份來源全部只做其中一邊，這個缺口是結構性的，不是還沒找到。
 
 ## confidence 為什麼是 low
 
@@ -184,3 +211,5 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
 - [[ironies-of-automation-public-service]] —— 反駁 H1 的跨領域來源
 - [[monitoring-does-not-teach]] —— 反駁的核心論證
 - [[bainbridge-ironies-of-automation]] —— 反駁 H1 的原典
+- [[ai-engineering-skills-map-software-fundamentals]] —— 最新一份「要求能力但不談供給」的來源
+- [[tradeoff-literacy]] —— 那份來源開出的能力清單
