@@ -4,10 +4,10 @@ type: question
 aliases: []
 tags: [待辦]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
 ---
 
 # 開放問題
@@ -92,10 +92,20 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   現在這代自動系統「**riding on their skills**」——騎在一批在自動化之前就練成的人身上。
   原文也自己給了對策：**每個班次保留一小段手動控制時間，做不到就提供模擬器練習**。
   瑞典自治市的做法是這句話四十一年後的實作。
+- **問題的形狀又清楚了一格（2026-09-01）**：[[ai-engineering-skills-map-software-fundamentals]]
+  是本庫對「上移之後需要什麼」講得最具體的一份——五大塊技能、七條取捨軸線
+  （[[tradeoff-literacy]]），把抽象的「判斷力」換成可逐項檢查的清單。
+  **但通篇沒有一句談這些能力從哪裡長出來。**
+  （推論）把十二份來源排開後形狀很整齊：**要求這種能力的來源不談供給，
+  描述供給消失的來源不談軟體開發，量到人不回頭的來源不談能力累積。
+  沒有一份同時處理兩邊。** 對照表在 [[judgment-supply]]。
 - **還缺什麼**：
   1. 談 AI 時代資淺工程師養成的實證研究。
   2. 買方或監管方視角的組織來源。
   3. （推論）**agent 時代的「模擬器」**——Bainbridge 的退路選項在軟體開發脈絡下沒有人做過。
+  4. 一份**同時**處理「需要什麼能力」與「那些能力怎麼長出來」的來源。
+     （推論）這個缺口是結構性的：要處理兩邊得追蹤同一批人在 agentic 環境裡數年的能力變化，
+     而工具穩定的時間比養成一個資深工程師的時間短。
 - **狀態**：**partial** —— H1 已被反駁、對策已知，但那些對策在軟體開發脈絡下有沒有效**未被驗證**
   （來源的技術是 RPA，不是 LLM；領域是公共服務，不是軟體開發）
 
@@ -324,3 +334,5 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - [[agent-config-evals]] —— Q11 的部分答案
 - [[artifact-chain]] —— Q2、Q12 的來源
 - [[advisory-vs-deterministic-control]] —— Q9 改寫的依據、Q10 與 Q14 的判準
+- [[ai-engineering-skills-map-software-fundamentals]] —— 讓 Q6 的缺口形狀更清楚的來源
+- [[tradeoff-literacy]] —— Q6 裡「需要什麼能力」那一半的具體版本

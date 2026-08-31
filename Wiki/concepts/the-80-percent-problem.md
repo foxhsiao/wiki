@@ -4,10 +4,10 @@ type: concept
 aliases: [the 80% problem]
 tags: [ai, 軟體工程]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[elephants-goldfish]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[elephants-goldfish]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
 ---
 
 # 80% 問題
@@ -77,6 +77,32 @@ METR 找到的五個因子沒有一個關於人類判斷不可替代。見 [[wha
 而「慢 19%」是一個顯著但已過期的測量**。兩邊都不能當事實用。
 Q7 的解（自陳與實測的方法差異）不受影響，那是方法學發現，不是那個數字。
 
+## 還有一個上游版本：人給的方向本來就缺了一塊
+
+本頁到目前為止把問題定位在**輸出端**——AI 生出來的 80% 對、20% 錯。
+[[ai-engineering-skills-map-software-fundamentals|Ng]] 指出同一個失敗還有**輸入端**的一半：
+
+> "In such cases, **the developer didn’t know such tradeoffs even existed and therefore did not
+> steer the agent to make the right decisions for their application context**."
+
+他點名的七條軸線是 latency、availability、consistency、reliability、maintainability、
+simplicity、cost。展開見 [[tradeoff-literacy]]。
+
+差別在**錯誤發生的位置**：
+
+| | 錯在哪 | 怎麼被發現 |
+|---|---|---|
+| 80% 問題 | AI 對已知需求做了錯的實作 | 審查、測試、上線後 |
+| 取捨識讀不足 | 人根本沒把某個維度說出來，agent 用預設值填 | 通常不會被發現，直到那個維度出事 |
+
+（推論）後者比前者難處理，因為它**在 diff 裡不留痕跡**——
+沒被提出來的選項沒有對應的程式碼行。本頁那句「把注意力集中在 AI 不行的地方」
+因此有個前提條件：你得先知道有哪些地方。
+
+要注意這份來源的份量：**它沒有任何數據**，是一篇帶著課程立場的敘事
+（見 [[ai-engineering-skills-map-software-fundamentals]] 的〈我的判讀〉）。
+它補的是本頁缺的一個**角度**，不是新的證據。
+
 ## 與其他來源的張力
 
 [[dave-rensin|Rensin]] 說既有 monolith「一週就能餵完大象」，同時承認葉節點的 README
@@ -115,3 +141,5 @@ Q7 的解（自陳與實測的方法差異）不受影響，那是方法學發�
 - [[control-group-collapse]] —— 新數字不可解讀的原因
 - [[ironies-of-automation-public-service]] —— 這條 1983 年的先驅版
 - [[bainbridge-ironies-of-automation]] —— 這條的 1983 原文
+- [[tradeoff-literacy]] —— 同一個失敗的輸入端
+- [[ai-engineering-skills-map-software-fundamentals]] —— 上游版本的來源

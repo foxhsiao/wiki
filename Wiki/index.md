@@ -4,7 +4,7 @@ type: synthesis
 aliases: [index]
 tags: [樞紐]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: high
 sources: []
@@ -20,7 +20,7 @@ sources: []
 - [[overview]] — 全庫總覽與當前主軸
 - [[log]] — 時序流水帳
 
-## 來源（11）
+## 來源（12）
 
 - [[arm-yourself-with-specific-knowledge]] — Naval 2019：教不來但學得會的知識才有報酬
 - [[read-what-you-love]] — Naval 2019：先讀你愛讀的，再往原典走；慾望比手段稀缺
@@ -33,8 +33,9 @@ sources: []
 - [[metr-2026-uplift-update]] — METR 2026：後續兩組區間都跨過 0，作者宣告自己的估計「很可能是糟糕的代理」· **一份宣告自己量不準的研究**
 - [[bainbridge-ironies-of-automation]] — Bainbridge 1983 原文：自動化把人的工作換成監控與接手，而監控學不到東西 · **本庫最舊也是唯一的原典；Q6 的答案**
 - [[ironies-of-automation-public-service]] — Lindgren 2024：把 Bainbridge 的五個反諷套到公共服務自動化 · 本庫第一份跨領域來源；**引 Bainbridge 請用原文頁**
+- [[ai-engineering-skills-map-software-fundamentals]] — Ng 2026：agentic coding 之後該懂什麼，五塊技能與七條取捨軸線 · **本庫證據等級最低的一份，零數據、課程立場**
 
-## 實體（6）
+## 實體（7）
 
 - [[naval-ravikant]] — 提出「特定知識 + 責任 + 槓桿 + 判斷力」四件套
 - [[dave-rensin]] — Google 工程主管，Elephant-Goldfish 模型的提出者 · seed
@@ -42,8 +43,9 @@ sources: []
 - [[shubham-saboo]] — 唯一橫跨兩份來源的作者 · seed
 - [[claude-opus-5]] — 1M 脈絡、thinking 預設開；本庫第一個會自己做判斷的實體 · seed
 - [[metr]] — 做 AI 評估的研究組織；本庫唯一沒有產品要賣的來源方 · seed
+- [[andrew-ng]] — 技能地圖系列的作者；本庫對他的背景零來源 · seed
 
-## 概念（31）
+## 概念（32）
 
 - [[specific-knowledge]] — 教不來但學得會；判準是「能被訓練的就能被量產」
 - [[judgment]] — 兩份來源共同指認的、唯一不會貶值的能力
@@ -76,6 +78,7 @@ sources: []
 - [[control-group-collapse]] — 工具好到受試者拒絕沒有它，RCT 就失效了 · **工具愈有價值愈難量測它的價值**
 - [[monitoring-does-not-teach]] — 監控結構上不提供能力累積的條件，接手卻要求更高技能 · **Bainbridge 1983，直接反駁本庫的 H1**
 - [[automation-fragmentation]] — 留給人的不是更高階的工作，可能只是機器做不到的碎片集合
+- [[tradeoff-literacy]] — 看不見的取捨軸線就轉不動；是 80% 問題的輸入端 · 單一來源且該來源零證據
 
 ## 綜合（4）
 
