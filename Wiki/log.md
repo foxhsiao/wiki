@@ -444,3 +444,24 @@ lint 現在對 overview 有 4 項 `[來源一致]` 提醒，一併在 C 處理�
   [[tradeoff-literacy]] 設 `low`。
 - 缺漏：原檔引用的技能地圖圖片是 `pbs.twimg.com` 外部連結，未取得，圖內容本庫沒有。
   X 貼文發表日未取得，`published` 記為 `unknown`。
+
+## [2026-09-01] ingest | WikiSkill：把 agent 經驗編譯成持久知識
+
+- 新增：[[wikiskill]]、[[persistent-knowledge-layer]]、[[skill-transfer-across-models]]
+- 更新：[[harness-engineering]]（第一個被單獨隔離出來的 harness 效果：+15.0 分）、
+  [[context-engineering]]（第三個維度：誰該讀到）、
+  [[agent-skills]]（程序與知識該分層；可攜性的限定）、
+  [[agent-config-evals]]（gating 的具體形狀；被拒提案要留 diff）、
+  [[prompt-obsolescence]]（第一層終於有實驗證據；只增不減沒有出口）、
+  [[can-judgment-be-outsourced]]（解法 1 拿到反向證據）、
+  [[open-questions]]（Q2、Q15）、[[overview]]（新增主軸 8、改寫照鏡子那節、更新統計）
+- 矛盾：無正面衝突，但**削弱了 [[can-judgment-be-outsourced]] 的解法 1**——
+  跨模型移轉顯示接收方常勝過自己摸索，若文件只承載結論不該如此。
+  原文自己給了更準的切法：執行能力傳得下去，發現能力未被測過。已改寫該頁措辭，未降 confidence。
+- 新問題：無新增編號。Q2 的問法被改寫（改問「發現能力傳不傳得下去」），
+  Q15 拿到第一個隔離數字但仍 open（量的是 benchmark 答對率、agent 改進 agent，不是人的工作時間）。
+- 本庫自己的缺口：這份研究的三層架構與本庫同形，逐格比對後缺一格——
+  **沒有任何地方記錄「試過、被否決、為什麼不做」**（對應它的 `skill-impact.md`）。
+  記在 [[overview]] 與 [[persistent-knowledge-layer]]，未動 `CLAUDE.md`（改規則要先問使用者，`[L3]`）。
+- 證據等級：本庫方法最紮實的一份（三次獨立重跑、paired bootstrap `p < 0.05`、四格 ablation、
+  負面結果照登、限制自列四條）。折扣：arXiv 預印本、提出方法的人測自己的方法、全部是 benchmark。

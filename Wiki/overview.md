@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]"]
 ---
 
 # 總覽
@@ -23,7 +23,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 ## 目前的主軸
 
-十二份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
+十三份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
 
 ### 1. 判斷力是共同答案（5 份來源，跨 7 年）—— 本庫收斂度最高的一條
 
@@ -140,6 +140,13 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 而 benchmark 正是這份研究說會高估的那一類。
 本庫目前**沒有任何真實世界的 harness 效果數據**（Q15）。
 
+**本庫終於有一份方法紮實的實驗來源了（2026-09-01）**：[[wikiskill]] 是
+三次獨立重跑、paired bootstrap 顯著性檢定、四格 ablation 隔離變數、
+負面結果照登、限制自列四條。按 [[evidence-types-for-ai-capability]] 的尺，
+它落在 benchmark 那一格——會高估，但**它量的東西和其他 benchmark 不同**：
+不是「有沒有 AI」，是**同一套工具的兩種組法**。這正是 Q15 缺的那種對照。
+要打的折：arXiv 預印本、提出方法的人測自己的方法、對照組由他們自己實作。
+
 ### 6. 治理是本庫原本完全空白的一軸（1 份來源）
 
 前六份來源談的都是**個人或小團隊**怎麼跟 AI 工作。
@@ -184,7 +191,32 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 它同時把裂縫 1 又拉大一格：它是本庫對「上移之後需要什麼能力」講得最具體的一份，
 **卻通篇不談那些能力從哪裡長出來**（見下方缺口與 [[judgment-supply]]）。
 
-### 8. 已經可以直接照做的操作（5 份來源）
+### 8. 知識層與程序層要分開（1 份來源，本庫方法最紮實的一份）
+
+[[wikiskill]] 把 agent 工作區切成三層，並且證明這個切法本身有價值：
+
+| 層 | 性質 |
+|---|---|
+| 原始執行軌跡 | Permanent, Write Once |
+| 持久知識層 | **Compounding, Never Reset** |
+| 現行程序（skill） | Reversible, Conditional Update |
+
+**核心不對稱是：程序可回滾，知識不回滾。** 因為「某個提案被試過而且被拒絕」本身就是知識，
+跟著回滾就會被反覆重提。展開見 [[persistent-knowledge-layer]]。
+
+三個結果直接動到本庫既有的頁：
+
+1. **知識層值 +15.0 分**（48.7% → 63.7%）。這是本庫**第一個把 harness 的單一元件
+   隔離出來測**的數字（[[harness-engineering]]、Q15）。
+2. **同一份脈絡給錯角色會扣分**：讓執行任務的 agent 也讀知識層，
+   成績從 63.7% 掉到 60.9%。（推論）[[context-engineering]] 因此多了第三個維度——
+   不只「什麼時候載入」，還有「**誰該載入**」。
+3. **程序知識可以跨模型移轉，而且常常勝過自己演化的**，
+   但寫著低階權宜之計的會**害到**強模型（SpreadSheet 50.5% → 18.1%）。
+   這同時是 [[prompt-obsolescence]] 第一層的實驗證據，
+   也是 [[can-judgment-be-outsourced]] 解法 1 的反向證據（[[skill-transfer-across-models]]）。
+
+### 9. 已經可以直接照做的操作（5 份來源）
 
 這是庫裡不需要再驗證就能今天動手的部分：
 
@@ -199,8 +231,9 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 - [[intent-md]] —— 讓非工程師也能提出可執行的提案
 - [[agent-config-evals]] —— 規則檔改動要有回歸測試
 - [[tradeoff-literacy]] —— 動手前先問：這個任務有哪幾條取捨軸線我還沒說出來
+- [[persistent-knowledge-layer]] —— 知識與程序分層，且被否決的提案要留下來
 
-### 9. 這個庫在照鏡子
+### 10. 這個庫在照鏡子
 
 四個概念直接指向本庫自己的設計：`CLAUDE.md` 是白皮書定義的**靜態脈絡**與
 [[harness-engineering|harness 規則檔]]；`Wiki/index.md` 是 progressive disclosure 的手工版；
@@ -230,6 +263,26 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 改用「這條規則實際被觸發過嗎」當替代指標後跑出四個發現，最硬的一條是
 **`query` 流程從未被執行過**（當時 log 8 筆全是 ingest 與 lint），W3、W4 兩條規則從未被驗證。
 
+**鏡子換成別人拿了（2026-09-01）**：[[wikiskill]] 不是在談本庫，
+但它的三層架構與本庫是同一個形狀，而且它明說靈感來自 Karpathy (2026) 的「LLM Wiki」。
+逐格比對之後，本庫缺的那一格很清楚：
+
+| WikiSkill | 本庫 |
+|---|---|
+| `raw/` 不可變執行軌跡 | `Raw/`（`[L1]`） |
+| `wiki/patterns/` + `index.md` + `logs.md` | `Wiki/` + `index.md` + `log.md` |
+| `skills/` + `PURPOSE.md` | `.claude/skills/` + `CLAUDE.md` + `.claude/rules-ledger.md` |
+| `skill-impact.md`：被拒提案的 diff、分數、結果 | **沒有** |
+
+`log.md` 記的是**做了什麼**，`rules-ledger` 記的是**被採用的規則為什麼在**。
+本庫沒有任何地方記錄**試過、被否決、為什麼不做**。
+（推論）這是可以直接照做的一條，而且照 WikiSkill 的說法，
+它的用途是防止同一個壞主意被反覆提出。
+
+第二面鏡子比較不舒服：那份研究的提案接受率是每輪提 3.1 個 skill、只接受 1.6 個。
+**本庫至今沒有測過任何一次規則改動的效果**——`[W8]` 的預期效果協定是往這個方向走的第一步，
+但目前只有一筆觀察（見 Q15）。
+
 **2026-08-30 的現況**：`query` 已執行 3 次，W3、W4 在 Q14 結案時處理掉了。
 規則從 26 條長到 35 條，來由是**有紀錄**的從 1 條增加到 7 條——
 全部是 2026-08-29 之後新增的規則，也就是 `[W8]` 那道閘門開始生效之後的。
@@ -237,12 +290,12 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 
 ## 目前的缺口
 
-- **已經跨出領域，但只跨了一條線**：十二份裡有**兩份**不談軟體開發——
+- **已經跨出領域，但只跨了一條線**：十三份裡有**兩份**不談軟體開發——
   [[ironies-of-automation-public-service]]（公共服務，2024）與
   [[bainbridge-ironies-of-automation]]（工業製程控制，1983）。兩份是同一條線的兩端，
   後者是前者的原始出處。所以**跨出去的是一個領域、一條論證，不是多個獨立領域**。
   時間尺度倒是真的拉開了：從六個月變成四十三年。
-- **來源獨立性（十二份的實際分布）**：
+- **來源獨立性（十三份的實際分布）**：
 
   | 來源方 | 份數 | 有沒有東西要賣 |
   |---|---|---|
@@ -252,16 +305,21 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
   | [[metr]] | 2 | 沒有產品，但組織動機是 AI 風險評估 |
   | 學術（Lindgren、Bainbridge） | 2 | 沒有 |
   | [[andrew-ng]] | 1 | [[ai-engineering-skills-map-software-fundamentals]]，商業形式是課程 |
+  | Google Research（學術） | 1 | [[wikiskill]]，沒有產品，但提出方法的人測自己的方法 |
 
-  **賣方回到過半（6/12）**，而且新增的這一份是本庫證據等級最低的一份。
+  **賣方 6/13**，剛好又回到未過半。（推論）新增的 [[wikiskill]] 不是賣方，
+  但也不是中立第三方——它的偏誤方向是「自己的方法會贏」，
+  這在 ablation 與負面結果照登這兩件事上被部分抵銷。
   （推論）METR 的方向偏誤是對
   「AI 能力被高估」的證據更敏感；學術那兩份的偏誤是領域不同，移植成不成立要自己論證。
 - Naval 的兩篇都在 AI 普及之前（2019）。他 2026 年的說法是最大的缺口（Q1）。
-- **十二份裡只有三份帶資料**（白皮書、METR 兩份），其餘九份全是敘事與框架。
+- **十三份裡只有四份帶資料**（白皮書、METR 兩份、[[wikiskill]]），其餘九份全是敘事與框架。
   而 METR 兩份的數字現在都不可直接引用，白皮書引用的數字多半是自陳調查。
   **實質上本庫沒有可用的量化證據。**
   Bainbridge 帶進來的唯一數字是轉引的——vigilance 上限約半小時（Mackworth 1950）。
   最新一份（[[ai-engineering-skills-map-software-fundamentals]]）連轉引的數字都沒有。
+  **但 [[wikiskill]] 改變了這一格**：它是本庫唯一有 ablation 與顯著性檢定的來源，
+  代價是它量的是 benchmark 答對率，不是真實工作。
 - [[leverage-and-compounding]] 仍是 seed，撐著主軸 3 的關鍵一步。
 - **治理那一軸目前只有一份來源，而且是賣方的**。需要一份買方或監管方視角的來源來對撞。
 - **一個結構性的缺口浮出來了（2026-09-01）**：把十二份排開之後，
@@ -279,7 +337,7 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 
 | 項目 | 數量 |
 |---|---|
-| 來源 | 12 |
-| Wiki 頁面 | 59 |
+| 來源 | 13 |
+| Wiki 頁面 | 62 |
 | 開放問題 | 16（6 條 closed、1 條改寫） |
 | 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |

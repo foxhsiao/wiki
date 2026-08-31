@@ -4,10 +4,10 @@ type: concept
 aliases: [harness, Agent = Model + Harness]
 tags: [ai, 軟體工程, agent]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[wikiskill]]"]
 ---
 
 # Harness 工程
@@ -149,6 +149,35 @@ benchmark 數字是**改進幅度**，不是失敗率。
 **一個 1983 年沒有的差異**：Bainbridge 的自動系統是確定性的，設計者原則上知道它會做什麼。
 agent 不是。（推論）這讓反諷 #1 在 LLM 上更嚴重——連設計者都無法完全預期系統行為。
 
+## 第一個被單獨隔離出來的 harness 效果
+
+本頁的證據一直有同一個弱點：所有數字都在比「有 agent vs 沒有 agent」，
+沒有一個在比「同一個 agent，harness 好一點 vs 差一點」。
+[[open-questions]] Q15 就是這個缺口。
+
+[[wikiskill]] 是本庫第一份把 harness 的**一個元件**當成單一變數來測的來源。
+其他條件全部固定，只切換提出 skill 更新的那個 agent 讀不讀得到持久知識層
+（Gemini-3.5-Flash，四個 benchmark 平均）：**48.7% → 63.7%，差 15.0 分**。
+三次獨立重跑，paired bootstrap `p < 0.05`。展開見 [[persistent-knowledge-layer]]。
+
+**但這不能結案 Q15**，理由要說清楚：
+
+| Q15 問的 | 這份來源給的 |
+|---|---|
+| 真實開發工作的時間 | benchmark 答對率 |
+| 人使用 agent | agent 改進 agent |
+| 換掉鷹架重跑同一組人 | 換掉知識層重跑同一組任務 |
+
+（推論）它證明的是「**harness 的組成方式會造成很大的差距**」這件事本身——
+這比本頁原有的兩個 benchmark 數字（Terminal Bench、LangChain）更接近本頁的主張，
+因為那兩個比的是有沒有工具，這個比的是**同一套工具的兩種組法**。
+而 [[metr-early-2025-ai-developer-productivity]] 明說沒有檢驗過鷹架好壞，
+所以這是本庫在那個方向上的第一筆資料，不是最後一筆。
+
+還有一條反面的：**同一份脈絡放給不同角色，價值符號會相反**
+（給執行者讀反而 −2.8 分）。harness 設計因此不只是「準備哪些東西」，
+還是「**哪個角色看得到哪些東西**」（[[context-engineering]]）。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 harness 就是 `CLAUDE.md`（規則檔）＋ `tools/lint.py`（確定性 guardrail）
@@ -171,3 +200,5 @@ agent 不是。（推論）這讓反諷 #1 在 LLM 上更嚴重——連設計�
 - [[what-the-19-percent-measures]] —— 兩面的完整拆解
 - [[ironies-of-automation-public-service]] —— 反諷 #1 與本頁隔 43 年同構
 - [[bainbridge-ironies-of-automation]] —— 反諷 #1 的原文
+- [[wikiskill]] —— 第一個被單獨隔離出來的 harness 效果數字
+- [[persistent-knowledge-layer]] —— 那個數字量的是哪個元件
