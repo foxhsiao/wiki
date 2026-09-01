@@ -248,6 +248,31 @@ if RULES_FILE.exists():
                     f"必須是 {'／'.join(sorted(VALID_EVIDENCE))} 之一"
                 )
 
+# W9：被否決的提案要有帳，且每列都要寫「什麼會讓它重新成立」（2026-09-01 加入）
+# （來由是 Wiki/sources/wikiskill.md 的 skill-impact.md：被拒提案的紀錄留在永不回滾的那一層，
+#  用途是「rejected interventions are not proposed again」。
+#  lint 只驗得到格式——「否決了卻沒記」偵測不到，那一半靠健檢人工比對。）
+REJECTED = ROOT / ".claude" / "rejected-proposals.md"
+if RULES_FILE.exists() and "rejected-proposals.md" in RULES_FILE.read_text(encoding="utf-8"):
+    if not REJECTED.exists():
+        problems.append(f"[否決帳] {rel(REJECTED)} 不存在，但 CLAUDE.md 的 W9 指向它")
+    else:
+        rows = 0
+        for i, line in enumerate(REJECTED.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.startswith("|"):
+                continue
+            cols = [c.strip().strip("*").strip() for c in line.strip().strip("|").split("|")]
+            if not (cols and re.fullmatch(r"\d{4}-\d{2}-\d{2}", cols[0])):
+                continue
+            rows += 1
+            if len(cols) < 6 or not all(cols[:6]):
+                problems.append(
+                    f"[否決帳] {rel(REJECTED)}:{i}：這一列少了欄位——"
+                    f"日期／提案／決定／為什麼／什麼會讓它重新成立／出處，六欄都不能空"
+                )
+        if rows == 0:
+            problems.append(f"[否決帳] {rel(REJECTED)}：一列都沒有，帳存在但沒有內容")
+
 # N5：sources 與內文的雙向一致（2026-08-30 加入）
 # （2026-08-30 健檢抓到 7 頁內文引用了某份來源卻沒列進 sources、4 頁列了卻從未提到。
 #  這直接影響 N6——它的門檻就是數 sources 有幾份。index/log 是目錄，天生列全部，豁免。）

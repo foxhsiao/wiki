@@ -52,13 +52,22 @@ def build(root: Path):
     (root / "Wiki" / "questions").mkdir()
     (root / "Wiki" / "_templates").mkdir()
 
-    (root / "CLAUDE.md").write_text("# 規則\n\n- `[T1]` 測試用規則。\n", encoding="utf-8")
+    (root / "CLAUDE.md").write_text(
+        "# 規則\n\n- `[T1]` 測試用規則。\n"
+        "- `[T2]` 否決的提案記進 `.claude/rejected-proposals.md`。\n",
+        encoding="utf-8")
     (root / ".claude" / "rules-ledger.md").write_text(
         "# 帳\n\n| 編號 | 規則 | 加入 | 防什麼 | 證據 | 觸發紀錄 |\n"
         "|---|---|---|---|---|---|\n"
-        "| T1 | 測試用規則 | 建庫 | 防手滑 | 推論 | 無 |\n",
+        "| T1 | 測試用規則 | 建庫 | 防手滑 | 推論 | 無 |\n"
+        "| T2 | 否決的提案要記帳 | 建庫 | 防重複論證 | 推論 | 無 |\n",
         encoding="utf-8",
     )
+    (root / ".claude" / "rejected-proposals.md").write_text(
+        "# 被否決的提案\n\n| 日期 | 提案 | 決定 | 為什麼 | 什麼會讓它重新成立 | 出處 |\n"
+        "|---|---|---|---|---|---|\n"
+        "| 2026-01-01 | 一個提案 | 不做 | 因為某個理由 | 某個條件成立時 | Q1 |\n",
+        encoding="utf-8")
     (root / "Raw" / "2026-01-01--src.md").write_text("原始來源。\n", encoding="utf-8")
 
     others = {"alpha": ["beta", "gamma", "src", "open-questions"],
@@ -227,6 +236,16 @@ def m_alias_in_table(root):
         "一句話。", "| 欄 | 值 |\n|---|---|\n| a | [[beta|貝他]] |"), encoding="utf-8")
 
 
+def m_rejected_ledger_missing(root):
+    (root / ".claude" / "rejected-proposals.md").unlink()
+
+
+def m_rejected_row_incomplete(root):
+    p = root / ".claude" / "rejected-proposals.md"
+    p.write_text(p.read_text(encoding="utf-8").replace("| 某個條件成立時 |", "|  |", 1),
+                 encoding="utf-8")
+
+
 MUTATIONS = [
     ("frontmatter 缺欄位", "[frontmatter]", True, m_missing_field),
     ("type 值不合法", "[frontmatter]", True, m_bad_type),
@@ -248,6 +267,8 @@ MUTATIONS = [
     ("README 計數與實際不符", "[計數]", True, m_count_mismatch),
     ("overview 統計表的錨點不見了", "[計數]", True, m_count_anchor_gone),
     ("表格裡的別名 wikilink", "[表格別名]", True, m_alias_in_table),
+    ("否決帳不存在（W9）", "[否決帳]", True, m_rejected_ledger_missing),
+    ("否決帳少了「什麼會讓它重新成立」（W9）", "[否決帳]", True, m_rejected_row_incomplete),
 ]
 
 

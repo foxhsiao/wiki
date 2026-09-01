@@ -465,3 +465,21 @@ lint 現在對 overview 有 4 項 `[來源一致]` 提醒，一併在 C 處理�
   記在 [[overview]] 與 [[persistent-knowledge-layer]]，未動 `CLAUDE.md`（改規則要先問使用者，`[L3]`）。
 - 證據等級：本庫方法最紮實的一份（三次獨立重跑、paired bootstrap `p < 0.05`、四格 ablation、
   負面結果照登、限制自列四條）。折扣：arXiv 預印本、提出方法的人測自己的方法、全部是 benchmark。
+
+## [2026-09-01] lint | 補上「被否決的提案」這一層（W9）
+
+- 新增：[[two-wiki-architectures]]——WikiSkill 與本庫三層架構的逐格比對
+- 規則變更（使用者同意，`[L3]`）：`CLAUDE.md` 新增 `[W9]`——
+  否決規則或流程提案時當場記進 `.claude/rejected-proposals.md`，含「什麼會讓它重新成立」；
+  提出這類改動前先讀那一份。`.claude/rules-ledger.md` 補 W9 一列，含 `[W8]` 要求的預期效果與基準線。
+- 新檔：`.claude/rejected-proposals.md`，建檔回填 6 筆
+  （Q9 的 Inversion 閘門、Q7 的規格化假說、逐條移除重跑、`[S4]` 字數區間、Q6 的 H1、
+  今天決定不改 `[W0]`）。全部可追到既有 wiki 頁面，沒有事後編造的理由。
+- 工具：`tools/lint.py` 新增 `[否決帳]` 檢查（帳存在、每列六欄不得空）；
+  `tools/test_lint.py` 加兩種突變，總數 20 → 22，全部通過。
+- 更新：[[wikiskill]]、[[persistent-knowledge-layer]]（照做的紀錄）、
+  [[overview]]（照鏡子那節）、[[open-questions]] Q13（突變數字先前寫死 15 已過期，改為以工具輸出為準）、
+  `.claude/skills/wiki-lint/SKILL.md`（同上）
+- 矛盾：無
+- 誠實紀錄：這道閘門**只擋得到格式**。「否決了卻沒記」機械上偵測不到，
+  那一半仍是建議型控制，靠健檢人工比對——正是 Q13 說的那種指標。

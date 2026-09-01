@@ -92,6 +92,9 @@ WikiSkill 的預設設定是**禁止 Inference Agent 在訓練 rollout 期間讀
 （推論）這是本庫可以直接照做的一條：`log.md` 記的是做了什麼，
 缺的是**沒做什麼以及為什麼不做**。
 
+**2026-09-01 已補上**：規則 `[W9]`、帳在 `.claude/rejected-proposals.md`、
+`tools/lint.py` 加 `[否決帳]` 檢查。完整比對見 [[two-wiki-architectures]]。
+
 ## 作者自己指出的破口
 
 `wiki/` 只增不減，而 WikiSkill **沒有自動 pruning 機制**。
@@ -111,3 +114,4 @@ WikiSkill 的預設設定是**禁止 Inference Agent 在訓練 rollout 期間讀
 - [[harness-engineering]] —— 這一層是 harness 的一部分
 - [[skill-transfer-across-models]] —— 同一份研究的另一個結果
 - [[evidence-types-for-ai-capability]] —— 這個 +15.0 分能撐到哪裡
+- [[two-wiki-architectures]] —— 與本庫架構的逐格比對

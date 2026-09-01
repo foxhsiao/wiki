@@ -150,7 +150,8 @@ gating 的不對稱（§3.2.4）：
 - 更新：[[agent-config-evals]] —— gating／rollback 的具體形狀，含被拒提案要留下 diff
 - 更新：[[prompt-obsolescence]] —— 負移轉是「規則綁在特定模型上」的實驗證據
 - 更新：[[can-judgment-be-outsourced]] —— 解法 1（有損壓縮說）第一次遇到反向證據
-- 更新：[[open-questions]] Q2、Q15
+- 更新：[[open-questions]] Q2、Q15、Q13（突變測試從 15 種增為 22 種）
+- 照做：規則 `[W9]` 與 `.claude/rejected-proposals.md`，見 [[two-wiki-architectures]]
 - 衝突：與本庫既有主張沒有正面衝突，但**削弱了解法 1**，見該頁。
 
 ## 我的判讀
@@ -183,3 +184,4 @@ paired bootstrap 顯著性檢定、四格 ablation 隔離變數、負面結果�
 - [[prompt-obsolescence]] —— 負移轉是折舊第一層的實驗證據
 - [[can-judgment-be-outsourced]] —— 被本篇削弱的解法 1
 - [[evidence-types-for-ai-capability]] —— 判定本篇份量的尺
+- [[two-wiki-architectures]] —— 本篇與本庫架構的逐格比對
