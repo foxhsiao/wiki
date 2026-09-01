@@ -20,7 +20,7 @@ Wiki/
 
 ## Frontmatter 規範
 
-每一頁都必須有，欄位順序固定。共用欄位：
+每一頁都必須有，欄位順序固定（`[N4]`）。共用欄位：
 
 ```yaml
 ---
@@ -41,9 +41,9 @@ sources: ["[[as-we-may-think]]"]
   單一來源仍要 `high` 的，必須在 `confidence` 下一行加 `confidence_note:` 說明理由
   （典型的合格理由：供應商描述自家產品的定義性事實）。`tools/lint.py` 會擋，見 `CLAUDE.md` `[N6]`。
 - `sources`：除了 `type: source` 的頁面外，每頁都必須列出支撐它的來源頁。
-- `updated` 每次改動都要更新。需要今天的日期時用 bash `date`，不要憑印象寫。
+- `[I1]` `updated` 每次改動都要更新。需要今天的日期時用 bash `date`，不要憑印象寫。
 
-`type: source` 的頁面另加：
+`[I2]` `type: source` 的頁面另加：
 
 ```yaml
 source_type: article | paper | book | podcast | video | report | note | dataset
@@ -56,12 +56,14 @@ ingested: 2026-08-01
 
 ## 十個步驟
 
+`[I3]` 順序固定，不要跳步。
+
 1. 讀 `Raw/inbox/` 或使用者指定的檔案。**先完整讀完再動筆。**
-   含圖的 markdown 先讀文字，再單獨檢視 `Raw/assets/` 內被引用的圖。
+   `[I4]` 含圖的 markdown 先讀文字，再單獨檢視 `Raw/assets/` 內被引用的圖。
 2. 口頭回報 3–5 個關鍵重點，**等使用者確認方向或加註強調點**。
 3. 把檔案移到 `Raw/`，重新命名為 `YYYY-MM-DD--slug.ext`（日期是取得日）。只改檔名，不動內容。
 4. 在 `Wiki/sources/` 建立摘要頁（用 `_templates/source.md`）。
-5. **擴散更新**：找出這份來源牽動的所有既有頁面並更新。一份來源通常會動到 5–15 頁。
+5. **擴散更新** `[I5]`：找出這份來源牽動的所有既有頁面並更新。一份來源通常會動到 5–15 頁。
    - 新事實 → 補進對應的 entity / concept 頁。
    - 與既有主張**衝突** → 不要偷偷覆蓋。在該頁的「## 爭議與矛盾」區塊並列兩種說法、
      各自標來源與日期，並降低 `confidence`。
@@ -74,7 +76,7 @@ ingested: 2026-08-01
 
 ## index.md 的一行格式
 
-內容導向的目錄，依分類分節，每頁一行。摘要要寫得夠有辨識度，因為它是查詢時的第一入口：
+`[I6]` 內容導向的目錄，依分類分節，每頁一行。摘要要寫得夠有辨識度，因為它是查詢時的第一入口：
 
 ```markdown
 - [[as-we-may-think]] — Bush 1945 年提出 Memex 的原始論文 · 3 個引用頁
@@ -82,7 +84,7 @@ ingested: 2026-08-01
 
 ## log.md 的一筆格式
 
-append-only，新的加在最下面。格式固定，方便 grep：
+`[I7]` append-only，新的加在最下面。格式固定，方便 grep：
 
 ```markdown
 ## [2026-08-01] ingest | As We May Think
@@ -94,4 +96,4 @@ append-only，新的加在最下面。格式固定，方便 grep：
 
 動作只有 `ingest` / `query` / `lint` / `publish` 四種。
 
-**注意**：log 裡提到不存在的頁面時不要寫成 `[[...]]`，會被 lint 判成斷鏈。用反引號或純文字。
+`[I8]` **注意**：log 裡提到不存在的頁面時不要寫成 `[[...]]`，會被 lint 判成斷鏈。用反引號或純文字。
