@@ -108,10 +108,11 @@ ingest 預設會停下來等你確認方向。趕時間可以：
 代價是你失去在擴散更新前介入的機會。第一次處理陌生領域的來源不建議這樣做。
 
 ```bash
-python3 tools/lint.py          # 斷鏈 / 孤兒頁 / frontmatter 缺漏 / index 漏登 / Raw 未 ingest / 走失頁
-                               # / 規則來由缺漏 / 衝突標記 / confidence 與來源數 / type 與資料夾 / 空區塊
-                               # / sources 與內文一致 / README 與 overview 的計數 / 表格裡的別名 wikilink
-python3 tools/test_lint.py     # 反向對照：注入 20 種缺陷，確認 lint 真的抓得到
+python3 tools/lint.py          # 機械性檢查：斷鏈 / 孤兒頁 / frontmatter / index 漏登 / Raw 未 ingest
+                               # / 走失頁 / 規則來由缺漏 / 衝突標記 / confidence 與來源數 / type 與資料夾
+                               # / 空區塊 / sources 與內文一致 / 計數 / 表格裡的別名 wikilink / 否決帳
+                               # （完整清單以腳本輸出為準，這裡不重抄）
+python3 tools/test_lint.py     # 反向對照：逐一注入已知缺陷，確認 lint 真的抓得到
 grep "^## \[" Wiki/log.md | tail -5   # 最近 5 筆動作
 ```
 
@@ -124,13 +125,20 @@ grep "^## \[" Wiki/log.md | tail -5   # 最近 5 筆動作
 | `Raw/assets/` | 圖片附件（設為 Obsidian 附件資料夾） | Obsidian |
 | `Wiki/` | LLM 生成的頁面 | 只有 LLM |
 | `CLAUDE.md` | 規則書（一頁），每條規則有編號 | 兩邊共同演化 |
-| `.claude/rules-ledger.md` | 每條規則的來由、證據等級、觸發紀錄 | 只有 LLM |
-| `.claude/skills/` | ingest 與 lint 的流程細節，按需載入 | 只有 LLM |
+| `.claude/rules-ledger.md` | **被採用的**規則為什麼在：來由、證據等級、觸發紀錄 | 只有 LLM |
+| `.claude/rejected-proposals.md` | **被丟掉的**提案：為什麼不做、什麼會讓它重新成立 | 只有 LLM |
+| `.claude/failure-modes.md` | **犯過的錯**，依模式分組；同一種錯犯第二次才是要修的東西 | 只有 LLM |
+| `.claude/skills/` | ingest 與 lint 的流程細節，按需載入；規則也有編號（`[I*]`、`[H*]`） | 只有 LLM |
 | `tools/lint.py` | 健檢腳本 | — |
+| `tools/test_lint.py` | 對 lint 自己做突變測試 | — |
 
 `Wiki/` 底下：`sources/` 來源摘要、`entities/` 人事物、`concepts/` 概念、
 `syntheses/` 跨來源論點、`questions/` 開放問題、`_templates/` 模板。
 `index.md` 是目錄、`log.md` 是流水帳、`overview.md` 是當前綜合判斷。
+
+`.claude/` 底下那三份帳是分工的：**採用的**進 `rules-ledger`、**丟掉的**進
+`rejected-proposals`、**犯過的錯**進 `failure-modes`。三份都不寫，同一個主意會被反覆論證，
+同一種錯會被反覆犯——這個設計的來由見 `Wiki/syntheses/two-wiki-architectures.md`。
 
 ## Obsidian 建議設定
 
