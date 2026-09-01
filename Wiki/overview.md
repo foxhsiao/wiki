@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # 總覽
@@ -23,7 +23,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 ## 目前的主軸
 
-十三份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
+十四份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
 
 ### 1. 判斷力是共同答案（5 份來源，跨 7 年）—— 本庫收斂度最高的一條
 
@@ -216,7 +216,39 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
    這同時是 [[prompt-obsolescence]] 第一層的實驗證據，
    也是 [[can-judgment-be-outsourced]] 解法 1 的反向證據（[[skill-transfer-across-models]]）。
 
-### 9. 已經可以直接照做的操作（5 份來源）
+### 9. 成本是可分解的工程問題（1 份來源，**本庫第一份買方視角**）
+
+前八條軸線的來源全是賣方、研究方或個人。
+[[running-a-software-factory-at-uber-scale]] 是第一個**付錢的一方**——
+它不賣 agent 工具，它在想辦法讓帳單不隨用量一起漲。
+
+規模先講清楚：**70% 以上的 PR 由 agent 產出、3,600+ 個 agent skill、
+每天 30K+ 次 skill 執行**，2 月到 8 月週活躍使用者成長 7 倍、agentic requests 成長 9.4 倍。
+
+它帶進三樣本庫原本沒有的東西：
+
+1. **成本可以被分解成相乘的因子，逐項優化**，而最大的空間在
+   「agent 在工程師實際提出的請求之上，自己給自己加的工作」。
+   固定模型量半年：**cost per 1,000 requests 降將近 34%、cost per session 自高點降 52%**
+   （[[ai-development-economics]]）。
+2. **[[context-tax|脈絡稅]]**：工具 schema 是預付的——100+ 工具就是 50K–70K tokens，
+   不管用不用，而且每輪重送。它不由使用方決定，因為供應商無法預測你會用哪幾個工具。
+   解法是把工具移出脈絡（CLI 化）或改成按需搜尋，加上 code-mode 批次（省 50%–90%）。
+3. **[[managed-agents|受管 agent]]**：結論的方向是從互動式工作流轉向 agent 艦隊，
+   每個配自己的 benchmark 與 Pareto 最優模型。理由是控制權。
+
+**方法學那一句比數字重要**：
+
+> "isolating our own optimization gains means **holding one model fixed**, since behavior shifts
+> with every upgrade and model family."
+
+（推論）這示範了 Q15 該怎麼問——固定一個變數，量一個能歸因的比值。
+但它**沒有回答 Q15**：Q15 問時間，它量成本。
+
+**它同時讓另一條裂縫更深**：這是本庫唯一一份真的把 agent 用到 70% PR 的來源，
+而它**完全沒有提工程師怎麼養成**。[[judgment-supply]] 的對照表因此多了最強的一列。
+
+### 10. 已經可以直接照做的操作（5 份來源）
 
 這是庫裡不需要再驗證就能今天動手的部分：
 
@@ -232,8 +264,9 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 - [[agent-config-evals]] —— 規則檔改動要有回歸測試
 - [[tradeoff-literacy]] —— 動手前先問：這個任務有哪幾條取捨軸線我還沒說出來
 - [[persistent-knowledge-layer]] —— 知識與程序分層，且被否決的提案要留下來
+- [[context-tax]] —— 先算一下開場還沒工作就付掉多少 token
 
-### 10. 這個庫在照鏡子
+### 11. 這個庫在照鏡子
 
 四個概念直接指向本庫自己的設計：`CLAUDE.md` 是白皮書定義的**靜態脈絡**與
 [[harness-engineering|harness 規則檔]]；`Wiki/index.md` 是 progressive disclosure 的手工版；
@@ -296,12 +329,12 @@ Q10 的教訓原來還有第二種漏法：**搬家時也會掉。**
 
 ## 目前的缺口
 
-- **已經跨出領域，但只跨了一條線**：十三份裡有**兩份**不談軟體開發——
+- **已經跨出領域，但只跨了一條線**：十四份裡有**兩份**不談軟體開發——
   [[ironies-of-automation-public-service]]（公共服務，2024）與
   [[bainbridge-ironies-of-automation]]（工業製程控制，1983）。兩份是同一條線的兩端，
   後者是前者的原始出處。所以**跨出去的是一個領域、一條論證，不是多個獨立領域**。
   時間尺度倒是真的拉開了：從六個月變成四十三年。
-- **來源獨立性（十三份的實際分布）**：
+- **來源獨立性（十四份的實際分布）**：
 
   | 來源方 | 份數 | 有沒有東西要賣 |
   |---|---|---|
@@ -312,14 +345,15 @@ Q10 的教訓原來還有第二種漏法：**搬家時也會掉。**
   | 學術（Lindgren、Bainbridge） | 2 | 沒有 |
   | [[andrew-ng]] | 1 | [[ai-engineering-skills-map-software-fundamentals]]，商業形式是課程 |
   | Google Research（學術） | 1 | [[wikiskill]]，沒有產品，但提出方法的人測自己的方法 |
+  | [[uber]]（採用方） | 1 | [[running-a-software-factory-at-uber-scale]]，**買方**：動機是把成本壓下來 |
 
-  **賣方 6/13**，剛好又回到未過半。（推論）新增的 [[wikiskill]] 不是賣方，
+  **賣方 6/14**，而且來源方的**種類**第一次補齊：賣方、研究方、學術、個人、**採用方**。（推論）新增的 [[wikiskill]] 不是賣方，
   但也不是中立第三方——它的偏誤方向是「自己的方法會贏」，
   這在 ablation 與負面結果照登這兩件事上被部分抵銷。
   （推論）METR 的方向偏誤是對
   「AI 能力被高估」的證據更敏感；學術那兩份的偏誤是領域不同，移植成不成立要自己論證。
 - Naval 的兩篇都在 AI 普及之前（2019）。他 2026 年的說法是最大的缺口（Q1）。
-- **十三份裡只有四份帶資料**（白皮書、METR 兩份、[[wikiskill]]），其餘九份全是敘事與框架。
+- **十四份裡有五份帶資料**（白皮書、METR 兩份、[[wikiskill]]、[[running-a-software-factory-at-uber-scale]]），其餘九份是敘事與框架。
   而 METR 兩份的數字現在都不可直接引用，白皮書引用的數字多半是自陳調查。
   **實質上本庫沒有可用的量化證據。**
   Bainbridge 帶進來的唯一數字是轉引的——vigilance 上限約半小時（Mackworth 1950）。
@@ -327,7 +361,7 @@ Q10 的教訓原來還有第二種漏法：**搬家時也會掉。**
   **但 [[wikiskill]] 改變了這一格**：它是本庫唯一有 ablation 與顯著性檢定的來源，
   代價是它量的是 benchmark 答對率，不是真實工作。
 - [[leverage-and-compounding]] 仍是 seed，撐著主軸 3 的關鍵一步。
-- **治理那一軸目前只有一份來源，而且是賣方的**。需要一份買方或監管方視角的來源來對撞。
+- ~~**治理那一軸目前只有一份來源，而且是賣方的**~~ —— **2026-09-01 部分補上**：[[running-a-software-factory-at-uber-scale]] 是採用方視角，但它談的是**成本治理**，不是 [[the-ai-native-sdlc-playbook]] 那種**合規治理**。兩者只有部分重疊（都在把決定收回可控位置）。**仍缺監管方視角的來源。**
 - **一個結構性的缺口浮出來了（2026-09-01）**：把十二份排開之後，
   **要求某種能力的來源不談那種能力從哪來，描述供給消失的來源不談軟體開發，
   量到人不願回頭的來源不談能力累積**——沒有一份同時處理兩邊。
@@ -343,7 +377,7 @@ Q10 的教訓原來還有第二種漏法：**搬家時也會掉。**
 
 | 項目 | 數量 |
 |---|---|
-| 來源 | 13 |
-| Wiki 頁面 | 63 |
+| 來源 | 14 |
+| Wiki 頁面 | 67 |
 | 開放問題 | 16（6 條 closed、1 條改寫） |
 | 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |

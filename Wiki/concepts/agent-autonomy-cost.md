@@ -4,10 +4,10 @@ type: concept
 aliases: [agent autonomy cost, 範圍擴張]
 tags: [ai, agent, 工作方法]
 created: 2026-08-02
-updated: 2026-08-29
+updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # 自主性的成本
@@ -67,6 +67,29 @@ sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
 [[judgment|判斷]]，而且把它列為需要被約束的行為。
 這對 [[can-judgment-be-outsourced]] 是直接的新證據。
 
+## 委派成本有了定價方案
+
+本頁把「自主委派」列為三種做太多之一：模型自己決定要不要生成子 agent，
+而每個子 agent 都要付一次完整的脈絡建置成本。
+
+[[running-a-software-factory-at-uber-scale|Uber]] 的做法不是禁止委派，是**替委派定價**：
+
+> "Because subagents perform well-defined tasks with specified inputs that often do not require
+> frontier-level reasoning, we **default them to a weaker, more cost-effective model** while still
+> allowing manual overrides. The primary model handles task decomposition and evaluation while
+> subagents execute the work."
+
+原文說這是最有效的槓桿之一，而且重要性還在上升，因為**會生成子 agent 的 session 比例持續增加**——
+模型能力變強讓多 agent 編排更可行。
+
+配套：subagent 的 prompt cache TTL 維持 5 分鐘（互動式 session 改成 1 小時），
+理由是子任務短命。
+
+（推論）這把本頁的立場往前推了一格。本頁原本說「畫界線而不是禁止」，
+Uber 示範的是第三條路：**讓那個行為變便宜，而不是讓它變難**。
+主模型拆解與評估、子 agent 執行——這正好也是 [[conductor-and-orchestrator|協調者]]那條分工，
+只是把它變成了模型路由設定。
+
 ## 相關頁面
 
 - [[prompting-claude-opus-5]] —— 來源
@@ -75,3 +98,5 @@ sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]"]
 - [[harness-engineering]] —— harness 的工作性質改變了
 - [[autonomy-tiering]] —— 畫界線的具體機制
 - [[the-ai-native-sdlc-playbook]] —— 分級的來源
+- [[running-a-software-factory-at-uber-scale]] —— 替委派定價而不是禁止委派
+- [[managed-agents]] —— 把這些設定收到可控位置

@@ -7,7 +7,7 @@ created: 2026-08-30
 updated: 2026-09-01
 status: active
 confidence: low
-sources: ["[[bainbridge-ironies-of-automation]]", "[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # 判斷力的供給問題
@@ -149,8 +149,21 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
 | 要求這種能力（Ng、白皮書、playbook） | 不談供給 |
 | 描述供給消失的機制（Bainbridge、Lindgren） | 不談軟體開發 |
 | 量到人不願回到無 AI 狀態（METR 2026） | 不談能力累積 |
+| **大規模採用方（Uber 2026-08）** | **完全不談**——70% 的 PR 由 agent 產出，通篇沒有一句提到工程師怎麼養成 |
 
-**沒有任何一份同時處理兩邊。**這不是偶然——（推論）要同時處理，
+**沒有任何一份同時處理兩邊。**
+
+[[running-a-software-factory-at-uber-scale|Uber 那一列是最強的一筆]]：
+它是本庫唯一一份**真的把 agent 用到那個程度**的來源——70% 以上的 PR 由 agent 產出、
+愈來愈多 session 不是人發起的——而且它花了整篇在談成本、模型路由、脈絡 grounding。
+**關於資淺工程師在這種環境裡怎麼累積判斷力，一個字都沒有。**
+
+（推論）這不是疏忽，是它不歸那個部門管。成本有人負責、有指標、有儀表板；
+能力養成沒有對應的量測，所以在一篇談效率的文章裡它不存在。
+Bainbridge 說的「riding on their skills」在這裡有了一個具體的場景
+（[[monitoring-does-not-teach]]）。
+
+這不是偶然——（推論）要同時處理，
 得追蹤同一批人在 agentic 環境裡幾年之後的能力變化，而那種研究現在還做不出來
 （工具穩定的時間比養成一個資深工程師的時間短）。
 
@@ -213,3 +226,4 @@ H2 就有本庫尺度的支持，而 H2 成立意味著 Q6 的答案是壞消息
 - [[bainbridge-ironies-of-automation]] —— 反駁 H1 的原典
 - [[ai-engineering-skills-map-software-fundamentals]] —— 最新一份「要求能力但不談供給」的來源
 - [[tradeoff-literacy]] —— 那份來源開出的能力清單
+- [[running-a-software-factory-at-uber-scale]] —— 對照表裡最強的一列：規模最大、談得最少

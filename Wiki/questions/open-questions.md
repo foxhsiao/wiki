@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # 開放問題
@@ -112,7 +112,10 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   沒有一份同時處理兩邊。** 對照表在 [[judgment-supply]]。
 - **還缺什麼**：
   1. 談 AI 時代資淺工程師養成的實證研究。
-  2. 買方或監管方視角的組織來源。
+  2. ~~買方或監管方視角的組織來源。~~ **2026-09-01 補上了一半**——
+     [[running-a-software-factory-at-uber-scale]] 是本庫第一份採用方視角的來源，
+     但它**對 Q6 完全沒有幫助**：70% 的 PR 由 agent 產出，通篇不談工程師怎麼養成。
+     （推論）它反而讓 [[judgment-supply]] 的對照表多了最強的一列。仍缺**監管方**視角。
   3. （推論）**agent 時代的「模擬器」**——Bainbridge 的退路選項在軟體開發脈絡下沒有人做過。
   4. 一份**同時**處理「需要什麼能力」與「那些能力怎麼長出來」的來源。
      （推論）這個缺口是結構性的：要處理兩邊得追蹤同一批人在 agentic 環境裡數年的能力變化，
@@ -328,6 +331,17 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - **附帶一個反面結果**：同一份脈絡給執行任務的 agent 讀，成績反而掉
   （63.7% → 60.9%）。（推論）harness 的問題因此不只是「準備哪些東西」，
   還有「**哪個角色看得到**」——這是本庫原本沒有的維度。
+- **第一份真實世界的數字，但量錯了東西（2026-09-01）**：
+  [[running-a-software-factory-at-uber-scale]] 在生產環境固定模型量了半年——
+  cost per 1,000 requests 降將近 34%、cost per session 自高點降 52%，同期用量成長 7 倍。
+  全部來自 harness 層的改動。**但 Q15 問的是時間，它量的是成本**：
+  成本降 34% 不等於工作變快，甚至不排除變慢，而原文沒有給任何時間或品質數字。
+- **它真正的貢獻是示範了這題該怎麼問**：**固定一個變數，量一個能歸因的比值。**
+  > "isolating our own optimization gains means **holding one model fixed**,
+  > since behavior shifts with every upgrade and model family."
+  （推論）METR 做不到是因為[[control-group-collapse|對照組崩解]]；
+  Uber 繞過去的方式是**不設對照組**，改成固定模型看時間序列。
+  代價是量到的東西只在那個模型上成立，而模型每幾週就換。
 - **狀態**：open —— 仍是最大的證據缺口。**但現在有了可以累積資料的機制，而不只是一個問題**
 
 ## Q16. 2026-02-24 的後續研究會改變什麼？
@@ -375,3 +389,4 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - [[wikiskill]] —— Q2 的第一筆外部實驗證據，Q15 的第一個隔離數字
 - [[skill-transfer-across-models]] —— Q2 的展開
 - [[persistent-knowledge-layer]] —— Q15 那個 15.0 分量的是什麼
+- [[running-a-software-factory-at-uber-scale]] —— Q15 的第一份真實世界數字，以及它為什麼不夠

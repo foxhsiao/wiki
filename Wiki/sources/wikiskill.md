@@ -173,6 +173,22 @@ paired bootstrap 顯著性檢定、四格 ablation 隔離變數、負面結果�
 那是 [[open-questions]] Q15 問的問題，而這份來源沒有回答（見 [[what-the-19-percent-measures]]
 對 benchmark 與真實工作差距的討論）。
 
+## 產業上有人在做同一件事
+
+[[running-a-software-factory-at-uber-scale|Uber]]（2026-08-29）的「進行中工作」有一條：
+
+> "**Continuous Skill Improvement**: We are working on an automated way to record papercuts from
+> agent skill executions and **auto-generate skill updates from the collected traces**."
+
+那正是本篇的迴圈——從執行軌跡回頭改進 skill。Uber 已經有超過 3,600 個 skill、
+每天超過 30K 次執行，也就是本篇需要的那種軌跡量它天然就有。
+
+（推論）兩者的落差在 gating：本篇花最多篇幅在
+「驗證分數沒超過歷史最佳就整包回滾、被拒的提案留 diff」，
+Uber 那條還是「working on」，沒有說怎麼判斷一次自動更新是不是改善。
+本篇的 ablation（知識層值 15.0 分）與接受率數字（每輪提 3.1 個只收 1.6 個）
+正好是那個問題的答案形狀。
+
 ## 相關頁面
 
 - [[persistent-knowledge-layer]] —— 本篇的核心設計
@@ -185,3 +201,4 @@ paired bootstrap 顯著性檢定、四格 ablation 隔離變數、負面結果�
 - [[can-judgment-be-outsourced]] —— 被本篇削弱的解法 1
 - [[evidence-types-for-ai-capability]] —— 判定本篇份量的尺
 - [[two-wiki-architectures]] —— 本篇與本庫架構的逐格比對
+- [[running-a-software-factory-at-uber-scale]] —— 產業上在做同一件事的一方

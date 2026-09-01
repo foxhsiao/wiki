@@ -4,11 +4,10 @@ type: concept
 aliases: [effort, thinking]
 tags: [ai, 模型, 成本]
 created: 2026-08-02
-updated: 2026-08-29
+updated: 2026-09-01
 status: active
 confidence: high
-confidence_note: 同上：effort 與 thinking 是 Anthropic 自家參數的定義與行為，一手文件就是最高證據
-sources: ["[[prompting-claude-opus-5]]"]
+sources: ["[[prompting-claude-opus-5]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # Effort 與 thinking
@@ -50,9 +49,32 @@ effort 是另一條軸——「送進去之後讓它想多久」。
 [[ai-development-economics]] 的「智慧模型路由」是第三條（用哪個模型）。
 三條可以獨立調，實務上常被混在一起談。
 
+## 艦隊級的實作：預設 Medium
+
+本頁的建議是「用低 effort 控成本，不要關 thinking」。
+[[running-a-software-factory-at-uber-scale|Uber]] 把它做成了**全公司預設值**：
+
+> **Reasoning effort defaulted to Medium**
+
+理由是計價結構：輸出 token（含內部推理 token）在主要模型上的計價是輸入的數倍，
+所以調這一項直接壓到最貴的那一類 token。原文的判斷是
+「對一大類任務，Medium 在成本與品質之間取得好的平衡」。
+
+配套的另外兩個預設值也在同一條線上：
+
+- **自動壓縮在 400K tokens 觸發，即使模型有 1M 視窗**——
+  平衡模型表現與 cache burst、重複輸入 token 的成本。
+- **subagent 預設用較弱、較便宜的模型**（[[agent-autonomy-cost]]）。
+
+（推論）這是本頁第一次拿到**規模化的佐證**：先前只有供應商文件說「該這樣調」，
+現在有一個用量成長 7 倍的組織說「我們把它設成預設，而且成本降下來了」。
+但要注意它證明的是**成本**，不是品質——原文沒有給 Medium 與 High 的品質對照。
+
 ## 相關頁面
 
 - [[prompting-claude-opus-5]] —— 來源
 - [[claude-opus-5]] —— 這些檔位所屬的模型
 - [[ai-development-economics]] —— 成本控制的其他槓桿
 - [[context-engineering]] —— 另一條成本軸
+- [[running-a-software-factory-at-uber-scale]] —— 把這些建議做成艦隊預設值的實例
+- [[context-tax]] —— 另一筆在 session 開始前就付掉的成本

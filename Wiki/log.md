@@ -542,3 +542,34 @@ lint 現在對 overview 有 4 項 `[來源一致]` 提醒，一併在 C 處理�
   一行 grep 掃全庫維護型檔案的數字。已寫進 M1 那一節，健檢時手動跑。
   沒寫成 lint 檢查，因為區分「該更新的當期數字」與「刻意保留的歷史數字」需要判斷。
 - 矛盾：無
+
+## [2026-09-01] ingest | Running a Software Factory Efficiently at Uber Scale
+
+- 新增：[[running-a-software-factory-at-uber-scale]]、[[uber]]（seed）、[[context-tax]]、[[managed-agents]]
+- 更新：[[ai-development-economics]]（成本從定性說法變成可分解的量測；第一組真實世界數字）、
+  [[context-engineering]]（隱性脈絡那條賭注有人押下去了：AI Context Graph；脈絡稅是第四個角度）、
+  [[harness-engineering]]（第一份真實世界的 harness 效果數字，但量的是成本不是時間）、
+  [[effort-and-thinking]]（艦隊級預設 Medium；同時移除多餘的 confidence_note，因為現在有兩份來源）、
+  [[agent-autonomy-cost]]（替委派定價而不是禁止委派）、
+  [[agent-skills]]（3,600 個 skill 的規模；skill 自動演化的產業版）、
+  [[agent-config-evals]]（同一套回歸測試機制換成選模型）、
+  [[wikiskill]]（產業上有人在做同一件事）、
+  [[judgment-supply]]（對照表新增最強的一列）、
+  [[open-questions]]（Q6 的缺口 2 補上一半、Q15 拿到第一份真實世界數字但量錯東西）、
+  [[overview]]（新增主軸 9、來源獨立性補上「採用方」這一類、缺口清單更新）
+- 矛盾：無正面衝突。
+- **本庫等了兩份來源的缺口補上了**：`overview` 的缺口清單與 Q6 都寫著「需要買方或監管方視角」。
+  Uber 是第一個買方。但它**對 Q6 完全沒有幫助**——70% 的 PR 由 agent 產出，
+  通篇不談工程師怎麼養成。（推論）這反而讓 [[judgment-supply]] 的對照表多了最強的一列：
+  **規模最大的採用方，談得最少。** 仍缺監管方視角。
+- 缺漏（`[L6]`）：全文的圖都是外部 `pbs.twimg.com` 連結，一張都沒抓到。
+  **成本方程式的六個項只存在於圖裡**，本頁不猜（`[X2]`）；四層架構、指標總表、
+  levers 總表、uReview 的 Pareto 圖同樣只有圖。內文交代的數字不受影響，已全部收錄。
+- **M1 的第 8 個實例，而且是流程抓到的**：ingest 收尾時照 `.claude/failure-modes.md`
+  M1 那一節的 grep 掃了一遍維護型檔案，抓到 `.claude/rules-ledger.md` 兩處——
+  Q10 觀察紀錄寫「lint 共有 9 種檢查、只有 4 條規則有確定性後盾」（實際 16 種、11 條），
+  以及 `[H5]` 那一列的「又發生 3 次」與同一格基準線「6 次」自相矛盾。都已修。
+  （推論）**這是該模式第一次被流程而不是運氣抓到**，前 7 次靠健檢、使用者提問或事後回看。
+  下次健檢要決定這個 grep 該不該從失效模式帳搬進 ingest 的收尾步驟。
+- 證據等級：營運資料最紮實的一份（真實生產環境、固定模型隔離變數、方法自述清楚），
+  但自陳未經稽核、通篇沒有失敗的槓桿、**成功的定義是成本不是品質**、規模極端。

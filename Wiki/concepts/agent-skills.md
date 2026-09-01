@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[the-ai-native-sdlc-playbook]]", "[[wikiskill]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[the-ai-native-sdlc-playbook]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # Agent Skills
@@ -89,6 +89,27 @@ skill 只放現行的可執行程序、**可以被整包回滾**；
 （推論）這給了本頁「跨工具、跨廠商的可攜性」那條主張一個限定：
 **格式可攜不等於內容可攜。** 可攜的是通則，不可攜的是為某個模型的弱點寫的補丁。
 
+## 規模長什麼樣
+
+本頁到此為止談的都是機制。[[running-a-software-factory-at-uber-scale|Uber]] 提供了規模的參考點：
+**超過 3,600 個 agent skill、每天超過 30K 次 skill 執行**，橫跨整個 SDLC。
+
+兩個具體用法值得記：
+
+- **skill 被用來封裝工具的常用工作流**：他們為每個 SaaS MCP server 寫專屬 skill，
+  並預建超過 25 個 code-mode skill，讓標準工作流預設走最省成本的路徑（[[context-tax]]）。
+  （推論）這是 skill 的一個本庫先前沒記的角色——**不是散布制度知識，是壓低單位成本**。
+- **skill 自己也要演化**。原文的進行中工作有一條：
+  「自動記錄 agent skill 執行時的 papercuts，並**從蒐集到的軌跡自動生成 skill 更新**」。
+
+第二條就是 [[wikiskill]] 的產業版：一個是 Google Research 的論文與 benchmark，
+一個是 Uber 說在做。兩份來源相隔三天進本庫，講的是同一個機制——
+**從執行軌跡回頭改進程序知識**。
+
+（推論）差別在於誰來 gate：WikiSkill 用驗證集分數硬 gate 並可回滾，
+Uber 這條還在「進行中」，沒有說怎麼判斷一次自動更新是不是改善。
+那正是 WikiSkill 花最多篇幅處理的部分。
+
 ## 相關頁面
 
 - [[skill-design-patterns]] —— skill 內容的五種設計模式
@@ -100,3 +121,5 @@ skill 只放現行的可執行程序、**可以被整包回滾**；
 - [[wikiskill]] —— 把程序與知識拆開的實驗
 - [[persistent-knowledge-layer]] —— 該從 skill 裡搬出去的那一層
 - [[skill-transfer-across-models]] —— 可攜性的限定條件
+- [[running-a-software-factory-at-uber-scale]] —— 3,600 個 skill 的規模與成本用途
+- [[context-tax]] —— code-mode skill 在解的問題
