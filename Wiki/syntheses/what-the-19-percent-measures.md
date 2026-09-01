@@ -173,3 +173,4 @@ benchmark 因為只量「範圍界定良好、可演算法評分」的任務而*
 - [[evidence-types-for-ai-capability]] —— 削弱點 4 的依據
 - [[metr-2026-uplift-update]] —— 讓情況更糟的後續研究
 - [[control-group-collapse]] —— 為什麼新數字不可解讀
+- [[two-wiki-architectures]] —— 本庫改寫知識層的做法，與永不回滾那一派的對照

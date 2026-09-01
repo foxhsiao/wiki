@@ -4,10 +4,10 @@ type: concept
 aliases: [conductor, orchestrator]
 tags: [ai, 工作方法, 職涯]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[elephants-goldfish]]", "[[bainbridge-ironies-of-automation]]", "[[metr-2026-uplift-update]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[elephants-goldfish]]", "[[bainbridge-ironies-of-automation]]", "[[metr-2026-uplift-update]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # 指揮家與協調者
@@ -69,6 +69,23 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[elephants-goldfish]]", "[[bain
 但收斂的只有「協調者需要不同的技能組」這一條。
 **兩種模式的分類本身仍然只有 [[the-new-sdlc-with-vibe-coding]] 一份來源**——
 所以整頁的 `confidence` 停在 `medium`，不是 `high`。
+
+## 這條分工已經變成模型路由設定
+
+本頁描述的協調者模式——人負責拆解與評估、agent 負責執行——
+[[running-a-software-factory-at-uber-scale|Uber]] 把它下放了一層，
+變成**模型之間**的分工：
+
+> "The **primary model handles task decomposition and evaluation** while subagents execute the work."
+
+具體做法是替委派定價：subagent 預設用較弱、較便宜的模型（可手動覆寫），
+理由是「子 agent 做的是輸入明確的定義好任務，通常不需要前緣等級的推理」。
+原文說會生成子 agent 的 session 比例持續上升。
+
+（推論）這對本頁是個不舒服的觀察：本頁把「拆解與評估」當成**人**的那一層，
+而 Uber 把同一句話用來描述**主模型**。
+協調者的位置沒有消失，但它已經不專屬於人——這與 [[agent-autonomy-cost]]
+記的「模型自己決定要不要生成子 agent」是同一件事的兩端。
 
 ## 相關頁面
 

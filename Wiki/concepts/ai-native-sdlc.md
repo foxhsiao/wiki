@@ -4,10 +4,10 @@ type: concept
 aliases: [agentic SDLC, AI SDLC, agentic software development]
 tags: [ai, 軟體工程, 流程, 治理]
 created: 2026-08-29
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[the-ai-native-sdlc-playbook]]", "[[the-new-sdlc-with-vibe-coding]]"]
+sources: ["[[the-ai-native-sdlc-playbook]]", "[[the-new-sdlc-with-vibe-coding]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # AI-native SDLC
@@ -58,6 +58,21 @@ sources: ["[[the-ai-native-sdlc-playbook]]", "[[the-new-sdlc-with-vibe-coding]]"
 （推論）這套流程預設組織已經有 git、CI、branch protection、metrics store 與 MDM。
 原文沒有處理起步成本，也沒有給任何成效數字。
 對照 [[the-new-sdlc-with-vibe-coding]]——那份有數據但不談治理，這份談治理但沒數據。
+
+## 這些階段上已經站著受管 agent
+
+本頁描述的是流程形狀。[[running-a-software-factory-at-uber-scale|Uber]]
+提供了「每個階段實際站著什麼」的一份清單——全部是受管 agent，帶人工審查與升級路徑：
+
+程式碼審查（處理所有 PR）、CI 失敗自我修復、帶視覺驗證的端到端 PR、
+on-call 告警分流、進來的 bug 除錯、各種程式碼維護任務。
+
+原文說**愈來愈多 session 不是由人發起的**。
+
+（推論）這對本頁的迴圈說法是一個具體化，也是一個限定：
+受管 agent 覆蓋得到的是 SDLC 裡**可判定**的那一段（「這個 PR 有沒有 bug」有標準答案），
+覆蓋不到架構決定這類沒有標準答案的部分。所以本頁那個迴圈**不是均勻被自動化的**，
+瓶頸會集中在建不了 benchmark 的階段。展開見 [[managed-agents]]。
 
 ## 相關頁面
 

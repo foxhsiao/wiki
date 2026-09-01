@@ -77,3 +77,4 @@ harness 的工作從「補能力」變成「設邊界」，但那一頁只有原
 - [[advisory-vs-deterministic-control]] —— 邊界靠什麼強制
 - [[intent-md]] —— 診斷結果寫成什麼
 - [[ai-native-sdlc]] —— 閉環所在的框架
+- [[managed-agents]] —— 集中化的另一個面向：成本與模型路由

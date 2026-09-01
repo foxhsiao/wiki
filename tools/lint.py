@@ -307,6 +307,37 @@ for p in pages:
             f"[來源一致] {rel(p)}：sources 列了 [[{unused}]] 但內文從未提到"
         )
 
+# 漏擴散：新頁在「相關頁面」連到某頁，但那頁的 updated 早於新頁的 created
+# （2026-09-01 加入。健檢抓到 evidence-types、factory-model 等 6 頁被新來源牽動卻沒被更新，
+#  也就是 ingest 第 5 步的擴散更新漏了它們。失效模式帳 M7。
+#  刻意只比「相關頁面」區塊而不是全文，也刻意不要求雙向連結——
+#  全庫雙向會產生 80 條噪音，多數是合理的單向引用。）
+REL_HEAD = "## 相關頁面"
+for p in pages:
+    stem = p.stem
+    if stem in HUBS:
+        continue
+    text = p.read_text(encoding="utf-8")
+    fm = parse_fm(text) or {}
+    created = fm.get("created", "")
+    body = FM_RE.sub("", text, count=1)
+    i = body.rfind(REL_HEAD)
+    if i < 0 or not created:
+        continue
+    for tgt in sorted(set(LINK_RE.findall(body[i:]))):
+        tp = next((q for q in pages if q.stem == tgt), None)
+        if tp is None or tgt in HUBS or tgt == stem:
+            continue
+        ttext = tp.read_text(encoding="utf-8")
+        tfm = parse_fm(ttext) or {}
+        tupd = tfm.get("updated", "")
+        back = set(LINK_RE.findall(FM_RE.sub("", ttext, count=1)))
+        if stem not in back and tupd and tupd < created:
+            warnings.append(
+                f"[漏擴散] {rel(p)}（created {created}）連到 [[{tgt}]]"
+                f"（updated {tupd}），但那頁沒連回來也沒被更新過"
+            )
+
 # L5：維護型產物的計數要跟著現況（2026-08-30 加入）
 # （2026-08-30 健檢時 README 停在四份來源之前的快照：7/43/14，實際是 11/56/16；
 #  overview 的統計表也少算 6 頁、少算 3 條結案。這兩處都是 L5 說的維護型產物。）

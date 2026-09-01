@@ -61,11 +61,10 @@ log 記的是**知識庫的變化**；純 git 操作（合併 PR、刪分支）�
 
 - **ingest** `[W2]` —— 細節見 `.claude/skills/wiki-ingest/SKILL.md`。
   **預設一次只 ingest 一份**；先完整讀完，口頭回報 3–5 個重點等使用者確認，才動筆。
-- **query** `[W3]` —— 先讀 `Wiki/index.md` 找候選頁，再讀內文，需要時才回頭讀 `Raw/` 原文。
-  **回答必附 wikilink 引用**；wiki 裡沒有的明說「wiki 內查無」，
-  要用模型知識或網路搜尋補洞必須先聲明。答完問一句要不要存進 wiki。
-  `[W4]` 輸出格式依問題而定：比較題給表格、演變題給時間軸，要簡報就產 Marp、
-  要圖表就產 matplotlib 圖存進 `Raw/assets/`。
+- **query** `[W3]` —— 細節見 `.claude/skills/wiki-query/SKILL.md`（含 `[W4]` 輸出格式）。
+  先讀 `Wiki/index.md` 再讀內文。**回答必附頁面引用——頁名用反引號，不要用 `[[ ]]` 語法**
+  （終端機有顏色標記，方括號會難讀；`[[ ]]` 只用在 wiki 頁面內文，見 `[K1]`）。
+  wiki 裡沒有的明說「wiki 內查無」，要用模型知識或網路搜尋補洞必須先聲明。
 - **lint** `[W5]` —— 跑 `python3 tools/lint.py` 拿機械性問題，再做判斷性檢查
   （見 `.claude/skills/wiki-lint/SKILL.md`）。輸出成清單逐項問，不要擅自大改。
 - **publish** `[W6]` —— 推上遠端前先查遠端 repo 的**可見性**，並跟使用者確認推送範圍。

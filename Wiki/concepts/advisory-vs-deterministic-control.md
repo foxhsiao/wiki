@@ -78,3 +78,5 @@ sources: ["[[the-ai-native-sdlc-playbook]]"]
 - [[skill-design-patterns]] —— 三種模式需要 hook 才算控制
 - [[harness-engineering]] —— hook 是 harness 的確定性層
 - [[autonomy-tiering]] —— 分級的邊界靠確定型控制強制
+- [[two-wiki-architectures]] —— 本庫新加的否決帳只擋得到格式，是這條區分的又一個實例
+- [[managed-agents]] —— 把決定收回可控位置的另一個面向：成本與模型
