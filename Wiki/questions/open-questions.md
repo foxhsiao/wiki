@@ -236,7 +236,9 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   建立當日是 **15 種**，全部通過。
 - **這個數字自己會過期（2026-09-01 更正）**：本條先前寫死 15，
   但 lint 在 2026-08-30 之後又長了幾道檢查，本頁沒跟上——健檢時實際是 **20 種**。
-  2026-09-01 加入 `[否決帳]` 的兩種突變後是 **22 種，全部通過**。
+  2026-09-01 之後不再於本頁寫死種類數——**以 `python3 tools/test_lint.py` 的輸出為準**。
+  （寫死的數字當天又過期了一次：早上寫 22，下午加了 `[來由]` 對 SKILL.md 的覆蓋就變 23。
+  見 `.claude/failure-modes.md` M1 的第 5 個實例。）
   （推論）這是 `[L5]` 維護型產物的一次真實失誤：寫死的數字沒有閘門看著它。
   `tools/lint.py` 有計數閘門管 `README` 與 `overview`，管不到這裡。
 - **另一半是列出不涵蓋的範圍**：寫進 `.claude/skills/wiki-lint/SKILL.md`。

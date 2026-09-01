@@ -60,9 +60,13 @@ def build(root: Path):
         "# 帳\n\n| 編號 | 規則 | 加入 | 防什麼 | 證據 | 觸發紀錄 |\n"
         "|---|---|---|---|---|---|\n"
         "| T1 | 測試用規則 | 建庫 | 防手滑 | 推論 | 無 |\n"
-        "| T2 | 否決的提案要記帳 | 建庫 | 防重複論證 | 推論 | 無 |\n",
+        "| T2 | 否決的提案要記帳 | 建庫 | 防重複論證 | 推論 | 無 |\n"
+        "| T3 | skill 裡的規則 | 建庫 | 防搬家時掉了來由 | 推論 | 無 |\n",
         encoding="utf-8",
     )
+    (root / ".claude" / "skills" / "demo").mkdir(parents=True)
+    (root / ".claude" / "skills" / "demo" / "SKILL.md").write_text(
+        "# demo\n\n`[T3]` skill 裡也有規則。\n", encoding="utf-8")
     (root / ".claude" / "rejected-proposals.md").write_text(
         "# 被否決的提案\n\n| 日期 | 提案 | 決定 | 為什麼 | 什麼會讓它重新成立 | 出處 |\n"
         "|---|---|---|---|---|---|\n"
@@ -236,6 +240,28 @@ def m_alias_in_table(root):
         "一句話。", "| 欄 | 值 |\n|---|---|\n| a | [[beta|貝他]] |"), encoding="utf-8")
 
 
+def m_empty_sources(root):
+    # 只留非 source 頁的出鏈，否則 sources 清空會連帶觸發 [來源一致]（problem），
+    # 讓這個 warning 級的斷言收到錯誤的 exit code。
+    (root / "Wiki" / "concepts" / "alpha.md").write_text(
+        PAGE.format(title="alpha", type="concept", sources="",
+                    links="\n".join(f"- [[{o}]] —— 說明"
+                                    for o in ("beta", "gamma", "open-questions"))),
+        encoding="utf-8")
+
+
+def m_stale_status(root):
+    p = root / "Wiki" / "concepts" / "alpha.md"
+    p.write_text(p.read_text(encoding="utf-8").replace("status: active", "status: stale", 1),
+                 encoding="utf-8")
+
+
+def m_skill_rule_without_ledger(root):
+    p = root / ".claude" / "skills" / "demo" / "SKILL.md"
+    p.write_text(p.read_text(encoding="utf-8") + "`[T7]` skill 新規則沒補來由。\n",
+                 encoding="utf-8")
+
+
 def m_rejected_ledger_missing(root):
     (root / ".claude" / "rejected-proposals.md").unlink()
 
@@ -267,6 +293,9 @@ MUTATIONS = [
     ("README 計數與實際不符", "[計數]", True, m_count_mismatch),
     ("overview 統計表的錨點不見了", "[計數]", True, m_count_anchor_gone),
     ("表格裡的別名 wikilink", "[表格別名]", True, m_alias_in_table),
+    ("sources 為空", "[來源]", False, m_empty_sources),
+    ("status: stale 沒人處理", "[過期]", False, m_stale_status),
+    ("SKILL.md 裡的規則沒補來由", "[來由]", True, m_skill_rule_without_ledger),
     ("否決帳不存在（W9）", "[否決帳]", True, m_rejected_ledger_missing),
     ("否決帳少了「什麼會讓它重新成立」（W9）", "[否決帳]", True, m_rejected_row_incomplete),
 ]

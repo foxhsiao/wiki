@@ -207,8 +207,14 @@ LEDGER = ROOT / ".claude" / "rules-ledger.md"
 VALID_EVIDENCE = {"有紀錄", "推論", "來由未知"}
 RULE_ID_RE = re.compile(r"\[([A-Z]\d+)\]")
 
+# 2026-09-01：規則不只在 CLAUDE.md。精簡那次把細節搬進 .claude/skills/，
+# 搬過去的規則沒有帶著來由走——所以編號來源要一起掃，否則帳裡的 I/H 系列會被誤判成孤列。
+RULE_FILES = [RULES_FILE] + sorted((ROOT / ".claude" / "skills").glob("*/SKILL.md"))
 if RULES_FILE.exists():
-    rule_ids = set(RULE_ID_RE.findall(RULES_FILE.read_text(encoding="utf-8")))
+    rule_ids = set()
+    for f in RULE_FILES:
+        if f.exists():
+            rule_ids |= set(RULE_ID_RE.findall(f.read_text(encoding="utf-8")))
     if not LEDGER.exists():
         if rule_ids:
             problems.append(f"[來由] {rel(LEDGER)} 不存在，但 CLAUDE.md 有 {len(rule_ids)} 條編號規則")
@@ -221,9 +227,14 @@ if RULES_FILE.exists():
             if len(cols) >= 5 and re.fullmatch(r"[A-Z]\d+", cols[0]):
                 ledger_rows[cols[0]] = cols
 
+        where = {}
+        for f in RULE_FILES:
+            if f.exists():
+                for rid in RULE_ID_RE.findall(f.read_text(encoding="utf-8")):
+                    where.setdefault(rid, rel(f))
         for rid in sorted(rule_ids - set(ledger_rows)):
             problems.append(
-                f"[來由] 規則 {rid} 在 CLAUDE.md，但 {rel(LEDGER)} 沒有對應列"
+                f"[來由] 規則 {rid} 在 {where.get(rid, 'CLAUDE.md')}，但 {rel(LEDGER)} 沒有對應列"
             )
         for rid in sorted(set(ledger_rows) - rule_ids):
             warnings.append(
