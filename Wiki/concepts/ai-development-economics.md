@@ -4,10 +4,10 @@ type: concept
 aliases: [CapEx OpEx, token economy]
 tags: [ai, 軟體工程, 經濟]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[ironies-of-automation-public-service]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # AI 開發的經濟學
@@ -51,6 +51,47 @@ sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-codi
 harness 是資產，但它有折舊、有保養費，而保養費隨 repo 數與事故數成長。
 原文留的出口是「有些團隊可能偏好照固定週期離線跑 eval，而不是每次改動都跑」——
 也就是**用鑑別度換成本**。
+
+## 從定性說法變成可分解的量測
+
+本頁到此為止都是**結構性的說法**：CapEx vs OpEx、三筆隱藏債、三個槓桿。
+[[running-a-software-factory-at-uber-scale|Uber]] 把它換成了可以逐項量測的東西——
+一次 agent session 的花費被拆成**六項相乘的因子**，各自量測、各自優化。
+
+（本庫只知道其中三項出現在小節標題：price／token、tokens／request、requests／turn。
+**六項的完整清單只存在於原文的圖裡，那張圖沒有抓到**，所以本頁不列。見來源頁的〈原檔的缺漏〉。）
+
+原文對這六項的分工說得很清楚：
+
+> "The three middle terms provide opportunities for optimization: **the work the agent does on its
+> own behalf, on top of the request an engineer actually made**. That is where most of our effort goes."
+
+（推論）這句話把本頁的「三筆隱藏債」講得更準：真正在燒錢的不是工程師提的那個需求，
+是 **agent 為了完成它而自己給自己加的工作**——多餘的回合、找不到東西的搜尋、
+重複的推理、被反覆重送的 schema（[[context-tax]]）。
+
+## 第一組真實世界的成本數字
+
+固定模型、2026-02 到 07：
+
+| 指標 | 變化 |
+|---|---|
+| cost per 1,000 model requests | 自高點下降將近 **34%** |
+| cost per session | 自 6 月高點下降 **52%** |
+
+同期用量成長 7 倍（週活躍使用者）、9.4 倍（每週 agentic requests），總支出自 4 月起相對持平。
+
+**方法比數字重要**：
+
+> "isolating our own optimization gains means **holding one model fixed**, since behavior shifts
+> with every upgrade and model family."
+
+（推論）這對本頁的 CapEx 論述有個不舒服的意涵：如果每次模型升級都會改變成本結構，
+那 harness 的投資不只要重驗**有沒有效**（[[prompt-obsolescence]]、Q11），
+還要重驗**划不划算**。兩者的重驗週期都是「每幾週」。
+
+要打的折：這是自陳、未經稽核的工程部落格，而且**成功的定義是成本不是品質**——
+原文說品質有維持或改善，但沒有給任何全公司層級的品質數字。
 
 ## 判讀
 
@@ -100,3 +141,6 @@ harness 是資產，但它有折舊、有保養費，而保養費隨 repo 數與
 - [[prompt-obsolescence]] —— 折舊那一面
 - [[ironies-of-automation-public-service]] —— 反諷 #5：成本沒有被歸戶
 - [[bainbridge-ironies-of-automation]] —— 最成功的自動化需要最多訓練投資
+- [[running-a-software-factory-at-uber-scale]] —— 第一組真實世界的成本數字
+- [[context-tax]] —— 六項裡最容易被忽略的那一筆
+- [[managed-agents]] —— 把成本收回可控位置的組織做法

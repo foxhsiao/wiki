@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # 脈絡工程
@@ -151,6 +151,49 @@ agent 看不見的維度它不會替你補，而資料層的缺漏在提示層�
 而且是 benchmark 結果（[[evidence-types-for-ai-capability]]）。
 （推論）但它有一個對本庫直接的類比——見 [[persistent-knowledge-layer]] 那一頁的末段。
 
+## 那個賭注有人押下去了
+
+本頁先前的結論寫著：METR 指認隱性脈絡是瓶頸，
+**沒有測試過「把它寫成檔案會不會改善」**——前半有實證，後半仍是本庫的賭注。
+
+[[running-a-software-factory-at-uber-scale|Uber]] 把那個賭注做成了基礎設施。
+**AI Context Graph**：2,400 萬節點、8,000 萬條邊、86 種節點型別、117 種邊型別，
+整合 30 個以上的內部系統（服務、團隊、事故紀錄、PR、架構設計文件、部署、資料集、
+歷史查詢），任何 agent 可以用自然語言查詢。
+
+它要解的問題就是本頁那句「隱性脈絡」的營運版：
+
+> "agents spend **most of their turns locating information rather than generating code**"
+
+同一個提示、同一個模型的對照：
+
+| | 有 graph grounding | 無 |
+|---|---|---|
+| 時間 | 38 秒 | 20 分鐘 |
+| 過程 | 查歷史用量，找到 50 位以上分析師用的那張表 | 翻 service code、生成 2 個 subagent、撞 3 個錯誤 |
+| 結果 | 答對 | 結論是該資料集無法查詢——**錯的** |
+
+原文的一句歸納值得記：
+
+> "**An ungrounded agent fails slowly rather than cheaply**, repeatedly sending an expanding context
+> window to search one more location."
+
+（推論）這對本頁有兩個意涵。第一，賭注的方向得到支持，但形式跟本庫想的不一樣——
+Uber 押的不是「把知識寫成檔案」，是**把既有系統的關聯查詢化**。檔案是靜態的，
+graph 是被查詢的，屬於本頁說的動態側。
+第二，它是一個案例對照不是 RCT，`n=1`，而且是自陳。方向明確，強度有限
+（[[evidence-types-for-ai-capability]]）。
+
+## 脈絡在工作開始前就已經被課了稅
+
+本頁的三個維度是「什麼時候載入」「載入多少」「誰該載入」。
+[[context-tax]] 是第四個角度：**工具 schema 是預付的**——
+裝了 100+ 工具就是 50K–70K tokens，不管這次用不用，而且每一輪重送。
+
+差別在於這筆成本**不由使用方決定**：供應商無法預測客戶會用哪幾個工具，
+所以理性的做法是把全部功能都暴露出來。本頁談的靜態／動態界線在這裡是**談不動**的，
+唯一的辦法是把工具整個移出脈絡（CLI 化）或改成按需搜尋。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 `CLAUDE.md` 正是白皮書點名的那種靜態脈絡檔；
@@ -173,3 +216,5 @@ agent 看不見的維度它不會替你補，而資料層的缺漏在提示層�
 - [[tradeoff-literacy]] —— 看不見的維度不會被 agent 補上，資料層是同一回事
 - [[wikiskill]] —— 「誰該讀到」這個維度的實驗來源
 - [[persistent-knowledge-layer]] —— 同一份脈絡對不同角色價值相反
+- [[running-a-software-factory-at-uber-scale]] —— 隱性脈絡那條賭注的實作
+- [[context-tax]] —— 工作開始前就付掉的那一筆

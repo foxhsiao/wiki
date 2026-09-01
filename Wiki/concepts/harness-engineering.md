@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[wikiskill]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # Harness 工程
@@ -178,6 +178,34 @@ agent 不是。（推論）這讓反諷 #1 在 LLM 上更嚴重——連設計�
 （給執行者讀反而 −2.8 分）。harness 設計因此不只是「準備哪些東西」，
 還是「**哪個角色看得到哪些東西**」（[[context-engineering]]）。
 
+## 第一份真實世界的數字（但量的不是時間）
+
+上一節說 [[wikiskill]] 是第一個把 harness 元件隔離出來測的來源，但它是 benchmark。
+[[running-a-software-factory-at-uber-scale|Uber]] 補上了本頁一直缺的另一半：
+**真實生產環境、真實工作量、真實帳單**。
+
+固定模型從 2026-02 測到 07：**cost per 1,000 model requests 降將近 34%、
+cost per session 自 6 月高點降 52%**，同期用量成長 7 倍與 9.4 倍。
+這些降幅全部來自 harness 層的改動——模型路由、預設值、快取 TTL、
+工具的載入方式（[[context-tax]]）、脈絡 grounding。
+
+方法學那句是本頁該抄下來的：
+
+> "isolating our own optimization gains means **holding one model fixed**, since behavior shifts
+> with every upgrade and model family."
+
+（推論）這回答了本頁一個沒問出口的問題：**harness 的效果怎麼跟模型的進步分開**。
+答案是固定模型。代價是你量到的東西只在那個模型上成立，
+而模型每幾週就換——所以這種量測本身也有保鮮期（[[prompt-obsolescence]]）。
+
+**但它量的不是 [[open-questions]] Q15 要的東西**：Q15 問的是好的 harness 能不能翻轉
+開發者的**時間**，Uber 量的是**每次請求的成本**。成本降 34% 不等於工作變快，
+甚至不排除變慢——原文只說品質有維持或改善，沒有給任何時間或品質的數字。
+
+（推論）它真正的貢獻是示範了 Q15 該怎麼問：**固定一個變數，量一個能歸因的比值。**
+METR 做不到這件事的原因是[[control-group-collapse|對照組崩解]]，
+Uber 繞過去的方式是不設對照組，改成固定模型看時間序列。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 harness 就是 `CLAUDE.md`（規則檔）＋ `tools/lint.py`（確定性 guardrail）
@@ -202,3 +230,6 @@ agent 不是。（推論）這讓反諷 #1 在 LLM 上更嚴重——連設計�
 - [[bainbridge-ironies-of-automation]] —— 反諷 #1 的原文
 - [[wikiskill]] —— 第一個被單獨隔離出來的 harness 效果數字
 - [[persistent-knowledge-layer]] —— 那個數字量的是哪個元件
+- [[running-a-software-factory-at-uber-scale]] —— 第一份真實世界的 harness 效果數字
+- [[context-tax]] —— harness 裡最容易漏掉的一項成本
+- [[managed-agents]] —— harness 收到組織層級的樣子

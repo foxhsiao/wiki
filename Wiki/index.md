@@ -20,7 +20,7 @@ sources: []
 - [[overview]] — 全庫總覽與當前主軸
 - [[log]] — 時序流水帳
 
-## 來源（13）
+## 來源（14）
 
 - [[arm-yourself-with-specific-knowledge]] — Naval 2019：教不來但學得會的知識才有報酬
 - [[read-what-you-love]] — Naval 2019：先讀你愛讀的，再往原典走；慾望比手段稀缺
@@ -35,8 +35,9 @@ sources: []
 - [[ironies-of-automation-public-service]] — Lindgren 2024：把 Bainbridge 的五個反諷套到公共服務自動化 · 本庫第一份跨領域來源；**引 Bainbridge 請用原文頁**
 - [[ai-engineering-skills-map-software-fundamentals]] — Ng 2026：agentic coding 之後該懂什麼，五塊技能與七條取捨軸線 · **本庫證據等級最低的一份，零數據、課程立場**
 - [[wikiskill]] — Google Research 2026-08：把 agent 經驗編譯成永不重置的 wiki，再驅動 skill 演化 · **本庫方法最紮實的一份；三層架構與本庫同形**
+- [[running-a-software-factory-at-uber-scale]] — Uber 2026-08：70% 的 PR 由 agent 產出之後，怎麼讓成本不跟著漲 · **本庫第一份買方視角，也是第一份真實世界的 harness 成本數字**
 
-## 實體（7）
+## 實體（8）
 
 - [[naval-ravikant]] — 提出「特定知識 + 責任 + 槓桿 + 判斷力」四件套
 - [[dave-rensin]] — Google 工程主管，Elephant-Goldfish 模型的提出者 · seed
@@ -45,8 +46,9 @@ sources: []
 - [[claude-opus-5]] — 1M 脈絡、thinking 預設開；本庫第一個會自己做判斷的實體 · seed
 - [[metr]] — 做 AI 評估的研究組織；本庫唯一沒有產品要賣的來源方 · seed
 - [[andrew-ng]] — 技能地圖系列的作者；本庫對他的背景零來源 · seed
+- [[uber]] — 本庫第一個買方視角的來源方；動機與賣方相反 · seed
 
-## 概念（34）
+## 概念（36）
 
 - [[specific-knowledge]] — 教不來但學得會；判準是「能被訓練的就能被量產」
 - [[judgment]] — 兩份來源共同指認的、唯一不會貶值的能力
@@ -82,6 +84,8 @@ sources: []
 - [[tradeoff-literacy]] — 看不見的取捨軸線就轉不動；是 80% 問題的輸入端 · 單一來源且該來源零證據
 - [[persistent-knowledge-layer]] — 程序可回滾、知識不回滾；隔離出來值 +15.0 分 · **Q15 的第一個數字**
 - [[skill-transfer-across-models]] — 寫通則的 skill 傳得動，寫補丁的會害到對方 · Q2 的第一筆外部證據
+- [[context-tax]] — 工具 schema 是預付的：100+ 工具 = 50–70K tokens，每輪重送 · **成本落在使用方，決定權在供應商**
+- [[managed-agents]] — 不優化幾千個終端機 session，改成經營一支配 benchmark 的 agent 艦隊
 
 ## 綜合（5）
 

@@ -7,7 +7,7 @@ created: 2026-08-29
 updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[the-ai-native-sdlc-playbook]]", "[[prompting-claude-opus-5]]", "[[wikiskill]]"]
+sources: ["[[the-ai-native-sdlc-playbook]]", "[[prompting-claude-opus-5]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # 設定檔的回歸測試
@@ -100,6 +100,27 @@ WikiSkill 的 gating 要求**每個被接受的提案都要提高驗證分數**�
 （推論）這是本頁「通過率是唯一的裁判」那句話的實際代價：
 以分數為唯一閘門，會系統性地拒絕重構型的改動。
 
+## 同一套機制，換一個被測的東西
+
+本頁的對象是**設定**（`CLAUDE.md`、skills、hooks）。
+[[running-a-software-factory-at-uber-scale|Uber]] 把同一套機制用在**選模型**上，
+而且是全公司每個受管 agent 的固定流程：
+
+1. 從該 agent 的**真實工作**建 benchmark。
+2. 在一個能接任何模型（前緣或開放權重）的 harness 上跑。
+3. 移到 Pareto 最優的那個，然後**持續移動**——原文說前緣每幾週就變一次。
+
+uReview（處理所有 PR 的程式碼審查 agent）的 benchmark 是**從已知有 bug 的真實 PR** 建的，
+分易／中／難，評分是 precision、recall、F1，外加每次審查成本、延遲、逾時、雜訊。
+
+（推論）這與本頁的差別只在**變數放在哪一格**：本頁固定模型、改設定、看通過率；
+Uber 固定 benchmark、換模型、看 Pareto 前緣。**常設的是 benchmark，可換的是其餘一切。**
+兩者合起來說明本頁那句「操控 agent 的東西值得程式碼享有的回歸測試」的完整版本——
+被測的不只是設定，是**agent 的整個組成**。
+
+它也補上本頁沒有的一個判準：Pareto 最優在這裡定義為
+**每個完成任務的成本、輸出品質、模型可靠度**三者一起看，不是單看通過率。
+
 ## 相關頁面
 
 - [[the-ai-native-sdlc-playbook]] —— 來源
@@ -110,3 +131,5 @@ WikiSkill 的 gating 要求**每個被接受的提案都要提高驗證分數**�
 - [[autonomy-tiering]] —— 事故流是新 eval 的來源
 - [[wikiskill]] —— 把這套迴圈跑完並公布結果的實作
 - [[persistent-knowledge-layer]] —— 被拒提案該存在哪一層
+- [[running-a-software-factory-at-uber-scale]] —— 同一套機制用在選模型上
+- [[managed-agents]] —— 每個受管 agent 配一組 benchmark 的做法
