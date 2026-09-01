@@ -279,6 +279,8 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 （推論）這是可以直接照做的一條，而且照 WikiSkill 的說法，
 它的用途是防止同一個壞主意被反覆提出。
 
+**已照做（2026-09-01，使用者同意改 `CLAUDE.md`）**：規則 `[W9]`、帳在 `.claude/rejected-proposals.md`（建檔回填 6 筆）、`tools/lint.py` 加 `[否決帳]` 格式檢查、`tools/test_lint.py` 的突變從 20 種增為 22 種。逐格比對存成 [[two-wiki-architectures]]。**這道閘門只擋得到格式**——「否決了卻沒記」偵測不到，那一半仍是建議型控制。
+
 第二面鏡子比較不舒服：那份研究的提案接受率是每輪提 3.1 個 skill、只接受 1.6 個。
 **本庫至今沒有測過任何一次規則改動的效果**——`[W8]` 的預期效果協定是往這個方向走的第一步，
 但目前只有一筆觀察（見 Q15）。
@@ -338,6 +340,6 @@ PR 核准、生產發布授權、事故分流），而且用 branch protection �
 | 項目 | 數量 |
 |---|---|
 | 來源 | 13 |
-| Wiki 頁面 | 62 |
+| Wiki 頁面 | 63 |
 | 開放問題 | 16（6 條 closed、1 條改寫） |
 | 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |

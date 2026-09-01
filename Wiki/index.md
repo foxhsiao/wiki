@@ -83,11 +83,12 @@ sources: []
 - [[persistent-knowledge-layer]] — 程序可回滾、知識不回滾；隔離出來值 +15.0 分 · **Q15 的第一個數字**
 - [[skill-transfer-across-models]] — 寫通則的 skill 傳得動，寫補丁的會害到對方 · Q2 的第一筆外部證據
 
-## 綜合（4）
+## 綜合（5）
 
 - [[can-judgment-be-outsourced]] — Naval 說判斷力教不來，Rensin 的方法卻在把它寫成文件 · 本庫核心矛盾
 - [[what-the-19-percent-measures]] — METR 的結果對本庫既是支持也是削弱 · **更正了本庫對該數字四週的誤讀**
 - [[two-sdlc-frameworks]] — Google 與 Anthropic 兩份 SDLC 框架的逐項比較 · 六階段幾乎逐格對應，但一份問「你怎麼工作」、一份問「一個變更怎麼走」
+- [[two-wiki-architectures]] — WikiSkill 與本庫的三層逐格比對 · **本庫據此補上 `[W9]` 否決帳**
 - [[judgment-supply]] — Q6：判斷力從哪長出來 · **場域不是被 agent 拿走的，是人自己不回去**；`confidence: low`，沒有來源直接談這題
 
 ## 問題（1）
