@@ -4,10 +4,10 @@ type: concept
 aliases: [factory model]
 tags: [ai, 軟體工程]
 created: 2026-08-01
-updated: 2026-08-29
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
 # 工廠模型
@@ -60,9 +60,25 @@ sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]"
 這支持了 [[open-questions]] Q8 原本那個「層級不同」的推論，
 並且指出調和的方式不是折衷，是**拆成兩份被分別核准的文件**。
 
+## 這個模型有一個組織版
+
+本頁說開發者的產出是**產出程式碼的那套系統**。
+[[managed-agents]] 是同一件事推到組織層級——
+[[running-a-software-factory-at-uber-scale|Uber]] 不再優化幾千個工程師各自的終端機 session，
+改成經營一支受管 agent 艦隊，每個配自己的 benchmark 與 Pareto 最優模型。
+
+（推論）差別在**誰擁有那套系統**。本頁的工廠是個人的：你自己的規則檔、提示、工具。
+受管 agent 把工廠收成組織資產——模型路由、執行 harness、花費全部變成可設定的東西，
+而不是散在每個人的習慣裡。
+
+代價原文也講了：這條路線要求任務**夠標準化到能建 benchmark**，
+而且要有規模才攤得平固定成本。本頁的個人版沒有這兩個門檻。
+
 ## 相關頁面
 
 - [[the-new-sdlc-with-vibe-coding]] —— 來源
+- [[managed-agents]] —— 同一個模型的組織版
+- [[running-a-software-factory-at-uber-scale]] —— 那個組織版的實例
 - [[harness-engineering]] —— 工廠裡的機器周邊設施
 - [[conductor-and-orchestrator]] —— 工廠經理的兩種工作模式
 - [[design-is-the-new-code]] —— 同一主張的另一種說法

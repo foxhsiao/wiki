@@ -1,19 +1,22 @@
 ---
-title: AI 能力的三種證據
+title: AI 能力的證據種類
 type: concept
-aliases: [evidence types, benchmark vs RCT, 證據層級]
+aliases: [evidence types, benchmark vs RCT, 證據層級, 三種證據, 營運遙測]
 tags: [ai, 方法學, 評估]
 created: 2026-08-29
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
+sources: ["[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
 ---
 
-# AI 能力的三種證據
+# AI 能力的證據種類
 
-> benchmark、RCT、軼事自陳三者對「AI 有多強」給出**部分互相矛盾**的答案。
+> benchmark、RCT、軼事自陳對「AI 有多強」給出**部分互相矛盾**的答案。
 > 重點不是哪個對，是**每一種的偏誤方向不同**。
+>
+> **2026-09-01 更新**：本頁原本叫「三種證據」。收進第十四份來源之後，
+> 那個分類法已經不完整——**營運遙測**是第四種，而且它正好長在 RCT 失效的位置上。
 
 ## 三種各自怎麼錯
 
@@ -56,10 +59,53 @@ sources: ["[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-u
 （推論）最不偏誤的方法最先失效，這個順序很糟：
 剩下的兩種都偏向高估，而且沒有第三方可以校準它們。
 
+## 第四種：營運遙測（2026-09-01 新增）
+
+[[running-a-software-factory-at-uber-scale|Uber]] 用的方法不屬於上面任何一格：
+**固定一個模型、在真實生產環境跑半年、看計費資料的時間序列。**
+
+- 不是 benchmark——沒有題庫，量的是真實工作量。
+- 不是 RCT——**沒有對照組**，靠固定變數而不是隨機化來歸因。
+- 不是自陳——不是問人感覺快不快，是帳單。
+
+方法自述：
+
+> "isolating our own optimization gains means **holding one model fixed**, since behavior shifts
+> with every upgrade and model family."
+
+**它的偏誤方向是本頁最該記的一格**：
+
+| 證據 | 偏誤方向 | 理由 |
+|---|---|---|
+| **營運遙測** | **只量得到有帳單的東西** | token 花費、請求數、延遲都有計價，**產出品質沒有**。Uber 說品質「有維持或改善」，但全篇沒有一個品質數字 |
+| 同上 | 也**不可外部驗證** | 資料在公司內部，沒有第三方能複核；而且沒有失敗的槓桿被報導出來 |
+
+（推論）所以它的用途很明確：**回答「這個改動讓成本降多少」很有力，
+回答「這個改動讓工作變好嗎」完全無力。**
+[[open-questions]] Q15 問的是後者，這也是為什麼 Uber 那半年的數字不結案 Q15。
+
+## 這一格為什麼重要：它長在 RCT 失效的位置上
+
+上一節說最不偏誤的方法（RCT）最先失效，剩下兩種都偏向高估。
+營運遙測補進來之後這個結論要修正一格：
+
+| 證據 | 狀態 | 能回答什麼 |
+|---|---|---|
+| Benchmark | 傾向高估，還跑得動 | 能力上限 |
+| 受控 ablation | benchmark 的子類，但**能歸因到單一元件** | 某個元件值多少（見 [[wikiskill]]：知識層 +15.0 分） |
+| 自陳 | 已知不可靠，還跑得動 | 幾乎不能 |
+| RCT | 偏誤最小，**正在失去可行性** | 真實交付速度 |
+| **營運遙測** | **偏成本、不含品質，且不可外部驗證** | **成本，而且是唯一在真實環境量得到的** |
+
+（推論）Uber 繞過[[control-group-collapse|對照組崩解]]的方式是**放棄對照組**：
+不比較「有 AI vs 沒 AI」，而是固定模型、比較「優化前 vs 優化後」。
+這條路徑對本庫是好消息也是壞消息——它讓真實環境的量測重新變得可行，
+但它量得到的東西**天生偏向可計價的那一側**。
+
 ## 對本庫的意義
 
-（推論）本庫收錄的八份來源裡，**七份的證據等級是軼事或框架**，
-而這一頁指出軼事自陳是三種裡最不可靠的一種。
+（推論）本庫收錄的十四份來源裡，**九份的證據等級是軼事或框架**
+（比例從 7/8 降到 9/14），而這一頁指出軼事自陳是最不可靠的一種。
 
 這不代表那七份沒有價值——框架的用途是組織思考，不是證明因果。
 但它確實意味著：本庫任何「AI 讓 X 提升 Y%」形式的主張，
@@ -78,3 +124,6 @@ sources: ["[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-u
 - [[what-the-19-percent-measures]] —— 三種證據在本庫的實際對撞
 - [[metr-2026-uplift-update]] —— RCT 失去可行性的紀錄
 - [[control-group-collapse]] —— 失效的機制
+- [[running-a-software-factory-at-uber-scale]] —— 第四種證據的來源
+- [[wikiskill]] —— 受控 ablation 那一格
+- [[managed-agents]] —— 營運遙測量得到的那一側

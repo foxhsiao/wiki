@@ -240,6 +240,17 @@ def m_alias_in_table(root):
         "一句話。", "| 欄 | 值 |\n|---|---|\n| a | [[beta|貝他]] |"), encoding="utf-8")
 
 
+def m_missed_diffusion(root):
+    # alpha 連到 beta（相關頁面），把 beta 的 updated 調早於 alpha 的 created，
+    # 並拿掉 beta 連回 alpha 的那條。
+    a = root / "Wiki" / "concepts" / "alpha.md"
+    a.write_text(a.read_text(encoding="utf-8").replace("created: 2026-01-01", "created: 2026-02-01", 1),
+                 encoding="utf-8")
+    b = root / "Wiki" / "concepts" / "beta.md"
+    b.write_text(b.read_text(encoding="utf-8").replace("- [[alpha]] —— 說明", "- [[src]] —— 說明", 1),
+                 encoding="utf-8")
+
+
 def m_empty_sources(root):
     # 只留非 source 頁的出鏈，否則 sources 清空會連帶觸發 [來源一致]（problem），
     # 讓這個 warning 級的斷言收到錯誤的 exit code。
@@ -293,6 +304,7 @@ MUTATIONS = [
     ("README 計數與實際不符", "[計數]", True, m_count_mismatch),
     ("overview 統計表的錨點不見了", "[計數]", True, m_count_anchor_gone),
     ("表格裡的別名 wikilink", "[表格別名]", True, m_alias_in_table),
+    ("擴散更新漏頁", "[漏擴散]", False, m_missed_diffusion),
     ("sources 為空", "[來源]", False, m_empty_sources),
     ("status: stale 沒人處理", "[過期]", False, m_stale_status),
     ("SKILL.md 裡的規則沒補來由", "[來由]", True, m_skill_rule_without_ledger),
