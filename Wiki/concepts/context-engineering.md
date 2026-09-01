@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]"]
 ---
 
 # 脈絡工程
@@ -127,6 +127,30 @@ agent 看不見的維度它不會替你補，而資料層的缺漏在提示層�
 （見 [[ai-engineering-skills-map-software-fundamentals]] 的〈我的判讀〉），
 它提供的是一個角度，不是一個結論。
 
+## 第三個維度：誰該讀到
+
+本頁把脈絡決策描述成兩個維度——**什麼時候載入**（靜態／動態）與**載入多少**（成本）。
+[[wikiskill]] 用一組 ablation 加了第三個：**誰該載入**。
+
+它的預設設定是**禁止執行任務的 agent 讀那個持久知識層**。給它讀，成績反而掉：
+四個 benchmark 平均 63.7% → 60.9%，LiveMath 從 72.6 掉到 64.8。原文的假說：
+
+> "We hypothesize that when the Inference Agent has access to both skills and the wiki during
+> training rollouts, **some task-solving knowledge may be obtained directly from the wiki rather
+> than the skills**, which can make the resulting trajectories less informative for skill development."
+
+也就是說，同一份脈絡對系統裡的不同角色**價值符號相反**：
+對改進程序的那個角色是 +15.0 分（[[persistent-knowledge-layer]]），
+對執行任務的那個角色是 −2.8 分。
+
+（推論）本頁原本隱含一個假設：脈絡是好東西，問題只在成本與保鮮期。
+這條顯示還有第三種壞法——**脈絡放錯角色會污染訊號**。
+執行者靠現成答案通過的那些回合，就是本來該暴露程序缺陷的回合。
+
+界定範圍：這是 agent 系統內部的角色分工，不是人與 agent 的分工，
+而且是 benchmark 結果（[[evidence-types-for-ai-capability]]）。
+（推論）但它有一個對本庫直接的類比——見 [[persistent-knowledge-layer]] 那一頁的末段。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 `CLAUDE.md` 正是白皮書點名的那種靜態脈絡檔；
@@ -147,3 +171,5 @@ agent 看不見的維度它不會替你補，而資料層的缺漏在提示層�
 - [[what-the-19-percent-measures]] —— 這份支持的邊界
 - [[ai-engineering-skills-map-software-fundamentals]] —— 把脈絡上限推到資料層的來源
 - [[tradeoff-literacy]] —— 看不見的維度不會被 agent 補上，資料層是同一回事
+- [[wikiskill]] —— 「誰該讀到」這個維度的實驗來源
+- [[persistent-knowledge-layer]] —— 同一份脈絡對不同角色價值相反

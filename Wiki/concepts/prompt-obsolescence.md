@@ -4,10 +4,10 @@ type: concept
 aliases: [prompt obsolescence, 提示過期]
 tags: [ai, agent, 工作方法]
 created: 2026-08-02
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
+sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[wikiskill]]"]
 ---
 
 # 規則檔的折舊
@@ -102,6 +102,40 @@ Google 白皮書（2026-05）引用這個 19% 時，就沒有提到任何時效�
 （推論）而驅動這三層的是同一件事：工具變好。
 **工具愈有價值，關於它的知識折舊愈快。**
 
+## 第一層終於有實驗證據了
+
+本頁的第一層（規則檔會折舊）一直只有一份供應商文件撐著。
+[[wikiskill]] 提供了一個**受控的同構實驗**：換的不是模型版本，是模型本身。
+
+同一份演化出來的 skill 換一個模型使用，可能**大幅倒退**：
+Qwen-3.5-4B 演化的 skill 讓 Gemini-3.5-Flash 在 SpreadsheetBench
+從 **50.5% 掉到 18.1%**——比完全沒有 skill 差 32.4 分。
+換成 Qwen-3.6-27B 演化的 skill 則升到 63.4%。
+
+原文的錯誤分析指出機制：4B 的 skill 編碼的是**低階權宜之計**
+（單行 Python 指令、字串轉換規則），這些讓小模型避開執行失敗，
+卻**限制**強模型改用完整的端到端腳本；破碎的診斷步驟還會耗光互動預算。
+
+（推論）這就是本頁那張表在講的事，只是用實驗做出來的：
+**為某個模型的弱點寫的規則，在沒有那個弱點的模型身上是純粹的成本。**
+本頁原本只能說「供應商說會這樣」，現在可以說「有人測到，而且量到 32.4 分」。
+展開見 [[skill-transfer-across-models]]。
+
+判準也跟著清楚了一格：**寫通則的規則會活下來，寫補丁的規則會折舊。**
+（推論）所以規則檔的來由裡該記的不只是「為什麼加」，還有
+**「這是通則還是補丁」**——後者從寫下的那一刻就該預期它會過期。
+
+## 只增不減的知識庫沒有出口
+
+[[wikiskill]] 的設計是知識層**永不重置**（[[persistent-knowledge-layer]]），
+而作者自己把「**沒有自動 pruning 機制**」列為限制：
+pattern 頁、演化日誌、提案 diff 持續累積，跑久了可能需要修剪。
+
+（推論）這是本頁與那個設計之間的直接張力。永不重置保護了學習速度，
+但它同時保證了**過期的知識沒有出口**。兩邊都對，而沒有人給出調和的機制——
+`[L5]` 的保留型／維護型之分是本庫目前的答案，但那是靠人工健檢執行的，
+不是自動的。
+
 ## 對本知識庫自己的意涵
 
 `CLAUDE.md` 目前沒有這份文件點名的反模式（沒有「再檢查一次」這類指令，
@@ -119,3 +153,6 @@ Google 白皮書（2026-05）引用這個 19% 時，就沒有提到任何時效�
 - [[metr-early-2025-ai-developer-productivity]] —— 測量也會折舊的實例
 - [[metr-2026-uplift-update]] —— 折舊的第三層
 - [[control-group-collapse]] —— 方法失效的機制
+- [[wikiskill]] —— 第一層的實驗證據
+- [[skill-transfer-across-models]] —— 補丁型規則怎麼害到別的模型
+- [[persistent-knowledge-layer]] —— 永不重置與折舊之間的張力

@@ -4,10 +4,10 @@ type: synthesis
 aliases: [judgment outsourcing]
 tags: [ai, 能力, 論點]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[wikiskill]]"]
 ---
 
 # 判斷力能不能外包
@@ -165,6 +165,39 @@ n=1、觀察者就是受試者，不能推廣。但方向與有損壓縮說預�
 而且與 [[advisory-vs-deterministic-control]] 記的供應商說法同向。
 展開見 [[judgment-supply]]。
 
+## 解法 1 同時拿到了反向證據（2026-09-01）
+
+上一節說有損壓縮說有了第一筆支持證據（`[K1]` 那次 n=1 的觀察）。
+[[wikiskill]] 從相反方向撞進來，而且是受控實驗。
+
+它讓五個模型各自從自己的失敗裡演化出 skill 檔，再交叉套用。結果：
+
+- Qwen-3.5-9B 在 ALFWorld 用**自己**演化的 skill 拿 63.4%，
+  用 Qwen-3.6-27B 演化的拿 **70.2%**。
+- Gemma-4-31B 在 LiveMath 無 skill 33.9%、自己的 56.7%、Qwen-3.6-27B 的 **73.7%**。
+- 連**小模型演化的 skill 也能幫到大模型**（Qwen-3.5-4B 的 skill 讓 Gemma-4-31B 在 LiveMath 拿 73.1%）。
+
+如果文件只承載結論、不承載能力，接收方不該表現得**比自己摸索還好**。
+（推論）在「執行」這一面上，被移轉過去的東西看起來比「結論」多。
+
+**但這份來源同時給了有損壓縮說一個更精確的版本**，原文自己講了：
+
+> "These results suggest that **skill discovery and skill execution are distinct capabilities**."
+
+接收方拿到的是執行能力。**沒有任何結果顯示接收方因此更會產生下一份 skill。**
+（推論）所以要修的不是解法 1 的方向，是它的措辭：
+文件承載的不是「結論而非能力」，而是**執行能力可以傳，發現能力不知道能不能傳**——
+而發現能力正是本頁與 [[judgment-supply]] 真正在爭的那一個。
+
+第三個限定同樣重要：移轉**有條件**。
+寫著低階權宜之計的 skill 會害到強模型（SpreadSheet 從 50.5% 掉到 18.1%）。
+（推論）能傳的是通則，不能傳的是綁在傳遞者弱點上的訣竅。
+展開見 [[skill-transfer-across-models]]。
+
+要打的折：這是 agent 之間的移轉，不是人之間；而且是 benchmark
+（[[evidence-types-for-ai-capability]]）。本頁爭的是人的判斷力，
+所以這筆證據是**類比**，不是直接證據。
+
 ## 為什麼這對本知識庫重要
 
 這個庫的整個結構就站在這條矛盾上：`CLAUDE.md` 是一份「把判斷寫成文件」的嘗試，
@@ -215,3 +248,5 @@ Naval 那兩篇是 2019 年、AI 普及之前的說法，他在 2026 年會不�
 - [[what-the-19-percent-measures]] —— 誤讀的完整拆解
 - [[metr-2026-uplift-update]] —— 讓這一側連數字都沒有了
 - [[judgment-supply]] —— 供給端的問題，本頁只處理傳遞端
+- [[wikiskill]] —— 解法 1 的反向證據
+- [[skill-transfer-across-models]] —— 移轉的條件與極限

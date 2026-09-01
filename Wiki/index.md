@@ -20,7 +20,7 @@ sources: []
 - [[overview]] — 全庫總覽與當前主軸
 - [[log]] — 時序流水帳
 
-## 來源（12）
+## 來源（13）
 
 - [[arm-yourself-with-specific-knowledge]] — Naval 2019：教不來但學得會的知識才有報酬
 - [[read-what-you-love]] — Naval 2019：先讀你愛讀的，再往原典走；慾望比手段稀缺
@@ -34,6 +34,7 @@ sources: []
 - [[bainbridge-ironies-of-automation]] — Bainbridge 1983 原文：自動化把人的工作換成監控與接手，而監控學不到東西 · **本庫最舊也是唯一的原典；Q6 的答案**
 - [[ironies-of-automation-public-service]] — Lindgren 2024：把 Bainbridge 的五個反諷套到公共服務自動化 · 本庫第一份跨領域來源；**引 Bainbridge 請用原文頁**
 - [[ai-engineering-skills-map-software-fundamentals]] — Ng 2026：agentic coding 之後該懂什麼，五塊技能與七條取捨軸線 · **本庫證據等級最低的一份，零數據、課程立場**
+- [[wikiskill]] — Google Research 2026-08：把 agent 經驗編譯成永不重置的 wiki，再驅動 skill 演化 · **本庫方法最紮實的一份；三層架構與本庫同形**
 
 ## 實體（7）
 
@@ -45,7 +46,7 @@ sources: []
 - [[metr]] — 做 AI 評估的研究組織；本庫唯一沒有產品要賣的來源方 · seed
 - [[andrew-ng]] — 技能地圖系列的作者；本庫對他的背景零來源 · seed
 
-## 概念（32）
+## 概念（34）
 
 - [[specific-knowledge]] — 教不來但學得會；判準是「能被訓練的就能被量產」
 - [[judgment]] — 兩份來源共同指認的、唯一不會貶值的能力
@@ -79,6 +80,8 @@ sources: []
 - [[monitoring-does-not-teach]] — 監控結構上不提供能力累積的條件，接手卻要求更高技能 · **Bainbridge 1983，直接反駁本庫的 H1**
 - [[automation-fragmentation]] — 留給人的不是更高階的工作，可能只是機器做不到的碎片集合
 - [[tradeoff-literacy]] — 看不見的取捨軸線就轉不動；是 80% 問題的輸入端 · 單一來源且該來源零證據
+- [[persistent-knowledge-layer]] — 程序可回滾、知識不回滾；隔離出來值 +15.0 分 · **Q15 的第一個數字**
+- [[skill-transfer-across-models]] — 寫通則的 skill 傳得動，寫補丁的會害到對方 · Q2 的第一筆外部證據
 
 ## 綜合（4）
 

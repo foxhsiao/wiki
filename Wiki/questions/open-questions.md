@@ -7,7 +7,7 @@ created: 2026-08-01
 updated: 2026-09-01
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]"]
 ---
 
 # 開放問題
@@ -31,6 +31,17 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   不是問「金魚能不能執行 `plan.md`」，是問「金魚只拿 `intent.md` 能不能生成等價的 `spec.md`」。
   [[the-ai-native-sdlc-playbook]] 的落後指標剛好在量這件事：
   第一份 `plan.md` 之後 `spec.md` 還被改幾次。
+- **第一筆外部實驗證據（2026-09-01）**：[[wikiskill]] 讓五個模型各自演化出 skill 檔再交叉套用，
+  結果是**接收方常常贏過自己摸索**（Qwen-3.5-9B 在 ALFWorld 自己的 skill 63.4%、
+  用 Qwen-3.6-27B 的 70.2%），連小模型演化的 skill 也能幫到大模型。
+  如果文件只承載結論、不承載能力，接收方不該表現得比自己摸索更好。
+- **但它同時把問題切得更準**：原文自己說
+  「skill discovery and skill execution are distinct capabilities」——
+  移轉過去的是**執行能力**，沒有任何結果顯示接收方因此更會**產生下一份** skill。
+  （推論）所以 Q2 該改問：**執行能力顯然傳得下去，發現能力仍然無人測過。**
+  而且移轉有條件：寫低階權宜之計的 skill 會害到強模型
+  （SpreadSheet 50.5% → 18.1%），見 [[skill-transfer-across-models]]。
+- **要打的折**：agent 之間的移轉不等於人之間；而且是 benchmark。
 - **狀態**：partial（可以自己做實驗，不必等來源）
 
 ## Q3. 「讀原典」的選擇偏誤怎麼修正？
@@ -292,6 +303,24 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - **這個設計的三個弱點**：沒有對照組（不能故意不遵守自己的規則）、n 極小（全庫 12 筆動作）、
   觀察者就是受試者。（推論）**沒有對照組這一點與 METR 的困境同構**，只是尺度小得多——
   想量測工具的價值就得放棄使用它，而那件事沒有人願意做。
+- **第一個被單獨隔離出來的 harness 效果（2026-09-01）**：[[wikiskill]] 固定其他所有條件，
+  只切換提出 skill 更新的那個 agent 讀不讀得到持久知識層——
+  **48.7% → 63.7%，差 15.0 分**（Gemini-3.5-Flash，四個 benchmark 平均，
+  三次獨立重跑，paired bootstrap `p < 0.05`）。見 [[persistent-knowledge-layer]]。
+- **但它不結案 Q15**，因為量的東西全部換過一輪：
+
+  | Q15 問的 | 這份給的 |
+  |---|---|
+  | 真實開發工作的時間 | benchmark 答對率 |
+  | 人使用 agent | agent 改進 agent |
+  | 換掉鷹架重跑同一組人 | 換掉知識層重跑同一組任務 |
+
+  （推論）它證明的是「**同一套工具的兩種組法可以差 15 分**」，
+  這比本庫原有的兩個 harness 數字更接近本題，但仍在 benchmark 那一格
+  （[[evidence-types-for-ai-capability]]）。
+- **附帶一個反面結果**：同一份脈絡給執行任務的 agent 讀，成績反而掉
+  （63.7% → 60.9%）。（推論）harness 的問題因此不只是「準備哪些東西」，
+  還有「**哪個角色看得到**」——這是本庫原本沒有的維度。
 - **狀態**：open —— 仍是最大的證據缺口。**但現在有了可以累積資料的機制，而不只是一個問題**
 
 ## Q16. 2026-02-24 的後續研究會改變什麼？
@@ -336,3 +365,6 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - [[advisory-vs-deterministic-control]] —— Q9 改寫的依據、Q10 與 Q14 的判準
 - [[ai-engineering-skills-map-software-fundamentals]] —— 讓 Q6 的缺口形狀更清楚的來源
 - [[tradeoff-literacy]] —— Q6 裡「需要什麼能力」那一半的具體版本
+- [[wikiskill]] —— Q2 的第一筆外部實驗證據，Q15 的第一個隔離數字
+- [[skill-transfer-across-models]] —— Q2 的展開
+- [[persistent-knowledge-layer]] —— Q15 那個 15.0 分量的是什麼

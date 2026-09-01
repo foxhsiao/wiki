@@ -4,10 +4,10 @@ type: concept
 aliases: [continuous evals, agent config evals, eval suite]
 tags: [ai, agent, 測試, 工作方法]
 created: 2026-08-29
-updated: 2026-08-30
+updated: 2026-09-01
 status: active
 confidence: medium
-sources: ["[[the-ai-native-sdlc-playbook]]", "[[prompting-claude-opus-5]]"]
+sources: ["[[the-ai-native-sdlc-playbook]]", "[[prompting-claude-opus-5]]", "[[wikiskill]]"]
 ---
 
 # 設定檔的回歸測試
@@ -66,6 +66,40 @@ suite 就不再有鑑別度。新案例從持續監控裡長出來——這把
 這一頁把 eval 的對象往上推了一層：**不只評估 agent 的產出，還評估操控 agent 的設定。**
 [[factory-model]] 說開發者的產出是產出程式碼的那套系統——如果那是產出，它就該被測試。
 
+## 一個把這套跑到底的實作
+
+本頁描述的是流程建議。[[wikiskill]] 是本庫第一份**實際跑完這個迴圈並公布結果**的來源，
+而且它的 gating 比本頁描述的更硬：
+
+- 候選 skill 在驗證集上**必須超過歷史最佳分數**才被接受，否則整個提案回滾。
+- 接受或拒絕，harness 都以程式把提案 metadata、目標 skill、**unified diff**、
+  驗證分數、接受結果寫進一份 `skill-impact.md`。
+- 驗證分數達到 1.0 就提早結束演化。
+
+接受率很低：以 Qwen-3.5-4B 為例，平均每輪提案新增 3.1 個 skill、**接受 1.6 個**；
+提案修改 4.9 次、**接受 1.3 次**。（推論）也就是說**多數對規則檔的「改進」其實沒有改進**，
+而本庫至今從來沒有測過任何一次規則改動的效果。
+
+## 被拒絕的提案要留下來
+
+這是本頁原本完全沒有的一格。WikiSkill 的設計是**程序可回滾、知識不回滾**
+（[[persistent-knowledge-layer]]），而被拒提案的 diff 就存在不回滾的那一側。原文說用途是：
+
+> "(1) observe the complete skill acceptance history so that **rejected interventions are not
+> proposed again**"
+
+（推論）純粹的 gating 只防止壞改動進去，不防止**同一個壞改動被反覆提出**。
+本頁列的五個步驟裡沒有任何一步保存被擋下來的東西——CI 擋掉之後，
+那次嘗試就只留在某個 PR 的歷史裡，不會出現在下一個 session 的脈絡中。
+
+## 作者自陳的一個代價
+
+WikiSkill 的 gating 要求**每個被接受的提案都要提高驗證分數**，
+因此排除了「當下持平、但為後續鋪路」的中性提案。作者把這列為限制。
+
+（推論）這是本頁「通過率是唯一的裁判」那句話的實際代價：
+以分數為唯一閘門，會系統性地拒絕重構型的改動。
+
 ## 相關頁面
 
 - [[the-ai-native-sdlc-playbook]] —— 來源
@@ -74,3 +108,5 @@ suite 就不再有鑑別度。新案例從持續監控裡長出來——這把
 - [[vibe-coding-spectrum]] —— tests 與 evals 的區分
 - [[ai-development-economics]] —— 持續成本改變 CapEx 的算法
 - [[autonomy-tiering]] —— 事故流是新 eval 的來源
+- [[wikiskill]] —— 把這套迴圈跑完並公布結果的實作
+- [[persistent-knowledge-layer]] —— 被拒提案該存在哪一層
