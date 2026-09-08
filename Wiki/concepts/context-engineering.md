@@ -4,10 +4,10 @@ type: concept
 aliases: [context engineering]
 tags: [ai, 工作方法]
 created: 2026-08-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: high
-sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
+sources: ["[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # 脈絡工程
@@ -200,6 +200,40 @@ graph 是被查詢的，屬於本頁說的動態側。
 `Wiki/index.md` 是刻意做出來的動態脈絡入口——先讀索引再決定載入哪幾頁，
 就是 progressive disclosure 的手動版。這條讓 `CLAUDE.md` 的長度變成一個可以被檢討的成本項。
 
+## 給地圖，不要給手冊
+
+[[harness-engineering-complete-guide]] §3 給了本頁一個好用的反面詞：**context flooding**——
+把整個 repo、整套文件、整段對話歷史倒進脈絡不叫脈絡工程，叫灌水。
+
+它主張的形狀是先給一張小地圖，讓 agent 需要時再往下取：
+
+```
+task
+  -> project map
+      -> relevant subsystem
+          -> exact files
+              -> local instructions
+```
+
+> "The context should expand because **the task requires it**,
+> not because the information exists."
+
+> "The objective is not maximum context. It is **maximum signal per token**."
+
+原文對「脈絡編譯器」列的五個決定，本頁先前只涵蓋前兩個：
+什麼永遠需要、什麼可以之後再取、**什麼已經過期**、什麼可以被摘要、
+**什麼必須保留逐字原文**。
+
+（推論）第三與第五個對本庫直接有用。「什麼已經過期」把
+[[prompt-obsolescence]] 接進了脈絡組裝這一步——過期的東西不該等健檢才刪，
+而該在裝進脈絡之前就被擋掉。「什麼必須保留逐字」則是本庫 `[S2]`
+（數字、日期、人名、引文照抄）在 harness 語言裡的名字。
+
+本頁的靜態／動態之分與這張地圖是同一件事的兩種切法：
+**地圖是靜態的那一小塊，其餘全部動態**，而
+[[agent-skills]] 的 progressive disclosure 是它的實作機制。
+本庫自己的地圖是 `Wiki/index.md`，`[W3]` 要求 query 先讀它再讀內文，正是這個形狀。
+
 ## 相關頁面
 
 - [[the-new-sdlc-with-vibe-coding]] —— 來源
@@ -218,3 +252,5 @@ graph 是被查詢的，屬於本頁說的動態側。
 - [[persistent-knowledge-layer]] —— 同一份脈絡對不同角色價值相反
 - [[running-a-software-factory-at-uber-scale]] —— 隱性脈絡那條賭注的實作
 - [[context-tax]] —— 工作開始前就付掉的那一筆
+- [[harness-engineering-complete-guide]] —— 專案地圖與 context flooding 的來源
+- [[task-contract]] —— 地圖之前還要有一份契約

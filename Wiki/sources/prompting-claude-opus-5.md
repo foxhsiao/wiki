@@ -4,7 +4,7 @@ type: source
 aliases: [Opus 5 提示指南]
 tags: [ai, agent, 提示, 官方文件]
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-09-08
 status: active
 confidence: high
 source_type: article
@@ -96,3 +96,5 @@ ingested: 2026-08-02
 - [[prompt-obsolescence]] —— 本文最重要的一般化教訓
 - [[agent-autonomy-cost]] —— 自主性的成本面
 - [[harness-engineering]] —— 這份文件在 harness 框架裡的位置
+- [[completion-evidence]] —— 本份與 2026-09 那份在「驗證要加還是要減」上正面相反
+- [[harness-decay]] —— 本份是唯一走完整條折舊鏈的文件

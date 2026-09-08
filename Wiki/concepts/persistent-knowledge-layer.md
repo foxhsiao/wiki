@@ -4,10 +4,10 @@ type: concept
 aliases: [persistent knowledge layer, 三層知識架構, never reset]
 tags: [ai, agent, skill, 知識庫, 架構]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
-sources: ["[[wikiskill]]"]
+sources: ["[[wikiskill]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # 持久知識層
@@ -95,6 +95,35 @@ WikiSkill 的預設設定是**禁止 Inference Agent 在訓練 rollout 期間讀
 **2026-09-01 已補上**：規則 `[W9]`、帳在 `.claude/rejected-proposals.md`、
 `tools/lint.py` 加 `[否決帳]` 檢查。完整比對見 [[two-wiki-architectures]]。
 
+## 該存進去的四類東西
+
+WikiSkill 給的是**架構**（哪一層可以回滾、哪一層不行），沒有給欄位。
+[[harness-engineering-complete-guide]] §6 給了欄位，而且它的前提跟本頁一致：
+**對話歷史不是記憶，是事件流**，有用的記憶要被編譯成明確的狀態。
+
+| 類別 | 內容 |
+|---|---|
+| FACTS | 對環境發現的穩定資訊 |
+| DECISIONS | 做了什麼選擇，**以及理由** |
+| PROGRESS | 完成／進行中／被擋住／剩下 |
+| LESSONS | 該改變未來行為的失敗 |
+
+原文的例子把 DECISIONS 那一格寫得最清楚：
+`reuse the existing validation pipeline` 配一行 `reason: avoids a second source of truth`。
+
+> "Store raw history for auditability. **Compile durable state for execution.**"
+
+（推論）這句話與本庫 `[L5]` 是同一條線：`Raw/` 與 `Wiki/log.md` 是保留型
+（存原始歷史供稽核），`Wiki/` 其餘全部是維護型（編譯成當前狀態供執行）。
+本庫的分類法比它多一層——LESSONS 在本庫散落在
+[[open-questions]]、`.claude/rules-ledger.md` 與 `.claude/rejected-proposals.md` 三處，
+而 DECISIONS 的「理由」欄正是規則帳存在的原因。
+
+**本庫缺的是 PROGRESS。** `Wiki/log.md` 記已完成的動作，
+但沒有任何一頁記「進行中、被擋住、剩下什麼」——
+每個 session 都靠讀 log 尾巴重建，這正是原文說的「replaying fifty pages of transcript
+and hoping the model notices the important line」。
+
 ## 作者自己指出的破口
 
 `wiki/` 只增不減，而 WikiSkill **沒有自動 pruning 機制**。
@@ -105,6 +134,8 @@ WikiSkill 的預設設定是**禁止 Inference Agent 在訓練 rollout 期間讀
 本庫有同樣的問題，目前唯一的對策是 `[L5]` 的保留型／維護型之分與人工健檢。
 
 ## 相關頁面
+
+- [[harness-engineering-complete-guide]] —— 記憶四類的來源
 
 - [[wikiskill]] —— 來源
 - [[agent-skills]] —— 被這一層驅動的那一層

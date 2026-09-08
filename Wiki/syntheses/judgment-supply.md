@@ -4,10 +4,10 @@ type: synthesis
 aliases: [judgment supply, Q6, 累積場域]
 tags: [ai, 能力, 職涯, 論點]
 created: 2026-08-30
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: low
-sources: ["[[bainbridge-ironies-of-automation]]", "[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[running-a-software-factory-at-uber-scale]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[running-a-software-factory-at-uber-scale]]", "[[how-to-fix-your-entire-life-in-1-day]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # 判斷力的供給問題
@@ -167,8 +167,49 @@ Bainbridge 說的「riding on their skills」在這裡有了一個具體的場�
 得追蹤同一批人在 agentic 環境裡幾年之後的能力變化，而那種研究現在還做不出來
 （工具穩定的時間比養成一個資深工程師的時間短）。
 
-順帶一提，Ng 這份的證據等級是本庫最低的一份（零數據、課程立場），
+順帶一提，Ng 這份的證據等級當時是本庫最低的一份（零數據、課程立場），
 所以它的作用是**把問題講得更清楚**，不是提供證據。
+**2026-09-08 起它不再是最低的**——見 [[harness-engineering-complete-guide]] 與
+[[how-to-fix-your-entire-life-in-1-day]]，兩份都是匿名或自助類的零數據長文。
+
+## 第二個機制：迴圈被切開的地方（2026-09-08）
+
+本頁「場域不是被拿走的，是人自己不回去」記的是一個**選擇**機制：
+工具夠好，人就不願意回到無 AI 條件。
+[[control-loops-human-and-agent]] 加的是一個**結構**機制，兩者並列：
+
+即使人還留在迴圈裡，**迴圈本身已經為了可靠度而被切開**，
+而他站的那一段不含「做出決定」。
+
+| 切法 | 出處 | 人被留在哪一段 |
+|---|---|---|
+| 人在閘門上審查 agent 標記的東西 | [[the-ai-native-sdlc-playbook]] | 消費端 |
+| worker 與 verifier 分開，且 verifier **有權拒絕而不必修好** | [[harness-engineering-complete-guide]] | 連「發現問題並修好」都被拆成兩個主體 |
+| 分流佇列：修、排程、或駁回 | [[autonomy-tiering]] | 分派端 |
+
+（推論）差別在於這個機制**不會因為個人意願而改善**。
+前一節那個機制至少理論上可以靠自律對抗（Dan Koe 那句
+「Do not attempt to outsource this contemplation to AI」就是這種對抗）；
+這一個是工作流程的形狀決定的，個人選不了。
+[[monitoring-does-not-teach]] 的論證因此不只適用於「人被移去監控」，
+也適用於「人還在做事，但只做迴圈的一段」。
+
+**本庫第一個明說「不要外包」的來源。** [[how-to-fix-your-entire-life-in-1-day]] §VI：
+
+> "**Do not attempt to outsource this contemplation to AI.**
+> I want you to break past the limiter that is on your mind."
+
+這是本庫十六份來源裡唯一一句直接要求人自己跑完迴圈的話。
+但它的效力有限，必須寫清楚：它談的是自我反省，不是工程判斷力，
+而且來自本庫**證據等級最低**的來源（自助文、零數據、帶訂閱導流）。
+（推論）它的價值是提供一個**立場樣本**——證明「刻意不外包」這個選項有人明講——
+而不是提供任何證據說它有效。
+
+本頁對照表因此多一列：
+
+| 來源立場 | 對 Q6 的處理 |
+|---|---|
+| 明說不要外包，但談的不是工程能力 | [[how-to-fix-your-entire-life-in-1-day]] |
 
 ## 已經有人試過的對策（2026-08-30 新增）
 
@@ -227,3 +268,6 @@ Bainbridge 說的「riding on their skills」在這裡有了一個具體的場�
 - [[ai-engineering-skills-map-software-fundamentals]] —— 最新一份「要求能力但不談供給」的來源
 - [[tradeoff-literacy]] —— 那份來源開出的能力清單
 - [[running-a-software-factory-at-uber-scale]] —— 對照表裡最強的一列：規模最大、談得最少
+- [[control-loops-human-and-agent]] —— 本頁第二個機制的出處
+- [[how-to-fix-your-entire-life-in-1-day]] —— 唯一明說「不要外包」的來源
+- [[completion-evidence]] —— verifier 不必修好，是切開迴圈的一刀

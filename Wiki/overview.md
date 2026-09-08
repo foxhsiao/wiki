@@ -4,10 +4,10 @@ type: synthesis
 aliases: [overview]
 tags: [樞紐]
 created: 2026-08-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[agent-skill-design-patterns]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]", "[[harness-engineering-complete-guide]]", "[[how-to-fix-your-entire-life-in-1-day]]"]
 ---
 
 # 總覽
@@ -23,7 +23,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 
 ## 目前的主軸
 
-十四份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
+十六份來源大致收斂到同一個問題：**在機器能做掉實作之後，人還剩下什麼，以及那個東西怎麼運作。**
 
 ### 1. 判斷力是共同答案（5 份來源，跨 7 年）—— 本庫收斂度最高的一條
 
@@ -334,7 +334,7 @@ Q10 的教訓原來還有第二種漏法：**搬家時也會掉。**
   [[bainbridge-ironies-of-automation]]（工業製程控制，1983）。兩份是同一條線的兩端，
   後者是前者的原始出處。所以**跨出去的是一個領域、一條論證，不是多個獨立領域**。
   時間尺度倒是真的拉開了：從六個月變成四十三年。
-- **來源獨立性（十四份的實際分布）**：
+- **來源獨立性（十六份的實際分布）**：
 
   | 來源方 | 份數 | 有沒有東西要賣 |
   |---|---|---|
@@ -346,18 +346,20 @@ Q10 的教訓原來還有第二種漏法：**搬家時也會掉。**
   | [[andrew-ng]] | 1 | [[ai-engineering-skills-map-software-fundamentals]]，商業形式是課程 |
   | Google Research（學術） | 1 | [[wikiskill]]，沒有產品，但提出方法的人測自己的方法 |
   | [[uber]]（採用方） | 1 | [[running-a-software-factory-at-uber-scale]]，**買方**：動機是把成本壓下來 |
+| 匿名／自助類創作者 | 2 | [[harness-engineering-complete-guide]]、[[how-to-fix-your-entire-life-in-1-day]]，賣的是訂閱 |
 
-  **賣方 6/14**，而且來源方的**種類**第一次補齊：賣方、研究方、學術、個人、**採用方**。（推論）新增的 [[wikiskill]] 不是賣方，
+  **賣方 6/16，另加 2 份賣訂閱的個人創作者**，而且來源方的**種類**第一次補齊：賣方、研究方、學術、個人、**採用方**。（推論）新增的 [[wikiskill]] 不是賣方，
   但也不是中立第三方——它的偏誤方向是「自己的方法會贏」，
   這在 ablation 與負面結果照登這兩件事上被部分抵銷。
   （推論）METR 的方向偏誤是對
   「AI 能力被高估」的證據更敏感；學術那兩份的偏誤是領域不同，移植成不成立要自己論證。
 - Naval 的兩篇都在 AI 普及之前（2019）。他 2026 年的說法是最大的缺口（Q1）。
-- **十四份裡有五份帶資料**（白皮書、METR 兩份、[[wikiskill]]、[[running-a-software-factory-at-uber-scale]]），其餘九份是敘事與框架。
+- **十六份裡有五份帶資料**（白皮書、METR 兩份、[[wikiskill]]、[[running-a-software-factory-at-uber-scale]]），其餘九份是敘事與框架。
   而 METR 兩份的數字現在都不可直接引用，白皮書引用的數字多半是自陳調查。
   **實質上本庫沒有可用的量化證據。**
   Bainbridge 帶進來的唯一數字是轉引的——vigilance 上限約半小時（Mackworth 1950）。
-  最新一份（[[ai-engineering-skills-map-software-fundamentals]]）連轉引的數字都沒有。
+  最新的三份（[[ai-engineering-skills-map-software-fundamentals]]、
+  [[harness-engineering-complete-guide]]、[[how-to-fix-your-entire-life-in-1-day]]）連轉引的數字都沒有。
   **但 [[wikiskill]] 改變了這一格**：它是本庫唯一有 ablation 與顯著性檢定的來源，
   代價是它量的是 benchmark 答對率，不是真實工作。
 - [[leverage-and-compounding]] 仍是 seed，撐著主軸 3 的關鍵一步。
@@ -367,6 +369,15 @@ Q10 的教訓原來還有第二種漏法：**搬家時也會掉。**
   量到人不願回頭的來源不談能力累積**——沒有一份同時處理兩邊。
   對照表在 [[judgment-supply]]。（推論）這不是還沒找到，是要處理兩邊
   得追蹤同一批人在 agentic 環境裡數年的能力變化，而工具穩定的時間比養成一個資深工程師短。
+- **證據等級的下緣被拉低了（2026-09-08）**：新收的兩份都是零數據的 X 長文
+  （一份匿名、一份自助類，都帶訂閱導流），是本庫僅有的兩份 `confidence: low` 來源頁。
+  （推論）收它們的理由是**詞彙與結構**，不是證據：
+  [[harness-engineering-complete-guide]] 補上本庫談 harness 一直缺的「怎麼建、建到哪裡可以停」
+  （[[task-contract]]、[[harness-decay]]、[[completion-evidence]]），
+  [[how-to-fix-your-entire-life-in-1-day]] 提供了人那一側的控制迴圈供比對
+  （[[control-loops-human-and-agent]]）。
+  **代價要盯著**：這兩份的任何一句都不能單獨拿來支撐主張，
+  下次健檢該檢查有沒有頁面偷偷把它們當證據引用。
 - 十六個開放問題見 [[open-questions]]，Q7、Q10、Q12、Q13、Q14、Q16 已結案，Q9 改寫。
   **最大的證據缺口仍是 Q15（好的 harness 能不能翻轉那個 19%），而且比一個月前更難填**——
   2026 那份把 harness 這個變數綁在「不同的人」與「不同成熟度的 repo」上，無法歸因。
@@ -377,7 +388,7 @@ Q10 的教訓原來還有第二種漏法：**搬家時也會掉。**
 
 | 項目 | 數量 |
 |---|---|
-| 來源 | 14 |
-| Wiki 頁面 | 67 |
+| 來源 | 16 |
+| Wiki 頁面 | 74 |
 | 開放問題 | 16（6 條 closed、1 條改寫） |
-| 已標記的矛盾 | 6（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」） |
+| 已標記的矛盾 | 7（**本庫對 METR 的誤讀，見 [[what-the-19-percent-measures]]**、[[can-judgment-be-outsourced]]、[[the-80-percent-problem]] 的數據衝突、[[design-is-the-new-code]] 的判準 vs 清單、[[prompt-obsolescence]] 對 harness 是純資產的挑戰、[[design-is-the-new-code]] 的「唯一算數的產物是哪一個」、**[[completion-evidence]] 的「驗證要加還是要減」**） |

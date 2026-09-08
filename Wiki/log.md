@@ -612,3 +612,35 @@ lint 現在對 overview 有 4 項 `[來源一致]` 提醒，一併在 C 處理�
 - 本機端（不入版控）：停用 17 個與外掛重複或長期未用的使用者層級技能、
   停用未使用的 `twse` MCP 連線與 `rust-analyzer-lsp` 外掛，約省 1.25k est. tokens/session。
 - 矛盾：無
+
+## [2026-09-08] ingest | Harness Engineering 完整指南 + How to fix your entire life in 1 day
+
+**批次 ingest 兩份，使用者明確要求**（`[W2]` 的例外）。兩份都是零數據的 X 長文，
+成為本庫僅有的兩份 `confidence: low` 來源頁——收它們的理由是**詞彙與結構，不是證據**。
+
+- 新增：[[harness-engineering-complete-guide]]、[[task-contract]]、[[harness-decay]]、
+  [[completion-evidence]]、[[how-to-fix-your-entire-life-in-1-day]]、[[dan-koe]]、
+  [[control-loops-human-and-agent]]（7 頁）
+- 更新（10 頁）：[[harness-engineering]]（補「怎麼建」與 §18 的量測比值）、
+  [[prompt-obsolescence]]（折舊對象放大到機制層）、
+  [[advisory-vs-deterministic-control]]（兩格撐成五格的指令階梯）、
+  [[autonomy-tiering]]（第二條與 `bands.yaml` 正交的分級軸線）、
+  [[agent-config-evals]]（評判者職責不對稱）、
+  [[context-engineering]]（context flooding 與專案地圖）、
+  [[persistent-knowledge-layer]]（記憶四類 FACTS/DECISIONS/PROGRESS/LESSONS）、
+  [[agent-autonomy-cost]]（每種「做太多」對應契約缺的一欄）、
+  [[naval-ravikant]]（2026 年的轉引，且不結案 Q1）、[[judgment]]（把判斷力定義成迴圈）
+- 更新樞紐：[[judgment-supply]]（Q6 第二個機制）、[[open-questions]]（Q6、Q15）、
+  [[overview]]（來源 16、頁面 74、矛盾 7、證據等級下緣被拉低）、[[index]]
+- **矛盾（新增第 7 個標記矛盾）**：[[completion-evidence]] 記下
+  「驗證要加還是要減」——新來源要求 worker 之外要有獨立脈絡的 verifier，
+  [[prompting-claude-opus-5]] 說那在 [[claude-opus-5]] 上造成過度驗證且乘以委派成本。
+  已並列雙方、各標來源與日期，並寫出本庫目前的調和是（推論）以及它的否證方法。
+- **本庫規則拿到第一個外部旁證**：新來源 §15 的五個汰除問題與 `[W8]`
+  「新規則要寫可否證的預期效果」是同一個主意，獨立收斂，早一週的是本庫。
+  但兩邊**都只有汰除的協定、沒有汰除的實例**（Q10 結案時的紀錄：一條都沒刪）。
+- 新問題：無新編號。Q6 多了一個機制（迴圈被切開，個人意願改變不了），
+  Q15 多了一個候選的量測形式（分母含人的審查分鐘數）但仍然沒有任何數字。
+- **自己踩到的坑**：本次改到 `[K1]`（帶別名的 wikilink 別進表格）一次、
+  在 index 用錯破折號（`——` vs `—`）導致五處替換靜默失敗一次。
+  後者不是規則問題，是我沒有回讀就相信替換成功——與 `[W5]`「跑 lint 拿機械性問題」同一類。

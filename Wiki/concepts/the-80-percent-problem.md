@@ -4,7 +4,7 @@ type: concept
 aliases: [the 80% problem]
 tags: [ai, 軟體工程]
 created: 2026-08-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
 sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[elephants-goldfish]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
@@ -143,3 +143,4 @@ simplicity、cost。展開見 [[tradeoff-literacy]]。
 - [[bainbridge-ironies-of-automation]] —— 這條的 1983 原文
 - [[tradeoff-literacy]] —— 同一個失敗的輸入端
 - [[ai-engineering-skills-map-software-fundamentals]] —— 上游版本的來源
+- [[completion-evidence]] —— 概念錯正是確定性檢查最抓不到的那一類

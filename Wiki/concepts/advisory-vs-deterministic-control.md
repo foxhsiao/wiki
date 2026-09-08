@@ -4,11 +4,10 @@ type: concept
 aliases: [advisory vs deterministic control, skill vs hook, 軟控制 硬控制]
 tags: [ai, agent, 治理, 工作方法]
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-08
 status: active
 confidence: high
-confidence_note: 供應商對自家機制執行力的一手陳述（skill 不強制、hook 才強制），且是對自家產品的不利陳述
-sources: ["[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-ai-native-sdlc-playbook]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # 建議型控制與確定型控制
@@ -49,6 +48,42 @@ sources: ["[[the-ai-native-sdlc-playbook]]"]
 （推論）五種 skill 模式裡，Reviewer、Inversion、Pipeline 都依賴閘門才成立，
 所以三種都需要 hook 墊底才是控制，否則它們是設計良好的建議。
 
+## 兩格其實是一道階梯的兩端
+
+本頁的區分是二元的：建議型／確定型。
+[[harness-engineering-complete-guide]] §11 把它撐成五格，而且中間三格是本頁原本沒有的：
+
+```
+explanation
+  -> checklist
+      -> template
+          -> automated check
+              -> enforced policy
+```
+
+原文給的規則是：**一條規則如果反覆重要，就把它往下搬。**
+
+| 寫在提示裡的話 | 搬下去之後 |
+|---|---|
+| "use the formatter" | 自動跑 formatter |
+| "do not import across layers" | 加一條架構測試 |
+| "include a migration rollback" | CI 要求 rollback 檔存在 |
+| "do not modify generated files" | 擋掉對 generated 路徑的寫入 |
+| "cite every external claim" | 驗證引用覆蓋率 |
+
+> "The prompt should explain judgment. The harness should enforce invariants."
+
+（推論）中間三格對本庫是有用的補充，因為本頁原本的二分**逼人做全有全無的選擇**：
+一條規則要嘛只是建議，要嘛得寫成 hook。實際上多數規則卡在中間——
+它值得一個 checklist 或模板，但還不值得一段會 exit 1 的程式碼。
+本庫的 `Wiki/_templates/` 正好落在第三格，而先前沒有被歸類過。
+
+**本庫目前的分布**（推論，以 `CLAUDE.md` 的規則編號估）：
+`[S1]`–`[S5]`、`[C1]`–`[C2]` 停在第一格；`[I3]` 的十個步驟是第二格；
+`[N4]` 靠 `Wiki/_templates/` 是第三格、靠 `tools/lint.py` 是第四格；
+`[K1]`、`[N5]`、`[N6]`、`[W8]` 在第四格。**第五格（動作發生前被擋下）本庫一條都沒有**——
+`tools/lint.py` 是事後檢查，不是前置閘門。
+
 ## hook 也分兩種，別放錯階段
 
 | | build 期 hook | deploy 期 hook |
@@ -80,3 +115,5 @@ sources: ["[[the-ai-native-sdlc-playbook]]"]
 - [[autonomy-tiering]] —— 分級的邊界靠確定型控制強制
 - [[two-wiki-architectures]] —— 本庫新加的否決帳只擋得到格式，是這條區分的又一個實例
 - [[managed-agents]] —— 把決定收回可控位置的另一個面向：成本與模型
+- [[harness-engineering-complete-guide]] —— 把兩格撐成五格的來源
+- [[completion-evidence]] —— 「能用程式碼判定的就別問模型」是同一刀的另一個用法

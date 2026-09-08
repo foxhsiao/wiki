@@ -4,7 +4,7 @@ type: concept
 aliases: [monitoring does not teach, 監控的反諷, irony of monitoring]
 tags: [自動化, 能力, 技能維持, 人因工程]
 created: 2026-08-30
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
 sources: ["[[bainbridge-ironies-of-automation]]", "[[ironies-of-automation-public-service]]", "[[the-ai-native-sdlc-playbook]]", "[[ai-engineering-skills-map-software-fundamentals]]"]
@@ -139,6 +139,20 @@ Bainbridge 自己預期會有人覺得「留一段時間手動操作」很可笑
 但那造成對少數個人的依賴，是組織脆弱點，而且**不可規模化**：
 不可能讓每一代人都參與同一套系統的初次設計。
 
+## 不只「被移去監控」才適用
+
+本頁的機制是：能力來自「做出決定 → 看到後果 → 修正」跑完整圈，
+而監控只提供後果、不提供決定。
+
+（推論）[[control-loops-human-and-agent]] 指出這個機制的適用範圍比本頁原本描述的大。
+不需要人被移去監控——**只要迴圈為了可靠度而被切開，站在任何一段的人都不跑完整圈**。
+[[completion-evidence]] 要求 verifier 有權拒絕而不必負責修好，
+就把「發現問題並修好」拆成了兩個主體：發現的人不修，修的人不是發現的那個。
+兩邊各自都缺一半的迴圈。
+
+這不推翻本頁，而是說明 Bainbridge 的論證在 agent 工作流程裡有一個
+1983 年不存在的新入口。
+
 ## 相關頁面
 
 - [[ironies-of-automation-public-service]] —— 來源
@@ -149,3 +163,4 @@ Bainbridge 自己預期會有人覺得「留一段時間手動操作」很可笑
 - [[bainbridge-ironies-of-automation]] —— 原文，本頁的引文已據它更正
 - [[ai-engineering-skills-map-software-fundamentals]] —— 假設供給存在的 2026 年例子
 - [[tradeoff-literacy]] —— 那份來源要求、卻沒說怎麼取得的能力
+- [[control-loops-human-and-agent]] —— 本頁的論證被推廣到「人還在做事，但只做迴圈的一段」

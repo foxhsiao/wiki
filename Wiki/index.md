@@ -4,7 +4,7 @@ type: synthesis
 aliases: [index]
 tags: [樞紐]
 created: 2026-08-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: high
 sources: []
@@ -20,7 +20,7 @@ sources: []
 - [[overview]] — 全庫總覽與當前主軸
 - [[log]] — 時序流水帳
 
-## 來源（14）
+## 來源（16）
 
 - [[arm-yourself-with-specific-knowledge]] — Naval 2019：教不來但學得會的知識才有報酬
 - [[read-what-you-love]] — Naval 2019：先讀你愛讀的，再往原典走；慾望比手段稀缺
@@ -36,8 +36,10 @@ sources: []
 - [[ai-engineering-skills-map-software-fundamentals]] — Ng 2026：agentic coding 之後該懂什麼，五塊技能與七條取捨軸線 · **本庫證據等級最低的一份，零數據、課程立場**
 - [[wikiskill]] — Google Research 2026-08：把 agent 經驗編譯成永不重置的 wiki，再驅動 skill 演化 · **本庫方法最紮實的一份；三層架構與本庫同形**
 - [[running-a-software-factory-at-uber-scale]] — Uber 2026-08：70% 的 PR 由 agent 產出之後，怎麼讓成本不跟著漲 · **本庫第一份買方視角，也是第一份真實世界的 harness 成本數字**
+- [[harness-engineering-complete-guide]] — LunarResearcher 2026-09：把 harness 從一份元件清單寫成八欄位規格與六層建法 · **零數據、匿名；本庫證據等級最低的一份，當詞彙表用不當證據引**
+- [[how-to-fix-your-entire-life-in-1-day]] — Dan Koe 2026-01：換身分先於換行動，收在一份一日自我提問協定 · **唯一非 AI 主題的當代來源；收它是為了人那一側的控制迴圈**
 
-## 實體（8）
+## 實體（9）
 
 - [[naval-ravikant]] — 提出「特定知識 + 責任 + 槓桿 + 判斷力」四件套
 - [[dave-rensin]] — Google 工程主管，Elephant-Goldfish 模型的提出者 · seed
@@ -47,8 +49,9 @@ sources: []
 - [[metr]] — 做 AI 評估的研究組織；本庫唯一沒有產品要賣的來源方 · seed
 - [[andrew-ng]] — 技能地圖系列的作者；本庫對他的背景零來源 · seed
 - [[uber]] — 本庫第一個買方視角的來源方；動機與賣方相反 · seed
+- [[dan-koe]] — 沿用 Naval 框架的內容創作者；本庫唯一明說「不要外包給 AI」的作者 · seed
 
-## 概念（36）
+## 概念（39）
 
 - [[specific-knowledge]] — 教不來但學得會；判準是「能被訓練的就能被量產」
 - [[judgment]] — 兩份來源共同指認的、唯一不會貶值的能力
@@ -86,15 +89,19 @@ sources: []
 - [[skill-transfer-across-models]] — 寫通則的 skill 傳得動，寫補丁的會害到對方 · Q2 的第一筆外部證據
 - [[context-tax]] — 工具 schema 是預付的：100+ 工具 = 50–70K tokens，每輪重送 · **成本落在使用方，決定權在供應商**
 - [[managed-agents]] — 不優化幾千個終端機 session，改成經營一支配 benchmark 的 agent 艦隊
+- [[task-contract]] — 動手前先定死五件事；每一欄缺席都對應一種「做太多」
+- [[harness-decay]] — 折舊的不只規則檔，是整套機制 · **Build to delete；與本庫 `[W8]` 獨立收斂到同一個主意**
+- [[completion-evidence]] — 「做完了」只是另一個模型輸出 · **本庫第 7 個標記矛盾：驗證要加還是要減**
 
-## 綜合（5）
+## 綜合（6）
 
 - [[can-judgment-be-outsourced]] — Naval 說判斷力教不來，Rensin 的方法卻在把它寫成文件 · 本庫核心矛盾
 - [[what-the-19-percent-measures]] — METR 的結果對本庫既是支持也是削弱 · **更正了本庫對該數字四週的誤讀**
 - [[two-sdlc-frameworks]] — Google 與 Anthropic 兩份 SDLC 框架的逐項比較 · 六階段幾乎逐格對應，但一份問「你怎麼工作」、一份問「一個變更怎麼走」
 - [[two-wiki-architectures]] — WikiSkill 與本庫的三層逐格比對 · **本庫據此補上 `[W9]` 否決帳**
 - [[judgment-supply]] — Q6：判斷力從哪長出來 · **場域不是被 agent 拿走的，是人自己不回去**；`confidence: low`，沒有來源直接談這題
+- [[control-loops-human-and-agent]] — 人的迴圈與 agent 的迴圈同形，但**切開的位置不同** · Q6 的第二個機制；兩份來源都零數據，`confidence: low`
 
 ## 問題（1）
 
-- [[open-questions]] — 16 個開放問題 · **6 條已結案、1 條改寫；Q6 的 H1 已被 1983 年的論證反駁，Q15（harness 能不能翻轉 19%）是剩下最大的缺口**
+- [[open-questions]] — 16 個開放問題 · **6 條已結案、1 條改寫；Q6 多了第二個機制（迴圈被切開），Q15 拿到候選的量測形式但仍無數字**

@@ -4,10 +4,10 @@ type: concept
 aliases: [autonomy tiering, control bands, bands.yaml, 控制帶]
 tags: [ai, agent, 治理, 工作方法]
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-08
 status: active
 confidence: medium
-sources: ["[[the-ai-native-sdlc-playbook]]"]
+sources: ["[[the-ai-native-sdlc-playbook]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # 自治分級
@@ -61,6 +61,30 @@ harness 的工作從「補能力」變成「設邊界」，但那一頁只有原
 差別在於，提示裡的邊界靠模型願意遵守；分級的邊界靠工具清單與可用路由，
 模型想越界也沒有工具可用。
 
+## 第二條分級軸線，與 bands.yaml 正交
+
+本頁的 `bands.yaml` 按**偵測到的異常有多強**分級（1σ／2σ／3σ）。
+[[harness-engineering-complete-guide]] §9 按**動作的後果可不可逆**分級：
+
+| 級 | 動作 | 閘門 |
+|---|---|---|
+| LOW RISK | 讀檔、搜尋、檢視 | 自動 |
+| REVERSIBLE CHANGE | 編輯工作區、跑測試 | 自動，但留 trace |
+| EXTERNAL EFFECT | 送訊息、部署、購買 | **明確核准** |
+| IRREVERSIBLE OR SENSITIVE | 刪資料、輪換憑證、全域發布 | **硬閘門或直接禁止** |
+
+> "**Autonomy is not the absence of control.**
+> It is the ability to operate freely inside a clearly enforced boundary."
+
+（推論）兩條軸線是正交的，不是同一件事的兩種寫法，混用會出錯：
+`bands.yaml` 回答「**現在**該讓 agent 走多遠」，這一張回答「**這個動作**本身要不要閘門」。
+一個 1σ 的平靜時段仍然不該讓 agent 直接輪換憑證；
+一個 3σ 的事故也不會讓「讀檔」變成需要核准的動作。
+
+（推論）完整的設定是兩者相乘：**可用工具集＝訊號強度允許的範圍 ∩ 該動作風險級別允許的範圍。**
+本頁原本只有前一半，而後一半正是 [[advisory-vs-deterministic-control]]
+所說「必須永遠成立」的那類政策——它不該隨訊號浮動。
+
 ## 誰在分流
 
 分級不會消滅人的工作，它把人的工作換成**分流佇列**：
@@ -78,3 +102,6 @@ harness 的工作從「補能力」變成「設邊界」，但那一頁只有原
 - [[intent-md]] —— 診斷結果寫成什麼
 - [[ai-native-sdlc]] —— 閉環所在的框架
 - [[managed-agents]] —— 集中化的另一個面向：成本與模型路由
+- [[harness-engineering-complete-guide]] —— 第二條分級軸線的來源
+- [[completion-evidence]] —— 「駁回要留理由」在驗證那一側的版本
+- [[task-contract]] —— `approval_required` 是這張表在契約裡的投影
