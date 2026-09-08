@@ -4,7 +4,7 @@ type: concept
 aliases: [CapEx OpEx, token economy]
 tags: [ai, 軟體工程, 經濟]
 created: 2026-08-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
 sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[the-ai-native-sdlc-playbook]]", "[[ironies-of-automation-public-service]]", "[[running-a-software-factory-at-uber-scale]]"]
@@ -144,3 +144,4 @@ harness 是資產，但它有折舊、有保養費，而保養費隨 repo 數與
 - [[running-a-software-factory-at-uber-scale]] —— 第一組真實世界的成本數字
 - [[context-tax]] —— 六項裡最容易被忽略的那一筆
 - [[managed-agents]] —— 把成本收回可控位置的組織做法
+- [[harness-decay]] —— 折舊的對象放大到整套機制之後，CapEx 那一格更站不住

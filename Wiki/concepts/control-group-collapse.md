@@ -4,7 +4,7 @@ type: concept
 aliases: [control group collapse, 選擇效應, selection effects, 量測失能]
 tags: [ai, 方法學, 量測, 實證研究]
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-09-08
 status: active
 confidence: medium
 sources: ["[[metr-2026-uplift-update]]", "[[metr-early-2025-ai-developer-productivity]]"]
@@ -89,3 +89,4 @@ METR 列的六條替代路徑裡，只有一條是修補原設計（更密集的
 - [[evidence-types-for-ai-capability]] —— RCT 的適用邊界因此縮小
 - [[self-report-vs-measurement]] —— 被迫回頭依賴的那種證據
 - [[judgment-supply]] —— 同一個機制在職涯上的版本
+- [[control-loops-human-and-agent]] —— Q6 的另一個機制，與本頁的選擇機制並列

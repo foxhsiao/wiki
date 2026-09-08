@@ -4,10 +4,10 @@ type: concept
 aliases: [continuous evals, agent config evals, eval suite]
 tags: [ai, agent, 測試, 工作方法]
 created: 2026-08-29
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
-sources: ["[[the-ai-native-sdlc-playbook]]", "[[prompting-claude-opus-5]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
+sources: ["[[the-ai-native-sdlc-playbook]]", "[[prompting-claude-opus-5]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # 設定檔的回歸測試
@@ -121,6 +121,25 @@ Uber 固定 benchmark、換模型、看 Pareto 前緣。**常設的是 benchmark
 它也補上本頁沒有的一個判準：Pareto 最優在這裡定義為
 **每個完成任務的成本、輸出品質、模型可靠度**三者一起看，不是單看通過率。
 
+## 評判者的職責要跟執行者相反
+
+本頁講的是**設定**怎麼被回歸測試，但沒講一次 run 之內誰來判定它做完了。
+[[harness-engineering-complete-guide]] §8 補的是後者，而且它的要求比本頁硬：
+
+> "If you ask the same agent, in the same context, to 'double-check its work,'
+> it often **preserves the assumptions that created the mistake**. …
+> Verification is not a second opinion. **It is an attempted disproof.**"
+
+其中一條對本頁直接有用：verifier 要
+**有權拒絕而不必負責修好**（permission to reject without repairing）。
+（推論）一個既要挑錯又要負責修好的評判者，有動機把「這裡有問題」
+降級成「這裡我順手改了」——於是**拒絕不會被記錄下來**。
+而拒絕的紀錄正是本頁調校 suite 的輸入，也是 [[autonomy-tiering]]
+要求「駁回要留理由」的同一個理由。
+
+完整展開見 [[completion-evidence]]，包括它與 [[prompting-claude-opus-5]]
+在「該不該加驗證步驟」上的正面矛盾。
+
 ## 相關頁面
 
 - [[the-ai-native-sdlc-playbook]] —— 來源
@@ -133,3 +152,5 @@ Uber 固定 benchmark、換模型、看 Pareto 前緣。**常設的是 benchmark
 - [[persistent-knowledge-layer]] —— 被拒提案該存在哪一層
 - [[running-a-software-factory-at-uber-scale]] —— 同一套機制用在選模型上
 - [[managed-agents]] —— 每個受管 agent 配一組 benchmark 的做法
+- [[completion-evidence]] —— 一次 run 之內的判定，與本頁的跨 run 回歸互補
+- [[harness-engineering-complete-guide]] —— 評判者職責不對稱的來源

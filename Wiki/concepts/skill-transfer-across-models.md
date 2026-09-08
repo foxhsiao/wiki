@@ -4,7 +4,7 @@ type: concept
 aliases: [skill transfer, cross-model transfer, 負移轉]
 tags: [ai, agent, skill, 能力]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
 sources: ["[[wikiskill]]", "[[prompting-claude-opus-5]]"]
@@ -89,3 +89,4 @@ sources: ["[[wikiskill]]", "[[prompting-claude-opus-5]]"]
 - [[agent-skills]] —— 被移轉的東西是什麼
 - [[judgment-supply]] —— 人的那一側，本頁不涵蓋
 - [[open-questions]] —— Q2 的新證據
+- [[harness-decay]] —— 本頁那 32.4 分是 harness 折舊造成傷害的第一筆量測

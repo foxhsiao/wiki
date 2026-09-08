@@ -4,10 +4,10 @@ type: concept
 aliases: [judgment, 品味, taste]
 tags: [能力, ai, 職涯]
 created: 2026-08-01
-updated: 2026-08-30
+updated: 2026-09-08
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[how-to-fix-your-entire-life-in-1-day]]"]
 ---
 
 # 判斷力
@@ -104,6 +104,29 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 - Rensin：靠[[ai-as-interrogator|被拷問]]逼出自己的盲點；靠持續專注的肌肉訓練
   （每天 30–45 分鐘起跳，每週加 5–10 分鐘）。
 
+## 一個把它換成迴圈的定義
+
+[[how-to-fix-your-entire-life-in-1-day]] 借 cybernetics 給了另一種切法，
+本庫既有的三種說法都沒有這個形狀：**判斷力不是一種存量，是一個迴圈跑得好不好。**
+
+原文列的五個性質（照抄）：To have a goal. / Act toward that goal. /
+Sense where you are. / Compare it to the goal. / And act again based on that feedback.
+
+> "High intelligence is the ability to iterate, persist, and understand the big picture.
+> **The mark of low intelligence is the inability to learn from your mistakes.**"
+
+（推論）這對本頁最有用的一點是它換掉了否證條件。
+本庫既有的定義（在複雜環境做模式比對累積出來的）**很難測**——
+你沒辦法直接觀察某人腦裡的模式庫。迴圈版本可以測：
+看他犯同一個錯幾次。
+
+**但這份來源是本庫證據等級最低的一份**（自助文、零數據），
+所以這一節的地位是**提供一個可測的代理指標**，不是提供證據。
+而且它談的是人生決策，不是工程判斷，外推要小心。
+
+它與本頁「怎麼練」那一節接得上：兩邊都要求**做出決定並看到後果**。
+迴圈被切開之後會怎樣，見 [[control-loops-human-and-agent]] 與 [[monitoring-does-not-teach]]。
+
 ## 各來源怎麼說
 
 | 來源 | 說法 | 日期 |
@@ -139,3 +162,5 @@ code owner 的 PR 核准、生產發布授權、事故發現的分流。
 - [[what-the-19-percent-measures]] —— 唯一不支持這條線的來源
 - [[judgment-supply]] —— 這個能力從哪裡長出來
 - [[monitoring-does-not-teach]] —— 閘門位置不產生能力
+- [[how-to-fix-your-entire-life-in-1-day]] —— 把判斷力定義成迴圈的那一份
+- [[control-loops-human-and-agent]] —— 那個迴圈與 agent 迴圈的比對

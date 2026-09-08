@@ -4,7 +4,7 @@ type: source
 aliases: [Bainbridge 1983, 自動化的反諷, Ironies of Automation]
 tags: [自動化, 人因工程, 技能維持, 原典, 跨領域]
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-09-08
 status: active
 confidence: high
 source_type: paper
@@ -189,3 +189,4 @@ Bainbridge 說重要的反諷來自兩處：系統設計者的**期待**，以�
 - [[judgment-supply]] —— Q6，本文直接回答的問題
 - [[automation-fragmentation]] —— 本文的第二個反諷
 - [[the-80-percent-problem]] —— 接手那半的現代版
+- [[control-loops-human-and-agent]] —— 本份的論證被用來說明「迴圈切在哪裡決定誰累積能力」

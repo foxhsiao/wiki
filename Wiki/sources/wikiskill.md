@@ -4,7 +4,7 @@ type: source
 aliases: [WikiSkill, 三層知識架構]
 tags: [ai, agent, skill, 評估, 知識庫]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: high
 source_type: paper
@@ -202,3 +202,4 @@ Uber 那條還是「working on」，沒有說怎麼判斷一次自動更新是�
 - [[evidence-types-for-ai-capability]] —— 判定本篇份量的尺
 - [[two-wiki-architectures]] —— 本篇與本庫架構的逐格比對
 - [[running-a-software-factory-at-uber-scale]] —— 產業上在做同一件事的一方
+- [[harness-decay]] —— 本份的跨模型 ablation 是它唯一的實驗證據

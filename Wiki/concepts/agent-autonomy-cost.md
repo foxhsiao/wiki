@@ -4,10 +4,10 @@ type: concept
 aliases: [agent autonomy cost, 範圍擴張]
 tags: [ai, agent, 工作方法]
 created: 2026-08-02
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: high
-sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[running-a-software-factory-at-uber-scale]]"]
+sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[running-a-software-factory-at-uber-scale]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # 自主性的成本
@@ -90,7 +90,32 @@ Uber 示範的是第三條路：**讓那個行為變便宜，而不是讓它變�
 主模型拆解與評估、子 agent 執行——這正好也是 [[conductor-and-orchestrator|協調者]]那條分工，
 只是把它變成了模型路由設定。
 
+## 每一種做太多，對應契約缺的一欄
+
+[[task-contract]] 給了本頁一個更精確的診斷語言。
+本頁列的失效模式全部可以重述成「契約少寫了哪一欄」：
+
+| 失效模式 | 契約缺的欄位 |
+|---|---|
+| 範圍擴張 | `scope`（什麼在裡面）與 `constraints`（什麼不准動） |
+| 過度驗證 | `acceptance`（什麼證據算完成，也就是**什麼時候可以停**） |
+| 過度委派 | `approval_required` 與工具清單沒有界定 |
+
+> "Without a contract, the agent optimizes for **plausible activity**.
+> With a contract, it can optimize for **verified completion**."
+
+（推論）這改了本頁的因果說法。本頁原本把這些歸因於「模型自主性提高」，
+像是模型的性質變化；契約的語言指出另一半：**自主性高的模型不是不受控，
+是在沒有終止條件時自己補一個**。少了 `acceptance`，「做完了嗎」這個判斷
+就從 harness 掉回模型身上，而模型補出來的終止條件通常比需要的嚴格。
+
+這不推翻本頁的結論（harness 的工作從補能力變成設邊界），
+而是指出邊界的**最小形式**是什麼：五個欄位，寫在動手之前。
+
 ## 相關頁面
+
+- [[task-contract]] —— 邊界的最小形式，每一欄對應一種做太多
+- [[harness-engineering-complete-guide]] —— 契約語言的來源
 
 - [[prompting-claude-opus-5]] —— 來源
 - [[prompt-obsolescence]] —— 過度驗證來自過期的指令

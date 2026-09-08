@@ -4,7 +4,7 @@ type: concept
 aliases: [intent, proto-spec, 意圖檔]
 tags: [ai, 軟體工程, 流程]
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-08
 status: active
 confidence: medium
 sources: ["[[the-ai-native-sdlc-playbook]]"]
@@ -70,6 +70,14 @@ agent 把診斷寫成 `intent.md`，用的是**跟人寫的完全一樣的格式
 
 代價原文沒談：進來的量會變大，而分流的人還是那幾個。存活率這個指標大概會掉。
 
+## 與任務契約的分工
+
+[[task-contract]] 的五個欄位（objective／scope／constraints／acceptance／approval_required）
+與本頁的模板欄位長得很像，但兩者的角色不同，混用會出問題：
+**本頁是提案者用自己的話寫的、跨整個變更、寫給人看；
+契約是 harness 編譯出來的、只管一次 run、寫給 agent 看。**
+一份 intent 可以生出好幾份契約。
+
 ## 相關頁面
 
 - [[artifact-chain]] —— 它在鏈上的位置
@@ -77,3 +85,4 @@ agent 把診斷寫成 `intent.md`，用的是**跟人寫的完全一樣的格式
 - [[autonomy-tiering]] —— agent 自己寫 `intent.md` 的那條路徑
 - [[ai-as-interrogator]] —— Claude 當分析師提問，與這個模式同構
 - [[ai-native-sdlc]] —— 它所屬的流程框架
+- [[task-contract]] —— 形狀相近但不是同一件事：intent 說為什麼做，契約說這次做到哪算完

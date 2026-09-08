@@ -4,10 +4,10 @@ type: question
 aliases: []
 tags: [待辦]
 created: 2026-08-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: high
-sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
+sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", "[[elephants-goldfish]]", "[[the-new-sdlc-with-vibe-coding]]", "[[agent-skill-design-patterns]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[ironies-of-automation-public-service]]", "[[bainbridge-ironies-of-automation]]", "[[ai-engineering-skills-map-software-fundamentals]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]", "[[harness-engineering-complete-guide]]", "[[how-to-fix-your-entire-life-in-1-day]]"]
 ---
 
 # 開放問題
@@ -110,6 +110,16 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   （推論）把十二份來源排開後形狀很整齊：**要求這種能力的來源不談供給，
   描述供給消失的來源不談軟體開發，量到人不回頭的來源不談能力累積。
   沒有一份同時處理兩邊。** 對照表在 [[judgment-supply]]。
+- **第二個機制（2026-09-08）**：先前的機制是「工具太好，人自己不回去」——那是**選擇**問題。
+  [[control-loops-human-and-agent]] 加的是**結構**問題：即使人還在迴圈裡，
+  迴圈本身已經為了可靠度而被切開，而他站的那一段不含「做出決定」。
+  [[harness-engineering-complete-guide]] 把 worker 與 verifier 拆開，
+  還要求 verifier **有權拒絕而不必負責修好**——連「發現問題並修好」都被拆成兩個主體。
+  （推論）這個機制不會因為個人意願而改善，因為它是工作流程的形狀決定的。
+- **第一句明說「不要外包」的來源原話**：[[how-to-fix-your-entire-life-in-1-day]] §VI
+  「Do not attempt to outsource this contemplation to AI」。
+  它是本庫十六份來源裡唯一一句，但談的是自我反省不是工程判斷力，
+  而且來自本庫證據等級最低的來源。（推論）它提供的是**立場樣本**，不是證據。
 - **還缺什麼**：
   1. 談 AI 時代資淺工程師養成的實證研究。
   2. ~~買方或監管方視角的組織來源。~~ **2026-09-01 補上了一半**——
@@ -342,6 +352,26 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
   （推論）METR 做不到是因為[[control-group-collapse|對照組崩解]]；
   Uber 繞過去的方式是**不設對照組**，改成固定模型看時間序列。
   代價是量到的東西只在那個模型上成立，而模型每幾週就換。
+- **一個候選的量測形式（2026-09-08）**：[[harness-engineering-complete-guide]] §18 提出
+
+  ```
+  accepted outputs
+  ------------------------------
+  human review minutes + run cost
+  ```
+
+  > "An agent can look highly productive while creating expensive review work. …
+  > The objective is … **more trusted outcomes per unit of human attention**."
+
+  （推論）這是本庫第一次看到有人把**人的審查時間**與**跑的成本**放進同一個分母。
+  本題累積到現在的三組數字各自只碰到其中一塊：Terminal Bench 與 LangChain 量分子、
+  [[running-a-software-factory-at-uber-scale|Uber]] 量分母右半、
+  [[metr-early-2025-ai-developer-productivity|METR]] 量分子那側的時間。
+  **沒有人量過分母左半。**
+- **但它一個數字都沒給**，而且來源是零數據的匿名長文（本庫最低證據等級）。
+  它推進的是**問題的形式**，不是答案。同一份來源的 §15 給了汰除協定
+  （[[harness-decay]]），與本庫 `[W8]` 獨立收斂到同一個主意——
+  這對本庫的做法是旁證，但兩邊**都只有協定、沒有汰除的實例**。
 - **狀態**：open —— 仍是最大的證據缺口。**但現在有了可以累積資料的機制，而不只是一個問題**
 
 ## Q16. 2026-02-24 的後續研究會改變什麼？
@@ -390,3 +420,7 @@ sources: ["[[arm-yourself-with-specific-knowledge]]", "[[read-what-you-love]]", 
 - [[skill-transfer-across-models]] —— Q2 的展開
 - [[persistent-knowledge-layer]] —— Q15 那個 15.0 分量的是什麼
 - [[running-a-software-factory-at-uber-scale]] —— Q15 的第一份真實世界數字，以及它為什麼不夠
+- [[harness-engineering-complete-guide]] —— Q15 的候選量測形式，以及 Q6 第二個機制的來源
+- [[control-loops-human-and-agent]] —— Q6 的第二個機制
+- [[harness-decay]] —— `[W8]` 的外部旁證
+- [[how-to-fix-your-entire-life-in-1-day]] —— 唯一明說「不要外包」的來源

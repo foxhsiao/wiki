@@ -4,7 +4,7 @@ type: concept
 aliases: [artifact chain, committed artifact, 稽核軌跡]
 tags: [ai, 軟體工程, 流程, 治理]
 created: 2026-08-29
-updated: 2026-08-30
+updated: 2026-09-08
 status: active
 confidence: medium
 sources: ["[[the-ai-native-sdlc-playbook]]"]
@@ -114,3 +114,4 @@ git 的作者、時間戳與修訂歷史就是證據；merge 或 closed review �
 - [[design-is-the-new-code]] —— 對「什麼產物算數」的另一種答案
 - [[context-engineering]] —— 產物鏈是刻意設計的動態脈絡
 - [[open-questions]] —— Q12 的答案來自這一頁
+- [[task-contract]] —— 單次 run 的邊界，一份 intent 可以生出好幾份

@@ -4,10 +4,10 @@ type: concept
 aliases: [harness, Agent = Model + Harness]
 tags: [ai, 軟體工程, agent]
 created: 2026-08-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: high
-sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]"]
+sources: ["[[bainbridge-ironies-of-automation]]", "[[the-new-sdlc-with-vibe-coding]]", "[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[ironies-of-automation-public-service]]", "[[wikiskill]]", "[[running-a-software-factory-at-uber-scale]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # Harness 工程
@@ -206,6 +206,59 @@ cost per session 自 6 月高點降 52%**，同期用量成長 7 倍與 9.4 倍�
 METR 做不到這件事的原因是[[control-group-collapse|對照組崩解]]，
 Uber 繞過去的方式是不設對照組，改成固定模型看時間序列。
 
+## 從「有什麼」到「怎麼建」
+
+本頁開頭那張表列的是 harness **有什麼元件**。
+[[harness-engineering-complete-guide]] 補上本頁一直缺的另一半：**照什麼順序建、建到哪裡可以停。**
+
+它把規格寫成八個欄位——contract、context、tools、state、policy、verification、
+recovery、observability——並下了一句很硬的判定：
+
+> "If these fields are undefined, the agent is not autonomous. **It is improvising.**"
+
+對照本頁原有的六個元件，多出來的是三格：
+**contract**（[[task-contract]]，執行前就把驗收條件定死）、
+**state**（把對話歷史編譯成 facts／decisions／progress／lessons 四類持久狀態，
+見 [[persistent-knowledge-layer]]）、
+**recovery**（按失效類別選策略，而不是重試，見 [[completion-evidence]]）。
+
+建法是六層漸進，判準只有一條：
+
+> "Build the smallest layer that eliminates the failure you actually have. …
+> **Complexity should be earned by observed failure.**"
+
+（推論）這句話對本頁是一個修正。本頁先前把 harness 描述成值得投資的團隊資產，
+隱含「愈完整愈好」；這份來源主張相反的預設——**沒有觀察到的失敗就不該加元件**。
+接上 [[harness-decay]]：加進來的東西不但要有理由，還要有汰除條件。
+
+**但這份來源零數據**（詳見來源頁的〈我的判讀〉），
+所以它在本頁的角色是**詞彙與結構**，不是證據。
+本頁「證據」那一節的內容不因為它而增加一行。
+
+## 量測：本頁第一次拿到一個把人算進去的分母
+
+§18 提出的比值：
+
+```
+accepted outputs
+------------------------------
+human review minutes + run cost
+```
+
+> "An agent can look highly productive while creating expensive review work.
+> The objective is not more agent activity.
+> It is **more trusted outcomes per unit of human attention**."
+
+（推論）這是本庫第一次看到有人把**人的審查時間**與**跑的成本**放進同一個分母。
+本頁既有的三組數字各自只碰到其中一塊：
+Terminal Bench 與 LangChain 量分子（[[evidence-types-for-ai-capability|benchmark 分數]]），
+[[running-a-software-factory-at-uber-scale|Uber]] 量分母的右半（run cost），
+[[metr-early-2025-ai-developer-productivity|METR]] 量的是分子那側的時間。
+**沒有人量過分母的左半。**
+
+這個比值是提議，不是量測——原文沒有給任何一個實際數字。
+它對 [[open-questions]] Q15 的貢獻是**候選的形式**，不是答案。
+
 ## 與本知識庫的關係
 
 （推論）這個庫的 harness 就是 `CLAUDE.md`（規則檔）＋ `tools/lint.py`（確定性 guardrail）
@@ -233,3 +286,7 @@ Uber 繞過去的方式是不設對照組，改成固定模型看時間序列。
 - [[running-a-software-factory-at-uber-scale]] —— 第一份真實世界的 harness 效果數字
 - [[context-tax]] —— harness 裡最容易漏掉的一項成本
 - [[managed-agents]] —— harness 收到組織層級的樣子
+- [[harness-engineering-complete-guide]] —— 補上「怎麼建」那一半的來源
+- [[task-contract]] —— 八欄位規格的第一欄，本頁原本沒有
+- [[completion-evidence]] —— 驗證與恢復那兩欄
+- [[harness-decay]] —— 為什麼 harness 不是愈完整愈好

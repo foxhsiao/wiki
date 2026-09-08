@@ -4,7 +4,7 @@ type: source
 aliases: [AI Engineering Skills Map, Ng 技能地圖, 軟體工程基本功]
 tags: [ai, 軟體工程, 能力]
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
 source_type: article
@@ -136,3 +136,4 @@ ingested: 2026-09-01
 - [[evidence-types-for-ai-capability]] —— 判定本篇證據等級的那把尺
 - [[monitoring-does-not-teach]] —— 與本篇的張力所在
 - [[open-questions]] —— Q6 因這份來源更尖銳
+- [[harness-engineering-complete-guide]] —— 2026-09-08 起本庫證據等級最低的一份改成它

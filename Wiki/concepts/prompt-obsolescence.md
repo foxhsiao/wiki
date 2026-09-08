@@ -4,10 +4,10 @@ type: concept
 aliases: [prompt obsolescence, 提示過期]
 tags: [ai, agent, 工作方法]
 created: 2026-08-02
-updated: 2026-09-01
+updated: 2026-09-08
 status: active
 confidence: medium
-sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[wikiskill]]"]
+sources: ["[[prompting-claude-opus-5]]", "[[the-ai-native-sdlc-playbook]]", "[[metr-early-2025-ai-developer-productivity]]", "[[metr-2026-uplift-update]]", "[[wikiskill]]", "[[harness-engineering-complete-guide]]"]
 ---
 
 # 規則檔的折舊
@@ -136,6 +136,23 @@ pattern 頁、演化日誌、提案 diff 持續累積，跑久了可能需要修
 `[L5]` 的保留型／維護型之分是本庫目前的答案，但那是靠人工健檢執行的，
 不是自動的。
 
+## 折舊的對象比規則檔大
+
+本頁的三層都在談**知識**折舊——規則檔的文字、測量結果、量測方法。
+[[harness-engineering-complete-guide]] 指出折舊的對象還包括**機制**：
+router、evaluator、記憶層、重試規則、工具閘門，全部會因為模型變好而從資產變成阻礙。
+
+> "old model limitation → harness workaround → model improves →
+> **workaround remains** → system becomes slower or less capable"
+
+它給了五個汰除問題與一句預設立場（"**Build to delete.**"），
+完整記在 [[harness-decay]]。
+
+（推論）放大到機制層之後多一個難處，本頁原本沒處理：
+刪掉規則檔的一行幾乎沒有成本，**關掉一個跑了半年的 verifier 子 agent 沒有人敢動**。
+它防過的失敗不會留下紀錄，它每天燒的 token 卻會出現在帳單上——
+折舊在這一層是**不對稱可見**的。
+
 ## 對本知識庫自己的意涵
 
 `CLAUDE.md` 目前沒有這份文件點名的反模式（沒有「再檢查一次」這類指令，
@@ -156,3 +173,5 @@ pattern 頁、演化日誌、提案 diff 持續累積，跑久了可能需要修
 - [[wikiskill]] —— 第一層的實驗證據
 - [[skill-transfer-across-models]] —— 補丁型規則怎麼害到別的模型
 - [[persistent-knowledge-layer]] —— 永不重置與折舊之間的張力
+- [[harness-decay]] —— 折舊對象放大到整套機制
+- [[harness-engineering-complete-guide]] —— 那一層的來源
